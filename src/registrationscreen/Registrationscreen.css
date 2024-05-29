@@ -10,4 +10,6 @@
     width: 40rem;
     } 
 
-
+.form-label{
+    display: flex;
+}
