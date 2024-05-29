@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from './button'
+import Formcontrol from './Formcontrol'
+import formlist from './listFormInput.json'
+import RegisterScreen from './registrationscreen/Registrationscreen';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* {
+      formlist.map((formInput) => <Formcontrol {...formInput} />)
+      }      
+
+      <Button value="Login" />
+      <Button value="Create new account!"/> */}
+  <RegisterScreen />
+
     </div>
   );
 }
 
 export default App;
+
+
