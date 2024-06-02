@@ -1,22 +1,16 @@
-import { useRef } from "react";
 import './username.css'
 
-function Username({ setSearchUsername }) {
-
-    const nameInput = useRef(null);
-
-    const NameInput = function () {
-        setSearchUsername(nameInput.current.value);
-    }
+function Username({name, onChange }) {
 
 
     return (
         <div className="col-md-6 position-relative margin">
             <div className="input-group has-validation">
                 <span className="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                <input ref={nameInput} onKeyUp={NameInput}
+                <input
                     type="text" className="form-control" id="validationTooltipUsername"
                     aria-describedby="validationTooltipUsernamePrepend" placeholder="user name"
+                    onChange={onChange} name={name}
                     required />
                 <div className="invalid-tooltip">
                     Please choose a unique and valid username.

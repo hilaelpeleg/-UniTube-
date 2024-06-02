@@ -1,14 +1,16 @@
+import Register from '../register/Register';
 import './App.css';
-import RegisterScreen from '../registrationscreen/Registrationscreen';
 import { useState } from 'react';
+
 
 function App() {
 
+  const [userList, setUserList] = useState([]);
+
+
   return (
     <div className="App">
-
-  <RegisterScreen />
-
+      <Register userList={userList} setUserList={setUserList} />
     </div>
   );
 }
