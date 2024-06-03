@@ -1,4 +1,4 @@
-import './name.css'
+import './TextInput.css'
 
 
 function TextInput({name, kind, onChange}) {
