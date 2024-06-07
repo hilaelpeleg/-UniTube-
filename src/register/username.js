@@ -1,6 +1,6 @@
 import './username.css'
 
-function Username({name, onChange }) {
+function Username({name, onChange, error }) {
 
 
     return (
@@ -12,9 +12,7 @@ function Username({name, onChange }) {
                     aria-describedby="validationTooltipUsernamePrepend" placeholder="user name"
                     onChange={onChange} name={name}
                     required />
-                <div className="invalid-tooltip">
-                    Please choose a unique and valid username.
-                </div>
+            <p>{error}</p>
             </div>
         </div>
     )
