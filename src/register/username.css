@@ -1,3 +1,26 @@
-.margin{
-    margin: 10px;;
+.position-relative {
+    position: relative;
+}
+
+.margin {
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-group .form-control {
+    flex: 1;
+}
+
+.error {
+    color: red;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 5px;
+    white-space: nowrap;
 }

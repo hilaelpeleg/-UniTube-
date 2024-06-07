@@ -36,19 +36,19 @@ function Register({ userList, setUserList }) {
             errors.userName = "user name is required!";
         }
         if (!inputFields.firstName) {
-            errors.userName = "first name is required!";
+            errors.firstName = "first name is required!";
         }
         if (!inputFields.lastName) {
-            errors.userName = "last name is required!";
+            errors.lastName = "last name is required!";
         }
         if (!inputFields.password) {
-            errors.userName = "password is required!";
+            errors.password = "password is required!";
         }
         if (inputFields.password.length < 5) {
-            errors.password = "Password is too short";
+            errors.password = "password is too short";
           }
         if (!inputFields.reEnterPassword) {
-            errors.userName = "re Enter Password is required!";
+            errors.reEnterPassword = "re enter password is required!";
         }
     
         return errors;
@@ -82,12 +82,8 @@ function Register({ userList, setUserList }) {
 
     }, [formErrors]);
 
-
-
-
     return (
         <div className="card custom-card-width container"  >
-            <pre>{JSON.stringify(inputFields, undefined, 2)}</pre>
             <div className="card-body">
                 <h5 className="card-title">Sign up</h5>
                 <div className="row">

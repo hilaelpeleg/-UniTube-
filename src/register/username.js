@@ -12,7 +12,7 @@ function Username({name, onChange, error }) {
                     aria-describedby="validationTooltipUsernamePrepend" placeholder="user name"
                     onChange={onChange} name={name}
                     required />
-            <p>{error}</p>
+            <p className="error">{error}</p>
             </div>
         </div>
     )

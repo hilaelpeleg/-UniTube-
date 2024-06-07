@@ -17,6 +17,7 @@ function Login({ userList }) {
             console.log("Login successful!");
             // Redirect to the main application or dashboard
         } else {
+            console.log(":(((((((((((!");
             setError("Invalid username or password");
         }
     };
@@ -24,16 +25,16 @@ function Login({ userList }) {
     return (
         <div className="card custom-card-width container" >
             <div className="card-body">
-                <TextInput className="form-control" name="userName" kind="userName" value={userName} onChange={(e) => setUserName(e.target.value)} />
+                <TextInput className="form-control" name="userName" kind="user name" value={userName} onChange={(e) => setUserName(e.target.value)} />
                 <div className="row">
                     <TextInput name="password" kind="password"
                         value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>
             <div className="list-group list-group-flush">
-                <Button onChange={handleLogin} value="LogIn" />
+                <Button onClick={handleLogin} value="LogIn" />
             </div>
-            <div id="Login" className="list-group list-group-flush">
+            <div className="list-group list-group-flush">
             <Button onClick={() => navigate('/register')} value="Create a new account!" />
             </div>
         </div>
