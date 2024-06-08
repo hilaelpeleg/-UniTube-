@@ -1,0 +1,47 @@
+#profile{
+    border-radius: 50%;
+    width: 65px;
+    height: 53px;
+    float: left;
+    padding-left: 10px;
+}
+
+
+.thumbnail-container {
+    position: relative;
+    display: inline-block;
+}
+
+.card-img-top{
+    padding: 10px;
+    border-radius: 30px;
+}
+
+
+.square {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 12px;
+    border-radius: 2px;
+
+}
+
+
+.title{
+    float: inline-start;
+    margin-left: 10px;
+
+}
+
+.p{
+    display: table-header-group;
+    
+}
+
+.box{
+    float: inline-start;
+}
