@@ -1,0 +1,23 @@
+.nav-item:hover {
+    cursor: pointer;
+    background-color: #e3e1e1;
+}
+
+.navbar-brand{
+    color: #64728F;
+}
+.nav-link{
+    color: #64728F;
+}
+
+#offcanvasNavbarLabel{
+    color: #64728F;
+}
+
+#logo{
+    margin: 10px
+    ;
+}
+
+
+

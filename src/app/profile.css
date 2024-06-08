@@ -1,0 +1,29 @@
+#profile{
+    border-radius: 50%;
+    width: 65px;
+    height: 53px;
+    float: left;
+    padding-left: 10px;
+}
+
+.card-img-top{
+    padding: 10px;
+}
+
+
+.square {
+    width: max-content;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    height:max-content;
+    transition: 0.25s;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white; /* Change text color as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    border-radius: 2px;
+}
+

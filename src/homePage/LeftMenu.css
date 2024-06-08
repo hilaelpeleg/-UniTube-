@@ -1,0 +1,32 @@
+.searchinput {
+    font-size: 16px;
+    font-family: 'Lexend', sans-serif;
+    margin-left: 14px;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.searchinput::placeholder{
+    color: #64728F;
+}
+
+.search {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    border-radius: 60px;
+    background-color: #e6e3e3;
+    width: 700px;
+    transition: 0.25s;
+}
+
+.search:focus-within{
+    background: #f1f1f1;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+  }
