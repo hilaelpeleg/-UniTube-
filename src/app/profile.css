@@ -6,24 +6,42 @@
     padding-left: 10px;
 }
 
+
+.thumbnail-container {
+    position: relative;
+    display: inline-block;
+}
+
 .card-img-top{
     padding: 10px;
+    border-radius: 30px;
 }
 
 
 .square {
-    width: max-content;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
     padding: 4px;
-    display: flex;
-    align-items: center;
-    height:max-content;
-    transition: 0.25s;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white; /* Change text color as needed */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
+    color: white;
+    font-size: 12px;
     border-radius: 2px;
+
 }
 
+
+.title{
+    float: inline-start;
+    margin-left: 10px;
+
+}
+
+.p{
+    display: table-header-group;
+    
+}
+
+.box{
+    float: inline-start;
+}

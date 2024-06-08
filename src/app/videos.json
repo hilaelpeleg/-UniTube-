@@ -55,17 +55,6 @@
     "duration": "3:25"
   },
   {
-    "id": 6,
-    "title": "Noa Kirel - DEJA VU",
-    "description": "Official music video for 'DEJA VU' by Noa Kirel.",
-    "url": "file:///android_asset/raw/deja_vu.mp4",
-    "thumbnailUrl": "deja_vu.png",
-    "uploader": "The Founder of the Site",
-    "likes": 750,
-    "uploadDate": "2024-06-16",
-    "duration": "3:40"
-  },
-  {
     "id": 7,
     "title": "Noa Kirel - Provocativit",
     "description": "Official music video for 'Provocativit' by Noa Kirel.",
@@ -108,5 +97,16 @@
     "likes": 900,
     "uploadDate": "2024-06-20",
     "duration": "3:35"
+  },
+  {
+    "id": 6,
+    "title": "Noa Kirel - DEJA VU",
+    "description": "Official music video for 'DEJA VU' by Noa Kirel.",
+    "url": "file:///android_asset/raw/deja_vu.mp4",
+    "thumbnailUrl": "deja_vu.png",
+    "uploader": "The Founder of the Site",
+    "likes": 750,
+    "uploadDate": "2024-06-16",
+    "duration": "3:40"
   }
 ]

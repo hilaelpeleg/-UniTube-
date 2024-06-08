@@ -17,7 +17,7 @@ function LeftMenu() {
                     <input className="searchinput" type="search" placeholder="Search"/>
                     </div>
                 </form>
-                <a className="navbar-brand ms-auto" href="#">Unitube</a>
+                <a className="navbar-brand ms-auto" href="#">dark\light mode</a>
                 <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
                         <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />

@@ -9,8 +9,8 @@ function HomePage({videoList, setVideoList}) {
 
     return (
         <div className="container-fluid">
-            <div className="row">
-                <div className="col-3">
+            <div className="row">   
+                <div className="col-3 height">
                     <LeftMenu />
                 </div>
             </div>
