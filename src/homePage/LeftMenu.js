@@ -1,6 +1,7 @@
 import logo from '../homePage/logo.svg';
-import search from '../homePage/search.svg'
-import './LeftMenu.css'
+import search from '../homePage/search.svg';
+import home from '../homePage/home.svg';
+import './LeftMenu.css';
 
 
 function LeftMenu() {
@@ -26,11 +27,14 @@ function LeftMenu() {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">Account</a>
+                            <a className="nav-link " aria-current="page" href="#">Account</a>
                             </li>
+                            <div className=''>
                             <li className="nav-item">
                                 <a className="nav-link " aria-current="page" href="#">Home</a>
+                                <img className="ms-2" id="logo" src={home} alt="Logo" width="106.4" height="23.2" />
                             </li>
+                            </div>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">History</a>
                             </li>
