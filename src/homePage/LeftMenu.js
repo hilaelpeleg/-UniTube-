@@ -1,10 +1,15 @@
 import logo from '../homePage/logo.svg';
-import search from '../homePage/search.svg';
-import home from '../homePage/home.svg';
+import search from './svg icons/search.svg';
+import home from './svg icons/home.svg';
 import './LeftMenu.css';
+import NavItem from './NavItem';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function LeftMenu() {
+    const navigate = useNavigate();
+
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
             <div className="container-fluid ">
@@ -14,8 +19,8 @@ function LeftMenu() {
                 <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
                 <form className="ms-auto ">
                     <div className="search">
-                    <img className="ms-2" id="logo" src={search} alt="search"  />
-                    <input className="searchinput" type="search" placeholder="Search"/>
+                        <img className="ms-2" id="logo" src={search} alt="search" />
+                        <input className="searchinput" type="search" placeholder="Search" />
                     </div>
                 </form>
                 <a className="navbar-brand ms-auto" href="#">dark\light mode</a>
@@ -26,24 +31,23 @@ function LeftMenu() {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="nav-item">
-                            <a className="nav-link " aria-current="page" href="#">Account</a>
+                            <li className="nav-item" onClick={() => navigate('/Account')}>
+                                <NavItem src={home} text="Account" />
                             </li>
-                            <div className=''>
-                            <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#">Home</a>
-                                <img className="ms-2" id="logo" src={home} alt="Logo" width="106.4" height="23.2" />
-                            </li>
-                            </div>
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">History</a>
+                            <li className="nav-item" onClick={() => navigate('/homePage')}>
+                                <NavItem src={home} text="home" />
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Playlists</a>
+                                <NavItem src={home} text="History" />
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Switch account
-                                </a>
+                                <NavItem src={home} text="Playlistsy" />
+                            </li>
+                            <li className="nav-item">
+                                <NavItem src={home} text="Switch account" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/Addvideo')}>
+                                <NavItem src={home} text="Addvideo" />
                             </li>
                         </ul>
                     </div>

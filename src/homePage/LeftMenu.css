@@ -31,13 +31,11 @@
     align-items: center;
   }
 
-.icon{
-    position: absolute;
+.iconleftli{
+    float: left;
 }
 
-.boxli{
-    position: relative;
-}
+
 
 
 
