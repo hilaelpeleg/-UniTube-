@@ -1,30 +1,33 @@
 import Video from './Video';
-import './AddVideo.js';
+import './AddVideo.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import TextInput from '../register/TextInput';
-import Button from '../button';
+import Button from '../Button';
 import VideoImg from './VideoImg';
 
-function AddVideo({ videoList, setVideoList, userLogin }) {
+function AddVideo({userList, videoList, setVideoList, userLogin }) {
 
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
-        "id": "",
+        "id": 0,
         "title": "",
         "description": "",
         "url": "",
         "thumbnailUrl": "",
-        "uploader": "",
+        "uploader": userLogin ? userLogin.userName : "",
         "likes": 0,
         "uploadDate": "",
-        "duration": ""
+        "duration": "",
+        "profilePicture": userLogin && userList.length > 0 ? userList.find(user => user.userName === userLogin.userName)?.profilePicture : null
     });
 
     const handleChange = (e) => {
-        setInputVideoFields({ ...inputVideoFields, [e.target.name]: e.target.value });
+        const { name, value, files } = e.target;
+        setInputVideoFields({ ...inputVideoFields, [name]: files ? files[0] : value
+        });
     };
 
     const handleSubmit = (e) => {
@@ -42,69 +45,66 @@ function AddVideo({ videoList, setVideoList, userLogin }) {
             errors.description = "Description is required!";
         }
         if (!inputVideoFields.url) {
-            errors.url = "URL is required!";
+            errors.url = "Video is required!";
         }
         if (!inputVideoFields.thumbnailUrl) {
-            errors.thumbnailUrl = "Thumbnail URL is required!";
-        }
-        if (!inputVideoFields.uploadDate) {
-            errors.uploadDate = "Upload date is required!";
-        }
-        if (!inputVideoFields.duration) {
-            errors.duration = "Duration is required!";
+            errors.thumbnailUrl = "img Video is required!";
         }
         return errors;
     }
 
     const AddNewVideo = () => {
         const lastVideoId = videoList.length > 0 ? videoList[videoList.length - 1].id : 0;
-        const Video = {
-            "id": lastVideoId + 1,
+        console.log(lastVideoId+1)
+        const newVideo = {
+            "id": (lastVideoId+1),
             "title": inputVideoFields.title,
             "description": inputVideoFields.description,
-            "url": "",
-            "thumbnailUrl": "",
-            "uploader": userLogin,
+            "url": inputVideoFields.url instanceof File ? URL.createObjectURL(inputVideoFields.url) : inputVideoFields.url,
+            "thumbnailUrl": inputVideoFields.thumbnailUrl instanceof File ? URL.createObjectURL(inputVideoFields.thumbnailUrl) : inputVideoFields.thumbnailUrl,
+            "uploader": inputVideoFields.uploader,
             "likes": 0,
-            "uploadDate": "just now",
-            "duration": "03:40"
+            "uploadDate": "2024-06-18",
+            "duration": "03:40",
+            "profilePicture": inputVideoFields.profilePicture
         }
-        setVideoList([Video, ...videoList]);
+        setVideoList([...videoList, newVideo]);
+        console.log(newVideo);
+        // Update the videoList state with the new array
         console.log(videoList);
+        console.log("1234");
     }
 
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        console.log(formErrorsVideo);
-        if (Object.keys(formErrorsVideo).length == 0 && submittingVideo) {
+        if (Object.keys(formErrorsVideo).length === 0 && submittingVideo) {
             AddNewVideo();
-            console.log(inputVideoFields);
-            navigate('/homepage');
+            console.log(videoList[videoList.length-1]);
+            navigate("/homepage");
         }
 
     }, [formErrorsVideo]);
-
 
     return (
         <div className="card custom-card-width container"  >
             <div className="card-body">
                 <h5 className="card-title">Add Video</h5>
                 <div className="row">
-                    <Video name="Video" onChange={handleChange} />
-                    <VideoImg name="Video" onChange={handleChange} />
+                    <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
+                    <VideoImg name="thumbnailUrl" onChange={handleChange}
+                        errors={formErrorsVideo.thumbnailUrl} />
                     <TextInput name="title" kind="title" value={inputVideoFields.title}
                         onChange={handleChange} errors={formErrorsVideo.title} />
                     <TextInput name="description" kind="description" value={inputVideoFields.description}
                         onChange={handleChange} errors={formErrorsVideo.description} />
-                    // add video
                 </div>
             </div>
             <div className="list-group list-group-flush">
                 <Button onClick={handleSubmit} value="Add video" />
             </div>
-        </div>
+         </div>
     );
 }
 

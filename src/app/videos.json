@@ -4,109 +4,126 @@
     "title": "Noa Kirel - Unicorn",
     "description": "Official music video for 'Unicorn' by Noa Kirel.",
     "url": "file:///android_asset/raw/unicorn.mp4",
-    "thumbnailUrl": "unicorn.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/grxEstxbW_w/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA0-lWdbo-SwBp3QejpBTtZqxVEKQ",
+    "uploader": "Noa Kirel",
     "likes": 1000,
     "uploadDate": "2024-06-11",
-    "duration": "3:45"
+    "duration": "3:45",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
   },
   {
     "id": 2,
     "title": "Noa Kirel - Pouch",
     "description": "Official music video for 'Pouch' by Noa Kirel.",
     "url": "file:///android_asset/raw/pouch.mp4",
-    "thumbnailUrl": "pouch.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/5TUN30--lUw/hqdefault.jpg?v=609a526a",
+    "uploader": "Noa Kirel",
     "likes": 850,
     "uploadDate": "2024-06-12",
-    "duration": "3:10"
+    "duration": "3:10",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
   },
   {
     "id": 3,
     "title": "Noa Kirel - Please Don't Suck",
     "description": "Official music video for 'Please Don't Suck' by Noa Kirel.",
     "url": "file:///android_asset/raw/please_dont_suck.mp4",
-    "thumbnailUrl": "please_dont_suck.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/5GUYcnAMZ5c/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
     "likes": 900,
     "uploadDate": "2024-06-13",
-    "duration": "4:20"
+    "duration": "4:20",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
   },
   {
     "id": 4,
     "title": "Noa Kirel - Million Dollar",
     "description": "Official music video for 'Million Dollar' by Noa Kirel.",
     "url": "file:///android_asset/raw/million_dollar.mp4",
-    "thumbnailUrl": "million_dollar.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/oQbh5Kvet04/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
     "likes": 500,
     "uploadDate": "2024-06-14",
-    "duration": "3:55"
+    "duration": "3:55",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
   },
   {
     "id": 5,
     "title": "Noa Kirel - Drum",
     "description": "Official music video for 'Drum' by Noa Kirel.",
     "url": "file:///android_asset/raw/drum.mp4",
-    "thumbnailUrl": "drum.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/TqWbfnerkKI/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
     "likes": 600,
     "uploadDate": "2024-06-15",
-    "duration": "3:25"
-  },
-  {
-    "id": 7,
-    "title": "Noa Kirel - Provocativit",
-    "description": "Official music video for 'Provocativit' by Noa Kirel.",
-    "url": "file:///android_asset/raw/provocativit.mp4",
-    "thumbnailUrl": "provocativit.png",
-    "uploader": "The Founder of the Site",
-    "likes": 700,
-    "uploadDate": "2024-06-17",
-    "duration": "4:05"
-  },
-  {
-    "id": 8,
-    "title": "Noa Kirel - BLING BLING",
-    "description": "Official music video for 'BLING BLING' by Noa Kirel.",
-    "url": "file:///android_asset/raw/bling_bling.mp4",
-    "thumbnailUrl": "bling_bling.png",
-    "uploader": "The Founder of the Site",
-    "likes": 800,
-    "uploadDate": "2024-06-18",
-    "duration": "3:50"
-  },
-  {
-    "id": 9,
-    "title": "Noa Kirel - If You're A Man",
-    "description": "Official music video for 'If You're A Man' by Noa Kirel.",
-    "url": "file:///android_asset/raw/if_youre_a_man.mp4",
-    "thumbnailUrl": "if_youre_a_man.png",
-    "uploader": "The Founder of the Site",
-    "likes": 650,
-    "uploadDate": "2024-06-19",
-    "duration": "3:30"
-  },
-  {
-    "id": 10,
-    "title": "Noa Kirel - Paamon",
-    "description": "Official music video for 'Paamon' by Noa Kirel.",
-    "url": "file:///android_asset/raw/paamon.mp4",
-    "thumbnailUrl": "paamon.png",
-    "uploader": "The Founder of the Site",
-    "likes": 900,
-    "uploadDate": "2024-06-20",
-    "duration": "3:35"
+    "duration": "3:25",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
   },
   {
     "id": 6,
+    "title": "Noa Kirel - Provocativit",
+    "description": "Official music video for 'Provocativit' by Noa Kirel.",
+    "url": "file:///android_asset/raw/provocativit.mp4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/mv0BtAepULk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgqcTkIkxA4rO4C3proe76C7CCOA",
+    "uploader": "Noa Kirel",
+    "likes": 700,
+    "uploadDate": "2024-06-17",
+    "duration": "4:05",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
+  },
+  {
+    "id": 7,
+    "title": "Noa Kirel - BLING BLING",
+    "description": "Official music video for 'BLING BLING' by Noa Kirel.",
+    "url": "file:///android_asset/raw/bling_bling.mp4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/X7iLyas7Oi4/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
+    "likes": 800,
+    "uploadDate": "2024-06-18",
+    "duration": "3:50",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
+  },
+  {
+    "id": 8,
+    "title": "Noa Kirel - If You're A Man",
+    "description": "Official music video for 'If You're A Man' by Noa Kirel.",
+    "url": "file:///android_asset/raw/if_youre_a_man.mp4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/9on_1WpYvAY/sddefault.jpg",
+    "uploader": "Noa Kirel",
+    "likes": 650,
+    "uploadDate": "2024-06-19",
+    "duration": "3:30",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
+  },
+  {
+    "id": 9,
+    "title": "Noa Kirel - Paamon",
+    "description": "Official music video for 'Paamon' by Noa Kirel.",
+    "url": "file:///android_asset/raw/paamon.mp4",
+    "thumbnailUrl": "https://i.ytimg.com/vi/InIRjIqPKt4/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
+    "likes": 900,
+    "uploadDate": "2024-06-20",
+    "duration": "3:35",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
+  },
+  {
+    "id": 10,
     "title": "Noa Kirel - DEJA VU",
     "description": "Official music video for 'DEJA VU' by Noa Kirel.",
     "url": "file:///android_asset/raw/deja_vu.mp4",
-    "thumbnailUrl": "deja_vu.png",
-    "uploader": "The Founder of the Site",
+    "thumbnailUrl": "https://i.ytimg.com/vi/4--8fjxjkYU/maxresdefault.jpg",
+    "uploader": "Noa Kirel",
     "likes": 750,
     "uploadDate": "2024-06-16",
-    "duration": "3:40"
+    "duration": "3:40",
+    "profilePicture": "https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg"
+
   }
 ]

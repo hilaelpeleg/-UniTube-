@@ -24,7 +24,7 @@ function LeftMenu() {
                     </div>
                 </form>
                 <a className="navbar-brand ms-auto" href="#">dark\light mode</a>
-                <div className="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
                         <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

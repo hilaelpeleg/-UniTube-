@@ -1,5 +1,5 @@
 import TextInput from "../register/TextInput";
-import Button from "../button";
+import Button from "../Button";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

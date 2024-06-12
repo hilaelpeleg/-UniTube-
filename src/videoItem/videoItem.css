@@ -1,11 +1,50 @@
-.hover {
-    transition: background-color 0.3s ease;
+.profile{
+    border-radius: 100%;
+    width: 65px;
+    height: 53px;
+    float: left;
+    padding-left: 10px;
+}
+
+
+.thumbnail-container {
+    position: relative;
+    display: inline-block;
+}
+
+.card-img-top{
+    padding-bottom: 10px;
+    padding-top: 10px;
     border-radius: 30px;
+    width: 400px;
+    height: 250px;
+}
+
+
+.square {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 12px;
+    border-radius: 2px;
 
 }
 
-.hover:hover {
-    background-color: rgba(248, 249, 250, 1); /* Adjust the color and opacity as needed */
-    cursor: pointer;
+
+.title{
+    float: inline-start;
+    margin-left: 10px;
+
 }
 
+.p{
+    display: table-header-group;
+    
+}
+
+.box{
+    float: inline-start;
+}
