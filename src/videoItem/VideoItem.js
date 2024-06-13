@@ -1,11 +1,12 @@
 import './VideoItem.css'
 
 
-function VideoItem({ props}) {
+function VideoItem({ props, onClick}) {
     return (
+        
         <div >
             <div className="thumbnail-container">
-                <img src={props.thumbnailUrl} className="card-img-top" alt="profile" />
+                <img src={props.thumbnailUrl} className="card-img-top" alt="profile" onClick={onClick}/>
                 <div className="square" >
                     {props.duration}
                 </div>

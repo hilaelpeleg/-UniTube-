@@ -6,10 +6,13 @@ import Login from '../login/LogIn';
 import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
 import videosData from './videos.json';
+import ViewingPage from '../viewingPage/ViewingPage';
+export const profilePictureURLjason = "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg";
 
 
 
 function App() {
+  
 
   const [userList, setUserList] = useState([
     {
@@ -18,12 +21,16 @@ function App() {
       "password": "12345",
       "reEnterPassword": "12345",
       "userName": "Noa Kirel",
-      "profilePicture": 
-      'https://static.timesofisrael.com/www/uploads/2023/03/1a5a15a5-40e5-4131-95b2-0893e6efaa47-e1678308377999.jpeg'
+      "profilePicture": profilePictureURLjason
     }
   ]);
 
-  const [videoList, setVideoList] = useState(videosData);
+  const updatedVideosData = videosData.map(video => ({
+    ...video,
+    profilePicture: profilePictureURLjason
+  }));
+
+  const [videoList, setVideoList] = useState(updatedVideosData);
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
 
   return (
@@ -36,6 +43,8 @@ function App() {
           videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/Addvideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />
+          <Route path="/viewing/:videoId"  element={<ViewingPage  videoList={videoList}
+          setVideoList={setVideoList} />}/>
         </Routes>
       </div>
     </Router>

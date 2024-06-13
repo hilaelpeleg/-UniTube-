@@ -1,4 +1,4 @@
-import Button from "../Button";
+import Button from "../button/Button";
 import './Register.css';
 import ProfilePicture from "./ProfilePicture";
 import Username from "./username";

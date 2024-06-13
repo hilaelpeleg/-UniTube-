@@ -17,7 +17,7 @@ function HomePage({setVideoList, userLogin, videoList}) {
             <div className="row">
                 <div className="col video-list-container">
                 <VideoItems videoList={videoList} 
-                 setVideoList={setVideoList} userLogin={userLogin} />
+                colWidth={"col-xl-4 col-lg-4 col-md-4 col-sm-12 hover"} />
                 </div>
             </div>
         </div>

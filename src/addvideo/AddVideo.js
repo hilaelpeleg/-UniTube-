@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import TextInput from '../register/TextInput';
-import Button from '../Button';
+import Button from '../button/Button';
 import VideoImg from './VideoImg';
 
 function AddVideo({userList, videoList, setVideoList, userLogin }) {
