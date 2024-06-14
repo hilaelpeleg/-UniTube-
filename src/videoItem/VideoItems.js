@@ -15,7 +15,7 @@ function VideoItems({ videoList, colWidth }) {
     return (
         <div className="row gx-3">
             {videoList.map(video => (
-                <div key={video.id} className={colWidth}>
+                <div key={video.id}  className={`${colWidth} hover`}>
                     <VideoItem
                         onClick={() => handleVideoClick(video)}
                         props={video}

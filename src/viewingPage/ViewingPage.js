@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
+import thumb_up from './viewingsvg/thumb_up.svg'
+import download from './viewingsvg/download.svg'
+import thumb_down from './viewingsvg/thumb_down.svg'
+import share from './viewingsvg/share.svg'
 
 const ViewingPage = ({ videoList, setVideoList }) => {
     const { videoId } = useParams();
@@ -49,14 +53,48 @@ const ViewingPage = ({ videoList, setVideoList }) => {
             </div>
             <div className="row">
                 <div className="col-8 ">
+                    <div className="card" >
                     <h1>{video.title}</h1>
-                    <video width="750" height="500" controls onLoadedMetadata={handleLoadedMetadata}>
+                    <video className="card-img-top" key={video.id} width="850" height="500" controls onLoadedMetadata={handleLoadedMetadata}>
                         <source src={video.url} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <p>{video.description}</p>
+                    <div className="card-body">
+                    <h5>{video.title}</h5>
+                    <div className="card-body">
+                        <img className="profile" src={video.profilePicture} />
+                        <div className="box">
+                            <p className="card-text p">{video.uploader}</p>
+                            <p className="card-text p">{video.description}</p>
+                            <p className="card-text"><small className="text-body-secondary">{video.uploadDate} {video.likes}</small></p>
+                        </div>
+                        <div className="video-actions">
+                            <div className="btn-group margin" role="group" aria-label="Basic example">
+                                <button type="button" className="btn btn-light"> <img className='like' src={thumb_up} />
+                                    like</button>
+                                <button type="button" className="btn btn-light">
+                                    <img className='like' src={thumb_down} /> </button>
+                            </div>
+                            <button type="button" className="btn btn-light margin">
+                                <img className='like' src={share} />
+                                Share
+                            </button>
+                            <button type="button" className="btn btn-light margin">
+                                <img className='like' src={download} />
+                                Download</button>
+
+                        </div>
+                    </div>
+                    </div>
+
+
+                    </div>
                 </div>
-                <div className="col-2 ">
+
+
+
+
+                <div className="col-4 ">
                     <VideoItems videoList={videoList} colWidth={"col-12"}
                     />
                 </div>

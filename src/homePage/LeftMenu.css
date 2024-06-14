@@ -55,6 +55,17 @@
 }
 
 
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+.navbar-brand img {
+    margin-right: 80px; /* Adjust space between the image and any following content */
+}
+
+
 
 
 

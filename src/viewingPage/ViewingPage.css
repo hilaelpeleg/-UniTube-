@@ -1,0 +1,55 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width of its parent or adjust as needed */
+    padding: 10px; /* Added padding for spacing around content */
+}
+
+.hover {
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+}
+
+.hover:hover {
+    background-color: rgba(248, 249, 250, 1); /* Adjust the color and opacity as needed */
+    cursor: pointer;
+}
+
+.btn-light {
+    border-radius: 50px;
+    background-color: #f8f9fa; /* Corrected variable usage */
+    border-color: #f8f9fa;
+    color: #000;
+}
+
+.btn-light:hover {
+    background-color: #d3d4d5;
+    border-color: #c6c7c8;
+    color: #000;
+}
+
+.btn-light:focus {
+    box-shadow: 0 0 0 0.2rem rgba(211, 212, 213, 0.25); /* Corrected focus shadow */
+}
+
+.btn-light:active {
+    background-color: #c6c7c8;
+    border-color: #babbbc;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.btn-light:disabled {
+    background-color: #f8f9fa;
+    color: #000;
+    border-color: #f8f9fa;
+}
+
+.like {
+    margin-right: 5px;
+}
+
+.margin {
+    margin-right: 10px;
+}

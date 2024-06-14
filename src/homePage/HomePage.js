@@ -5,7 +5,7 @@ import React from 'react';
 
 
 
-function HomePage({setVideoList, userLogin, videoList}) {
+function HomePage({ videoList}) {
 
     return (
         <div className="container-fluid ">
