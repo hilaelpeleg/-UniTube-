@@ -2,9 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%; /* Ensure it takes full width of its parent or adjust as needed */
-    padding: 10px; /* Added padding for spacing around content */
+    width: 100%; /* Full width of the parent container */
+    max-width: 800px; /* Maximum width */
+    margin: auto; /* Center the card horizontally */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    background: #fff; /* Card background */
+}
+
+.card-img-top {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px; /* Rounded corners for video */
+}
+
+.card-body {
+    width: 100%; /* Full width */
 }
 
 .hover {
@@ -46,10 +60,35 @@
     border-color: #f8f9fa;
 }
 
-.like {
-    margin-right: 5px;
+.comment-section {
+    max-width: 100%; 
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
-.margin {
+.comment {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     margin-right: 10px;
 }
+
+.comment-text {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+

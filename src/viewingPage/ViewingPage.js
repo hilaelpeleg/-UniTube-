@@ -3,16 +3,25 @@ import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
-import thumb_up from './viewingsvg/thumb_up.svg'
-import download from './viewingsvg/download.svg'
-import thumb_down from './viewingsvg/thumb_down.svg'
-import share from './viewingsvg/share.svg'
+
+import Comments from './Comments';
+import RowButtons from './RowButtons';
 
 const ViewingPage = ({ videoList, setVideoList }) => {
     const { videoId } = useParams();
+    const [like, setLike] = useState(0);
+    const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
 
+
     const video = videoList.find(v => v.id === parseInt(videoId));
+    useEffect(() => {
+        if (video) {
+            setLike(video.likes);
+            setCommentsList(video.comments || []);
+        }
+    }, [video])
+
 
     const handleLoadedMetadata = (event) => {
         const videoDuration = event.target.duration;
@@ -34,11 +43,25 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         return `${minutes}:${seconds}`;
     };
 
-    useEffect(() => {
-        if (duration !== null) {
-            console.log("Video duration:", duration);
-        }
-    }, [duration]);
+
+    const updateLikes = (newLikes) => {
+        setLike(newLikes);
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === parseInt(videoId) ? { ...video, likes: newLikes } : video
+            )
+        );
+    };
+
+    const addComment = (newComment) => {
+        const updatedComments = [...commentsList, newComment];
+        setCommentsList(updatedComments);
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === parseInt(videoId) ? { ...video, comments: updatedComments } : video
+            )
+        );
+    };
 
     if (!video) {
         return <div>Video not found</div>;
@@ -54,53 +77,32 @@ const ViewingPage = ({ videoList, setVideoList }) => {
             <div className="row">
                 <div className="col-8 ">
                     <div className="card" >
-                    <h1>{video.title}</h1>
-                    <video className="card-img-top" key={video.id} width="850" height="500" controls onLoadedMetadata={handleLoadedMetadata}>
-                        <source src={video.url} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div className="card-body">
-                    <h5>{video.title}</h5>
-                    <div className="card-body">
-                        <img className="profile" src={video.profilePicture} />
-                        <div className="box">
-                            <p className="card-text p">{video.uploader}</p>
-                            <p className="card-text p">{video.description}</p>
-                            <p className="card-text"><small className="text-body-secondary">{video.uploadDate} {video.likes}</small></p>
-                        </div>
-                        <div className="video-actions">
-                            <div className="btn-group margin" role="group" aria-label="Basic example">
-                                <button type="button" className="btn btn-light"> <img className='like' src={thumb_up} />
-                                    like</button>
-                                <button type="button" className="btn btn-light">
-                                    <img className='like' src={thumb_down} /> </button>
+                        <h1>{video.title}</h1>
+                        <video className="card-img-top" key={video.id} controls onLoadedMetadata={handleLoadedMetadata}>
+                            <source src={video.url} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div className="card-body">
+                            <div className="box">
+                                <img className="profile" src={video.profilePicture} />
+                                <div className="box">
+                                    <p className="card-text p">{video.uploader}</p>
+                                    <p className="card-text p">{video.description}</p>
+                                    <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
+                                </div>
                             </div>
-                            <button type="button" className="btn btn-light margin">
-                                <img className='like' src={share} />
-                                Share
-                            </button>
-                            <button type="button" className="btn btn-light margin">
-                                <img className='like' src={download} />
-                                Download</button>
-
+                            <RowButtons like={like} updateLikes={updateLikes} />
+                            <Comments commentsList={commentsList} addComment={addComment}
+                            video= {video} />
                         </div>
-                    </div>
-                    </div>
-
-
                     </div>
                 </div>
-
-
-
-
                 <div className="col-4 ">
                     <VideoItems videoList={videoList} colWidth={"col-12"}
                     />
                 </div>
             </div>
         </div>
-
     );
 };
 

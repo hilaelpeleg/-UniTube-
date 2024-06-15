@@ -15,8 +15,6 @@ function Login({ userList, setUserLogin }) {
         const user = userList.find(user => user.userName === userName && user.password === password);
         if (user) {
             setUserLogin({ userName: userName, password: password });
-            console.log(userName, password);
-            console.log("Login successful!");
             navigate('/homePage');
         } else {
             console.log(":(((((((((((!");
@@ -30,7 +28,7 @@ function Login({ userList, setUserLogin }) {
                 <TextInput className="form-control" name="userName" kind="user name"
                     value={userName} onChange={(e) => setUserName(e.target.value)} />
                 <div className="row">
-                    <TextInput name="password" kind="password"
+                    <TextInput name="password" kind="password" type="password"
                         value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
             </div>

@@ -6,7 +6,7 @@ function VideoItem({ props, onClick}) {
         
         <div >
             <div className="thumbnail-container">
-                <img src={props.thumbnailUrl} className="card-img-top" alt="profile" onClick={onClick}/>
+                <img src={props.thumbnailUrl} id="img-top" className="card-img-top" alt="profile" onClick={onClick}/>
                 <div className="square" >
                     {props.duration}
                 </div>

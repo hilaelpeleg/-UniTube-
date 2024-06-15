@@ -19,6 +19,7 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
         "thumbnailUrl": "",
         "uploader": userLogin ? userLogin.userName : "",
         "likes": 0,
+        "comments": [],
         "uploadDate": "",
         "duration": "",
         "profilePicture": userLogin && userList.length > 0 ? userList.find(user => user.userName === userLogin.userName)?.profilePicture : null
@@ -64,15 +65,12 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
             "thumbnailUrl": inputVideoFields.thumbnailUrl instanceof File ? URL.createObjectURL(inputVideoFields.thumbnailUrl) : inputVideoFields.thumbnailUrl,
             "uploader": inputVideoFields.uploader,
             "likes": 0,
+            "comments": [],
             "uploadDate": "2024-06-18",
             "duration": "03:40",
             "profilePicture": inputVideoFields.profilePicture
         }
         setVideoList([...videoList, newVideo]);
-        console.log(newVideo);
-        // Update the videoList state with the new array
-        console.log(videoList);
-        console.log("1234");
     }
 
     const navigate = useNavigate();
@@ -81,7 +79,6 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
     useEffect(() => {
         if (Object.keys(formErrorsVideo).length === 0 && submittingVideo) {
             AddNewVideo();
-            console.log(videoList[videoList.length-1]);
             navigate("/homepage");
         }
 
