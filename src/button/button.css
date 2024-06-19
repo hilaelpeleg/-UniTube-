@@ -10,3 +10,8 @@
 .mx-auto{
 margin: 0%;
 }
+
+.color{
+  --bs-btn-color: #64728F;
+  --bs-btn-bg:  #f8f9fa;
+}
