@@ -116,7 +116,7 @@ function Register({ userList, setUserList }) {
                 <Button onClick={handleSubmit} value="Sign me up!" />
             </div>
             <div id="Login" className="list-group list-group-flush">
-                <Button onClick={() => navigate('/login')} value="Already have an account? Log in!" />
+                <Button onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
             </div>
         </div>
     );

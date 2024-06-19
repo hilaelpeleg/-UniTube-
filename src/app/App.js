@@ -31,7 +31,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/register" element={<Register userList={userList} setUserList={setUserList} />} />
-          <Route path="/login" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
+          <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
           <Route path="/homepage" element={<HomePage userList={userList} 
           videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/Addvideo" element={<AddVideo userLogin={userLogin} videoList={videoList}

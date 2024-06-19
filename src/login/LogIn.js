@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './LogIn.css';
 
 
-function Login({ userList, setUserLogin }) {
+function LogIn({ userList, setUserLogin }) {
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
@@ -47,4 +47,4 @@ function Login({ userList, setUserLogin }) {
 
 }
 
-export default Login;
+export default LogIn;
