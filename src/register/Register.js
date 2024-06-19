@@ -89,7 +89,7 @@ function Register({ userList, setUserList }) {
         if (Object.keys(formErrors).length == 0 && submitting) {
             addNewUser();
             console.log(inputFields);
-            navigate('/login'); // Redirect to login page
+            navigate('/logIn'); // Redirect to login page
         }
 
     }, [formErrors]);
