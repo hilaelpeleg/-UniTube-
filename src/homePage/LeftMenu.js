@@ -1,4 +1,4 @@
-import logo from '../homePage/logo.svg';
+import logo from './svg icons/logo.svg';
 import search from './svg icons/search.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
