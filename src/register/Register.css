@@ -6,3 +6,11 @@
 .form-label{
     display: flex;
 }
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+

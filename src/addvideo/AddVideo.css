@@ -2,9 +2,16 @@
     display: flex;
 }
 
-.custom-card-width {
-    width: 40rem;
-    } 
+.form-control{
+    width: 250px;
+}
+
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
 
 
 

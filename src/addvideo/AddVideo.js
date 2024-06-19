@@ -85,9 +85,10 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     }, [formErrorsVideo]);
 
     return (
+        <div className="wrapper">
         <div className="card custom-card-width container"  >
             <div className="card-body">
-                <h5 className="card-title">Add Video</h5>
+                <h5 className="card-title">Add video</h5>
                 <div className="row">
                     <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
                     <VideoImg name="thumbnailUrl" onChange={handleChange}
@@ -101,6 +102,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
             <div className="list-group list-group-flush">
                 <Button onClick={handleSubmit} value="Add video" />
             </div>
+        </div>
         </div>
     );
 }

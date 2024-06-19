@@ -95,6 +95,7 @@ function Register({ userList, setUserList }) {
     }, [formErrors]);
 
     return (
+        <div className="wrapper">
         <div className="card custom-card-width container"  >
             <div className="card-body">
                 <h5 className="card-title">Sign up</h5>
@@ -118,6 +119,7 @@ function Register({ userList, setUserList }) {
             <div id="Login" className="list-group list-group-flush">
                 <Button onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
             </div>
+        </div>
         </div>
     );
 
