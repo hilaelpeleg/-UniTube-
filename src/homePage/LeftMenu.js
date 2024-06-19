@@ -3,6 +3,11 @@ import search from './svg icons/search.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
 import darkmode from './svg icons/darkmode.svg';
+import account from './svg icons/account.svg';
+import history from './svg icons/history.svg';
+import playlist from './svg icons/playlist.svg';
+import switchAccount from './svg icons/switch account.svg';
+import setting from './svg icons/setting.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
@@ -33,7 +38,7 @@ function LeftMenu() {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="Your Account" />
+                                <NavItem src={account} text="Your Account" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={home} text="Home" />
@@ -42,16 +47,16 @@ function LeftMenu() {
                                 <NavItem src={addVideo} text="Addvideo" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="History" />
+                                <NavItem src={history} text="History" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="Playlists" />
+                                <NavItem src={playlist} text="Playlists" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="Switch Account" />
+                                <NavItem src={switchAccount} text="Switch Account" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="Setting" />
+                                <NavItem src={setting} text="Setting" />
                             </li>
 
                         </ul>
