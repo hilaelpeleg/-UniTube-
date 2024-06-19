@@ -20,6 +20,25 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         }
     }, [video])
 
+    const handleLoadedMetadata = (event) => {
+        const videoDuration = event.target.duration;
+        setDuration(videoDuration);
+        updateVideoDuration(video.id, videoDuration);
+    };
+
+    const updateVideoDuration = (id, duration) => {
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === id ? { ...video, duration: formatDuration(duration) } : video
+            )
+        );
+    };
+
+    const formatDuration = (duration) => {
+        const minutes = Math.floor(duration / 60);
+        const seconds = Math.floor(duration % 60).toString().padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    };
 
     const addComment = (newComment) => {
         const updatedComments = [...commentsList, newComment];
