@@ -2,3 +2,10 @@
     width: 300px;
 }
 
+.wrapper {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+

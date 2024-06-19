@@ -2,6 +2,7 @@ import TextInput from "../register/TextInput";
 import Button from "../button/Button";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './LogIn.css';
 
 
 function Login({ userList, setUserLogin }) {
@@ -23,6 +24,7 @@ function Login({ userList, setUserLogin }) {
     };
 
     return (
+        <div className="wrapper">
         <div className="card custom-card-width container" >
             <div className="card-body">
             <h5 className="card-title">Log In</h5>
@@ -39,6 +41,7 @@ function Login({ userList, setUserLogin }) {
             <div className="list-group list-group-flush">
                 <Button onClick={() => navigate('/register')} value="Create a new account!" />
             </div>
+        </div>
         </div>
     );
 
