@@ -29,7 +29,7 @@ function Comments({ video, commentsList, addComment }) {
             <div className="new-comment">
                 <div className="comment-text">
                     <img className="profile-pic" src={video.profilePicture} />
-                    <input className='inputwidth' onChange={handleCommentChange} type="text" placeholder="Share your thoughts..." />
+                    <input className='inputwidth' onChange={handleCommentChange} type="text" placeholder="Add a comment..." />
                     <button onClick={handleAddComment} type="button" className="btn btn-light">
                         <img src={Send} />
                     </button>

@@ -5,7 +5,7 @@ import React from 'react';
 
 
 
-function HomePage({ videoList}) {
+function HomePage({ userLogin, videoList}) {
 
     return (
         <div className="container-fluid ">
@@ -16,7 +16,7 @@ function HomePage({ videoList}) {
             </div>
             <div className="row">
                 <div className="col video-list-container">
-                <VideoItems videoList={videoList} 
+                <VideoItems videoList={videoList} userLogin={userLogin}
                 colWidth={"col-xl-4 col-lg-4 col-md-4 col-sm-12 hover"} />
                 </div>
             </div>

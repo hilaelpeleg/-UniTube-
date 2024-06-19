@@ -7,23 +7,16 @@ import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
 import videosData from './videos.json';
 import ViewingPage from '../viewingPage/ViewingPage';
+import profiles from './profiles.json';
+
 export const profilePictureURLjason = "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg";
-
-
 
 function App() {
   
 
-  const [userList, setUserList] = useState([
-    {
-      "firstName": "Noa",
-      "lastName": "Kirel",
-      "password": "12345",
-      "reEnterPassword": "12345",
-      "userName": "Noa Kirel",
-      "profilePicture": profilePictureURLjason
-    }
-  ]);
+  const [userList, setUserList] = useState(profiles);
+
+  
 
   const updatedVideosData = videosData.map(video => ({
     ...video,

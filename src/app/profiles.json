@@ -1,0 +1,34 @@
+[
+  {
+    "firstName": "Noa",
+    "lastName": "Kirel",
+    "password": "12345",
+    "reEnterPassword": "12345",
+    "userName": "Noa Kirel",
+    "profilePicture": "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg"
+  },
+  {
+    "firstName": "Michal",
+    "lastName": "Bledi",
+    "password": "12345",
+    "reEnterPassword": "12345",
+    "userName": "Michal Bledi",
+    "profilePicture": "https://scontent.ftlv1-1.fna.fbcdn.net/v/t39.30808-6/342770329_774077490949670_719551305058274551_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=NmOftQHfXB4Q7kNvgHki0VH&_nc_ht=scontent.ftlv1-1.fna&oh=00_AYAZWO6Y6PqYt_6m2Pdvf8SqDnztgEToFSONRTUELdMmDw&oe=6673455C"
+  },
+  {
+    "firstName": "Orel",
+    "lastName": "Shay",
+    "password": "12345",
+    "reEnterPassword": "12345",
+    "userName": "Orel Shay",
+    "profilePicture": "https://media.licdn.com/dms/image/D4E35AQH7mvCtw1i1Bw/profile-framedphoto-shrink_800_800/0/1714486394464?e=1719061200&v=beta&t=AaedCGsTJWBiCuUhjRcktDTnlrd4ndKa3zQd5aoMhss"
+  },
+  {
+    "firstName": "Hila",
+    "lastName": "El peleg",
+    "password": "12345",
+    "reEnterPassword": "12345",
+    "userName": "Hila El peleg",
+    "profilePicture": "https://media.licdn.com/dms/image/D4D03AQGCz6cB5mFPjQ/profile-displayphoto-shrink_800_800/0/1705606663570?e=1723680000&v=beta&t=VnwFp69OXvInGKLWm5DZTnsdWPHKIGUm2CFqumAu4zE"
+  }
+]

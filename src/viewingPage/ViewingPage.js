@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
-
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
@@ -91,7 +90,8 @@ const ViewingPage = ({ videoList, setVideoList }) => {
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
                             </div>
-                            <RowButtons like={like} updateLikes={updateLikes} />
+                            <RowButtons like={like} updateLikes={updateLikes} videoid={video.id} 
+                            setVideoList={setVideoList} videoList={videoList}/>
                             <Comments commentsList={commentsList} addComment={addComment}
                             video= {video} />
                         </div>
