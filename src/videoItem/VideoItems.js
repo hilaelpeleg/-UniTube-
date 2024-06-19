@@ -3,7 +3,7 @@ import './videoItems.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function VideoItems({userLogin, videoList, colWidth }) {
+function VideoItems({videoList, colWidth }) {
 
     const navigate = useNavigate();
 

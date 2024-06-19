@@ -12,12 +12,12 @@
 }
 
 .search {
+    background-color: #e6e3e3;
     width: max-content;
     display: flex;
     align-items: center;
     padding: 2px;
     border-radius: 60px;
-    background-color: #e6e3e3;
     width: 700px;
     transition: 0.25s;
 }
@@ -54,19 +54,13 @@
     border-radius: 30px; /* More roundness on hover */
 }
 
+.navbar-brand img {
+    margin-right: 80px; /* Adjust space between the image and any following content */
+}
+
 
 .navbar-brand {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: flex-start; /* Align items to the left */
 }
-
-.navbar-brand img {
-    margin-right: 80px; /* Adjust space between the image and any following content */
-}
-
-
-
-
-
-

@@ -1,17 +1,19 @@
-import logo from '../homePage/logo.svg';
+import logo from './svg icons/logo.svg';
 import search from './svg icons/search.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
 import darkmode from './svg icons/darkmode.svg';
+import account from './svg icons/account.svg';
+import history from './svg icons/history.svg';
+import playlist from './svg icons/playlist.svg';
+import switchAccount from './svg icons/switch account.svg';
+import setting from './svg icons/setting.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
 
-
-
 function LeftMenu() {
     const navigate = useNavigate();
-
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
             <div className="container-fluid ">
@@ -26,7 +28,7 @@ function LeftMenu() {
                     </div>
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
-                <img src={darkmode} />
+                    <img src={darkmode} />
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
@@ -36,11 +38,27 @@ function LeftMenu() {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="home" />
+                                <NavItem src={account} text="Your Account" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="Home" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                 <NavItem src={addVideo} text="Addvideo" />
                             </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={history} text="History" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={playlist} text="Playlists" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={switchAccount} text="Switch Account" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={setting} text="Setting" />
+                            </li>
+
                         </ul>
                     </div>
                 </div>
