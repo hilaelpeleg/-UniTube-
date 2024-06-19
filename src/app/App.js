@@ -30,13 +30,13 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/register" element={<Register userList={userList} setUserList={setUserList} />} />
+          <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
           <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
-          <Route path="/homepage" element={<HomePage userList={userList} 
+          <Route path="/HomePage" element={<HomePage userList={userList} 
           videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
-          <Route path="/Addvideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
+          <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />
-          <Route path="/viewing/:videoId"  element={<ViewingPage  videoList={videoList}
+          <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
           setVideoList={setVideoList} />}/>
         </Routes>
       </div>

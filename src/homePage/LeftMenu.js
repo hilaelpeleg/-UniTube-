@@ -35,10 +35,10 @@ function LeftMenu() {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="nav-item" onClick={() => navigate('/homePage')}>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={home} text="home" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/Addvideo')}>
+                            <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                 <NavItem src={addVideo} text="Addvideo" />
                             </li>
                         </ul>

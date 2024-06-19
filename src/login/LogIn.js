@@ -17,7 +17,7 @@ function LogIn({ userList, setUserLogin }) {
         const user = userList.find(user => user.userName === userName && user.password === password);
         if (user) {
             setUserLogin({ userName: userName, password: password });
-            navigate('/homePage');
+            navigate('/HomePage');
         } else {
             setError("Invalid username or password");
         }
@@ -39,7 +39,7 @@ function LogIn({ userList, setUserLogin }) {
                 <Button onClick={handleLogin} value="LogIn" />
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={() => navigate('/register')} value="Create a new account!" />
+                <Button onClick={() => navigate('/Register')} value="Create a new account!" />
             </div>
         </div>
         </div>
