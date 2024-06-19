@@ -1,4 +1,4 @@
-.profile{
+.profile {
     border-radius: 50%;
     width: 65px;
     height: 65px;
@@ -7,20 +7,18 @@
     object-fit: cover;
 }
 
-
 .thumbnail-container {
     position: relative;
     display: inline-block;
 }
 
-.card-img-top{
+.card-img-top {
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 30px;
-
 }
 
-#img-top{
+#img-top {
     width: 400px;
     height: 250px;
 }
@@ -34,21 +32,19 @@
     color: white;
     font-size: 12px;
     border-radius: 2px;
-
 }
 
 
-.title{
+.title {
     float: inline-start;
     margin-left: 10px;
 
 }
 
-.p{
+.p {
     display: table-header-group;
-    
 }
 
-.box{
+.box {
     float: inline-start;
 }

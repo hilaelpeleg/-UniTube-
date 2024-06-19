@@ -23,7 +23,7 @@ function LeftMenu() {
                     </div>
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
-                <img src={darkmode} />
+                    <img src={darkmode} />
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
@@ -33,11 +33,27 @@ function LeftMenu() {
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
-                                <NavItem src={home} text="home" />
+                                <NavItem src={home} text="Your Account" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="Home" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                 <NavItem src={addVideo} text="Addvideo" />
                             </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="History" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="Playlists" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="Switch Account" />
+                            </li>
+                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                                <NavItem src={home} text="Setting" />
+                            </li>
+
                         </ul>
                     </div>
                 </div>
