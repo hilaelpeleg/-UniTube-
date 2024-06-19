@@ -3,8 +3,6 @@ import './HomePage.css'
 import LeftMenu from './LeftMenu'
 import React from 'react';
 
-
-
 function HomePage({ userLogin, videoList}) {
 
     return (
