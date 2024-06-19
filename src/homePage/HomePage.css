@@ -45,3 +45,4 @@ html, body, #root, .App {
     max-height: 100%; /* Adjust this value as needed */
     overflow-y: auto; /* Enable internal scrolling for video list */
 }
+
