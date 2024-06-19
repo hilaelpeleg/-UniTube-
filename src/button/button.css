@@ -18,4 +18,5 @@ margin: 0%;
     --bs-btn-hover-color:  #748bb9;
     --bs-btn-hover-bg:#d3d4d5;
     --bs-btn-hover-border-color:  #d3d4d5;
+    --bs-btn-border-radius: 40px;
 }
