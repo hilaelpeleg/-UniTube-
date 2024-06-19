@@ -11,7 +11,10 @@
 }
 
 #offcanvasNavbarLabel{
-    color: #64728F;
+    color: #64728F;video-list-container {
+    max-height: 80vh; /* Adjust this value as needed */
+    overflow-y: auto;
+}
 }
 
 #logo{
@@ -20,5 +23,26 @@
 }
 
 .height{
-    height: 100px;;
+    height: 100px;
 }
+
+html, body, #root, .App {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Allow the entire page to be scrollable */
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.row.full-height {
+    height: 100%;
+}
+
+.video-list-container {
+    max-height: 100%; /* Adjust this value as needed */
+    overflow-y: auto; /* Enable internal scrolling for video list */
+}
+

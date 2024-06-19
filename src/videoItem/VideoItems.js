@@ -1,27 +1,24 @@
 import VideoItem from "./VideoItem";
-import React, { useEffect } from 'react';
-import videosData from '../app/videos.json';
-import './videoItem.css';
+import './videoItems.css';
+import { useNavigate } from 'react-router-dom';
 
-function VideoItems({videoList, setVideoList}) {
-    useEffect(() => {
-        // Set the video list when the component mounts
-        setVideoList(videosData);
-    }, [setVideoList]);
+
+function VideoItems({userLogin, videoList, colWidth }) {
+
+    const navigate = useNavigate();
+
+    const handleVideoClick = (video) => {
+        navigate(`/viewing/${video.id}`);
+    };
 
 
     return (
         <div className="row gx-3">
             {videoList.map(video => (
-                <div key={video.id} className="col-xl-4 col-lg-4 col-md-4 col-sm-12 hover"> {/* Adjust col classes to occupy 4 columns for xl, lg, and md screens */}
+                <div key={video.id}  className={`${colWidth} hover`}>
                     <VideoItem
-                        thumbnailUrl={video.thumbnailUrl}
-                        title={video.title}
-                        uploader={video.uploader}
-                        description={video.description}
-                        likes={video.likes}
-                        uploadDate={video.uploadDate}
-                        duration={video.duration}
+                        onClick={() => handleVideoClick(video)}
+                        props={video}
                     />
                 </div>
             ))}

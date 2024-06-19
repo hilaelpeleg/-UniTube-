@@ -31,12 +31,38 @@
     align-items: center;
   }
 
-.icon{
-    position: absolute;
+.iconleftli{
+    float: left;
 }
 
-.boxli{
-    position: relative;
+.nav-item {
+    margin: 5px 0; /* Add some margin for better spacing */
+    border-radius: 30px; /* More roundness on hover */
+
+}
+
+.nav-item a {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 30px; /* Adjust the radius as needed */
+    transition: background-color 0.3s ease;
+}
+
+.nav-item a:hover {
+    background-color: #e3e1e1; /* Adjust the hover color as needed */
+    cursor: pointer;
+    border-radius: 30px; /* More roundness on hover */
+}
+
+
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+.navbar-brand img {
+    margin-right: 80px; /* Adjust space between the image and any following content */
 }
 
 

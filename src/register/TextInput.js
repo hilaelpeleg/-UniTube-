@@ -1,15 +1,15 @@
 import './TextInput.css'
 
 
-function TextInput({ name, kind, onChange, errors }) {
+function TextInput({ name, kind, onChange, error, type}) {
     return (
         <div className="col-md-4 margin ">
-            <input type="text" className="form-control"
-                id="validationDefault01" placeholder={kind}
+            <input type={type} className="form-control"
+                 placeholder={kind}
                 name={name}
                 onChange={onChange}
                 required />
-            <p className="formerror">{errors}</p>
+            {error && <p className="formerror">{error}</p>}
         </div>
     );
 }

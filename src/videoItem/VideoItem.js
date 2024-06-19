@@ -1,23 +1,24 @@
-import '../app/profile.css'
+import './VideoItem.css'
 
 
-function VideoItem({ thumbnailUrl, title, uploader, description, likes, uploadDate, duration }) {
+function VideoItem({ props, onClick}) {
     return (
+        
         <div >
             <div className="thumbnail-container">
-            <img src={thumbnailUrl} class="card-img-top" alt="profile" />
-            <div className="square" >
-                {duration}
+                <img src={props.thumbnailUrl} id="img-top" className="card-img-top" alt="profile" onClick={onClick}/>
+                <div className="square" >
+                    {props.duration}
+                </div>
             </div>
-            </div>
-            
-            <div class="card-body">
-                <img id="profile" src="noa.jpg" />
-                <h5 className="card-text title">{title}</h5>
+
+            <div className="card-body">
+                <img className="profile" src={props.profilePicture} />
+                <h5 className="card-text title">{props.title}</h5>
                 <div className="box">
-                <p className="card-text p">{uploader}</p>
-                <p className="card-text p">{description}</p>
-                <p class="card-text"><small class="text-body-secondary">{uploadDate} { likes}</small></p>
+                    <p className="card-text p">{props.uploader}</p>
+                    <p className="card-text p">{props.description}</p>
+                    <p className="card-text"><small className="text-body-secondary">{props.uploadDate} {props.likes}</small></p>
                 </div>
             </div>
         </div>

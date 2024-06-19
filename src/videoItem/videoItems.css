@@ -1,0 +1,11 @@
+.hover {
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+
+}
+
+.hover:hover {
+    background-color: rgba(248, 249, 250, 1); /* Adjust the color and opacity as needed */
+    cursor: pointer;
+}
+
