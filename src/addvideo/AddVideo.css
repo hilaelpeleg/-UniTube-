@@ -1,10 +1,10 @@
+.form-label{
+    display: flex;
+}
 
 .custom-card-width {
     width: 40rem;
     } 
 
-.form-label{
-    display: flex;
-}
 
 

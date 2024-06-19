@@ -7,8 +7,7 @@ import TextInput from '../register/TextInput';
 import Button from '../button/Button';
 import VideoImg from './VideoImg';
 
-function AddVideo({userList, videoList, setVideoList, userLogin }) {
-
+function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
@@ -25,14 +24,15 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
         "profilePicture": userLogin && userList.length > 0 ? userList.find(user => user.userName === userLogin.userName)?.profilePicture : null
     });
 
-    const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        setInputVideoFields({ ...inputVideoFields, [name]: files ? files[0] : value
+    const handleChange = (event) => {
+        const { name, value, files } = event.target;
+        setInputVideoFields({
+            ...inputVideoFields, [name]: files ? files[0] : value
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         setFormErrorsVideo(validate(inputVideoFields));
         setSubmittingVideo(true);
     }
@@ -56,9 +56,9 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
 
     const AddNewVideo = () => {
         const lastVideoId = videoList.length > 0 ? videoList[videoList.length - 1].id : 0;
-        console.log(lastVideoId+1)
+        console.log(lastVideoId + 1)
         const newVideo = {
-            "id": (lastVideoId+1),
+            "id": (lastVideoId + 1),
             "title": inputVideoFields.title,
             "description": inputVideoFields.description,
             "url": inputVideoFields.url instanceof File ? URL.createObjectURL(inputVideoFields.url) : inputVideoFields.url,
@@ -101,11 +101,8 @@ function AddVideo({userList, videoList, setVideoList, userLogin }) {
             <div className="list-group list-group-flush">
                 <Button onClick={handleSubmit} value="Add video" />
             </div>
-         </div>
+        </div>
     );
 }
-
-
-
 
 export default AddVideo;

@@ -1,4 +1,3 @@
-
 function Video({name, onChange, errors}) {
     return (
         <div className="mb-3">

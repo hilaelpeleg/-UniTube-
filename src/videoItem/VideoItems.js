@@ -1,5 +1,5 @@
 import VideoItem from "./VideoItem";
-import './videoItems.css';
+import './VideoItems.css';
 import { useNavigate } from 'react-router-dom';
 
 
