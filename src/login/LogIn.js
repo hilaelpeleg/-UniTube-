@@ -17,7 +17,6 @@ function Login({ userList, setUserLogin }) {
             setUserLogin({ userName: userName, password: password });
             navigate('/homePage');
         } else {
-            console.log(":(((((((((((!");
             setError("Invalid username or password");
         }
     };
