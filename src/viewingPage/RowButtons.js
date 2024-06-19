@@ -20,7 +20,6 @@ function RowButtons({videoid, videoList , setVideoList, like, updateLikes }) {
         navigate("/homepage");
     };
 
-
     const onclickLike = () => {
         updateLikes(like + 1)
     }

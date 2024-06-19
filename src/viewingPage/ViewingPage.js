@@ -12,7 +12,6 @@ const ViewingPage = ({ videoList, setVideoList }) => {
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
 
-
     const video = videoList.find(v => v.id === parseInt(videoId));
     useEffect(() => {
         if (video) {
@@ -42,22 +41,21 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         return `${minutes}:${seconds}`;
     };
 
-
-    const updateLikes = (newLikes) => {
-        setLike(newLikes);
-        setVideoList(prevList =>
-            prevList.map(video =>
-                video.id === parseInt(videoId) ? { ...video, likes: newLikes } : video
-            )
-        );
-    };
-
     const addComment = (newComment) => {
         const updatedComments = [...commentsList, newComment];
         setCommentsList(updatedComments);
         setVideoList(prevList =>
             prevList.map(video =>
                 video.id === parseInt(videoId) ? { ...video, comments: updatedComments } : video
+            )
+        );
+    };
+
+    const updateLikes = (newLikes) => {
+        setLike(newLikes);
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === parseInt(videoId) ? { ...video, likes: newLikes } : video
             )
         );
     };

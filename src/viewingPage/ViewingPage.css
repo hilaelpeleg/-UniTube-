@@ -1,26 +1,3 @@
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Full width of the parent container */
-    max-width: 800px; /* Maximum width */
-    margin: auto; /* Center the card horizontally */
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 10px; /* Rounded corners */
-    background: #fff; /* Card background */
-}
-
-.card-img-top {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 30px; /* Rounded corners for video */
-}
-
-.card-body {
-    width: 100%; /* Full width */
-}
-
 .hover {
     transition: background-color 0.3s ease;
     border-radius: 30px;
@@ -90,5 +67,27 @@
     color: #333;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width of the parent container */
+    max-width: 800px; /* Maximum width */
+    margin: auto; /* Center the card horizontally */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+    background: #fff; /* Card background */
+}
+
+.card-img-top {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px; /* Rounded corners for video */
+}
+
+.card-body {
+    width: 100%; /* Full width */
+}
 
 

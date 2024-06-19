@@ -2,13 +2,11 @@ import './Comments.css';
 import Send from './viewingsvg/sendcomment.svg';
 import React, { useState } from 'react';
 
-
-
 function Comments({ video, commentsList, addComment }) {
     const [comment, setComment] = useState("");
 
-    const handleCommentChange = (e) => {
-        setComment(e.target.value);
+    const handleCommentChange = (event) => {
+        setComment(event.target.value);
     };
 
     const handleAddComment = () => {
@@ -37,17 +35,16 @@ function Comments({ video, commentsList, addComment }) {
             </div>
             {commentsList.map((comment, index) => (
                 <div key={index} className="comment">
-                    <img src={comment.profilePicture} alt={`Profile picture of ${comment.name}`} className="profile-pic" />
+                    <img src={comment.profilePicture} alt={`Profile picture of 
+                        ${comment.name}`} className="profile-pic" />
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
                         {comment.text}
                     </div>
                 </div>
             ))}
-
         </div>
     );
 }
-
 
 export default Comments;
