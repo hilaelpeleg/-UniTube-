@@ -7,11 +7,8 @@ import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
 
-
-
 function LeftMenu() {
     const navigate = useNavigate();
-
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
             <div className="container-fluid ">

@@ -48,12 +48,10 @@
     transition: background-color 0.3s ease;
 }
 
-
-
-.navbar-brand {
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: flex-start; /* Align items to the left */
+.nav-item a:hover {
+    background-color: #e3e1e1; /* Adjust the hover color as needed */
+    cursor: pointer;
+    border-radius: 30px; /* More roundness on hover */
 }
 
 .navbar-brand img {
@@ -61,12 +59,8 @@
 }
 
 
-
-.nav-item a:hover {
-    background-color: #e3e1e1; /* Adjust the hover color as needed */
-    cursor: pointer;
-    border-radius: 30px; /* More roundness on hover */
+.navbar-brand {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the left */
 }
-
-
-
