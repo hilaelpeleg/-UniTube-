@@ -19,4 +19,8 @@ margin: 0%;
     --bs-btn-hover-bg:#d3d4d5;
     --bs-btn-hover-border-color:  #d3d4d5;
     --bs-btn-border-radius: 40px;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #748bb9;
+    --bs-btn-active-bg: #d3d4d5;
+    --bs-btn-active-border-color: #d3d4d5;
 }
