@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Login({ userList, setUserLogin }) {
+
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -25,10 +26,10 @@ function Login({ userList, setUserLogin }) {
         <div className="card custom-card-width container" >
             <div className="card-body">
                 <TextInput className="form-control" name="userName" kind="user name"
-                    value={userName} onChange={(e) => setUserName(e.target.value)} />
+                    value={userName} onChange={(event) => setUserName(event.target.value)} />
                 <div className="row">
                     <TextInput name="password" kind="password" type="password"
-                        value={password} onChange={(e) => setPassword(e.target.value)} />
+                        value={password} onChange={(event) => setPassword(event.target.value)} />
                 </div>
             </div>
             <div className="list-group list-group-flush">
@@ -38,7 +39,6 @@ function Login({ userList, setUserLogin }) {
                 <Button onClick={() => navigate('/register')} value="Create a new account!" />
             </div>
         </div>
-
     );
 
 }
