@@ -9,21 +9,11 @@ import videosData from './videos.json';
 import ViewingPage from '../viewingPage/ViewingPage';
 import profiles from './profiles.json';
 
-export const profilePictureURLjason = "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg";
-
 function App() {
   
-
   const [userList, setUserList] = useState(profiles);
 
-  
-
-  const updatedVideosData = videosData.map(video => ({
-    ...video,
-    profilePicture: profilePictureURLjason
-  }));
-
-  const [videoList, setVideoList] = useState(updatedVideosData);
+  const [videoList, setVideoList] = useState(videosData);
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
 
   return (
