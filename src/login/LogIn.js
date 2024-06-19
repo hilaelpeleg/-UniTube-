@@ -25,6 +25,7 @@ function Login({ userList, setUserLogin }) {
     return (
         <div className="card custom-card-width container" >
             <div className="card-body">
+            <h5 className="card-title">Log In</h5>
                 <TextInput className="form-control" name="userName" kind="user name"
                     value={userName} onChange={(event) => setUserName(event.target.value)} />
                 <div className="row">
