@@ -5,10 +5,15 @@ import share from './viewingsvg/share.svg'
 import Dots from './viewingsvg/dots.svg';
 import { useNavigate } from 'react-router-dom';
 import './RowButtons.css';
+import { useState } from 'react';
+import PopupEdit from './PopupEdit';
+import './PopupEdit.css';
 
 
 
-function RowButtons({videoid, videoList , setVideoList, like, updateLikes }) {
+function RowButtons({ videoid, videoList, setVideoList, like, updateLikes, userLogin, isLike,setIsLike }) {
+
+    const [showModal, setShowModal] = useState(false);
 
     const navigate = useNavigate();
 
@@ -17,19 +22,36 @@ function RowButtons({videoid, videoList , setVideoList, like, updateLikes }) {
         const remainingVideos = videoList.filter(video => video.id !== id);
         // Update the state with the new array
         setVideoList(remainingVideos);
-        navigate("/homepage");
+        navigate("/HomePage");
     };
 
     const onclickLike = () => {
+        
+        if (userLogin && userLogin.userName && !isLike){
         updateLikes(like + 1)
+        setIsLike(true);
+        }
     }
 
     const onclickDislike = () => {
+        if (userLogin && userLogin.userName && !isLike){
         if (like > 0) updateLikes(like - 1);
+        setIsLike(true);
+        }
+    }
+    
+
+    const handleEditClick = () => {
+        setShowModal(true);
+    }
+
+    const handleCloseModal = () => {
+        setShowModal(false);
     }
 
     return (
         <div className="row-buttons-container">
+            <PopupEdit show={showModal} handleClose={handleCloseModal} />
             <div >
                 <div className="btn-group margin" role="group" aria-label="Basic example">
                     <button onClick={onclickLike} type="button" className="btn btn-light">
@@ -45,13 +67,15 @@ function RowButtons({videoid, videoList , setVideoList, like, updateLikes }) {
                 <button type="button" className="btn btn-light margin">
                     <img className='marginbutton' src={download} />
                     Download</button>
-                <button type="button" data-bs-toggle="dropdown" className="btn btn-light margin dropdown-toggle"  >
-                    <img className='marginbutton' src={Dots} />
-                </button>
+                {userLogin && userLogin.userName && ( // Conditional rendering based on userLogin
+                    <button type="button" data-bs-toggle="dropdown" className="btn btn-light margin dropdown-toggle"  >
+                        <img className='marginbutton' src={Dots} />
+                    </button>
+                )}
                 <ul className="dropdown-menu">
                     <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoid)}>Deleting a video</a></li>
-                    <li><hr className="dropdown-divider"/></li>
-                    <li><a className="dropdown-item" href="#">Editing a video</a></li>
+                    <li><hr className="dropdown-divider" /></li>
+                    <li><a className="dropdown-item" href="#" onClick={handleEditClick}>Editing a video</a></li>
                 </ul>
             </div>
         </div>

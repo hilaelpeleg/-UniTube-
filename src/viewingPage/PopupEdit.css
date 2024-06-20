@@ -1,0 +1,9 @@
+/* Add to your existing PopupEdit.css or a relevant CSS file */
+.modal.fade .modal-dialog {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;  /* Start with hidden */
+}
+
+.modal.show .modal-dialog {
+    opacity: 1;  /* Fade to visible */
+}

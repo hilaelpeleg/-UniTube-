@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
-const ViewingPage = ({ videoList, setVideoList }) => {
+const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
+    const [likedVideos, setLikedVideos] = useState({});
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
 
@@ -59,6 +60,13 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         );
     };
 
+    const handleLikeToggle = (id) => {
+        setLikedVideos((prev) => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
+
     if (!video) {
         return <div>Video not found</div>;
     }
@@ -67,7 +75,7 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu />
+                    <LeftMenu userLogin={userLogin}/>
                 </div>
             </div>
             <div className="row">
@@ -87,10 +95,12 @@ const ViewingPage = ({ videoList, setVideoList }) => {
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
                             </div>
-                            <RowButtons like={like} updateLikes={updateLikes} videoid={video.id} 
-                            setVideoList={setVideoList} videoList={videoList}/>
+                            <RowButtons userLogin={userLogin} like={like} updateLikes={updateLikes} videoid={video.id}
+                                setVideoList={setVideoList} videoList={videoList} 
+                                isLike={!!likedVideos[video.id]} 
+                                setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments commentsList={commentsList} addComment={addComment}
-                            video= {video} />
+                                video={video} />
                         </div>
                     </div>
                 </div>

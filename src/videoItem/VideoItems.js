@@ -3,13 +3,12 @@ import './VideoItems.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function VideoItems({videoList, colWidth }) {
+function VideoItems({videoList, colWidth}) {
 
     const navigate = useNavigate();
 
     const handleVideoClick = (video) => {
-        navigate(`/viewing/${video.id}`);
-    };
+        navigate(`/viewing/${video.id}`);    };
 
 
     return (

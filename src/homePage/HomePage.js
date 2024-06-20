@@ -4,16 +4,16 @@ import LeftMenu from './LeftMenu'
 import React from 'react';
 
 function HomePage({ userLogin, videoList}) {
-    return (
+       return (
         <div className="container-fluid ">
             <div className="row">   
                 <div className="col-3 height">
-                    <LeftMenu />
+                    <LeftMenu userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">
                 <div className="col video-list-container">
-                <VideoItems videoList={videoList} userLogin={userLogin}
+                <VideoItems videoList={videoList}
                 colWidth={"col-xl-4 col-lg-4 col-md-4 col-sm-12 hover"} />
                 </div>
             </div>

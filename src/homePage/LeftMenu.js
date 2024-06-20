@@ -12,7 +12,8 @@ import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
 
-function LeftMenu() {
+function LeftMenu({ userLogin }) {
+    console.log(userLogin.userName);
     const navigate = useNavigate();
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
@@ -43,9 +44,11 @@ function LeftMenu() {
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={home} text="Home" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/AddVideo')}>
-                                <NavItem src={addVideo} text="Addvideo" />
-                            </li>
+                            {userLogin && userLogin.userName && ( // Conditional rendering based on userLogin
+                                <li className="nav-item" onClick={() => navigate('/AddVideo')}>
+                                    <NavItem src={addVideo} text="Add Video" />
+                                </li>
+                            )}
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={history} text="History" />
                             </li>

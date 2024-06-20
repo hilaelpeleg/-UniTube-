@@ -27,7 +27,7 @@ function App() {
           <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
-          setVideoList={setVideoList} />}/>
+          setVideoList={setVideoList}  userLogin={userLogin}/>}/>
         </Routes>
       </div>
     </Router>
