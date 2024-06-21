@@ -1,5 +1,4 @@
 import logo from './svg icons/logo.svg';
-import search from './svg icons/search.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
 import darkmode from './svg icons/darkmode.svg';
@@ -11,8 +10,14 @@ import setting from './svg icons/setting.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
+import Search from './Search';
 
-function LeftMenu({ userLogin }) {
+function LeftMenu({ videoList, setVideoList, userLogin }) {
+
+    const doSearch = function (input) {
+        setVideoList(videoList.filter((video) => video.title.includes(input)))
+    }
+
     const navigate = useNavigate();
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
@@ -22,10 +27,7 @@ function LeftMenu({ userLogin }) {
                 </button>
                 <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
                 <form className="ms-auto ">
-                    <div className="search">
-                        <img className="ms-2" id="logo" src={search} alt="search" />
-                        <input className="searchinput" type="search" placeholder="Search" />
-                    </div>
+                    <Search doSearch={doSearch}/>
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
                     <img src={darkmode} />

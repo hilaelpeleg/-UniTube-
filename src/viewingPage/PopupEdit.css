@@ -14,3 +14,22 @@
 .modal.show .modal-dialog {
     opacity: 1;  /* Fade to visible */
 }
+
+
+.modal-dialog {
+    max-width: 90%; 
+    width: 90%;     
+    max-height: 80vh; 
+    height: 80vh;  
+}
+
+.modal-content {
+    width: 60%;
+    height: 85%;
+}
+
+.wrapperEdit {
+    display: grid;
+    place-items: center;
+
+}

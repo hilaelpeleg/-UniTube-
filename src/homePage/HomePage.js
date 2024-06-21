@@ -3,12 +3,12 @@ import './HomePage.css'
 import LeftMenu from './LeftMenu'
 import React from 'react';
 
-function HomePage({ userLogin, videoList}) {
+function HomePage({setVideoList, userLogin, videoList}) {
        return (
         <div className="container-fluid ">
             <div className="row">   
                 <div className="col-3 height">
-                    <LeftMenu userLogin={userLogin} />
+                    <LeftMenu videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">

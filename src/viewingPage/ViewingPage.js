@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
-const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
+const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
+    const [updateTrigger, setUpdateTrigger] = useState(false);
+
 
     const video = videoList.find(v => v.id === parseInt(videoId));
     useEffect(() => {
@@ -19,7 +21,7 @@ const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
             setLike(video.likes);
             setCommentsList(video.comments || []);
         }
-    }, [video])
+    }, [video, updateTrigger])
 
     const handleLoadedMetadata = (event) => {
         const videoDuration = event.target.duration;
@@ -75,14 +77,14 @@ const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu userLogin={userLogin}/>
+                    <LeftMenu userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-8 ">
                     <div className="cardV" >
                         <h1>{video.title}</h1>
-                        <video className="card-img-top" key={video.id} controls onLoadedMetadata={handleLoadedMetadata}>
+                        <video className="card-img-top" key={video.url} controls onLoadedMetadata={handleLoadedMetadata}>
                             <source src={video.url} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -95,9 +97,11 @@ const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
                             </div>
-                            <RowButtons userLogin={userLogin} like={like} updateLikes={updateLikes} videoid={video.id}
-                                setVideoList={setVideoList} videoList={videoList} 
-                                isLike={!!likedVideos[video.id]} 
+                            <RowButtons setUpdateTrigger={setUpdateTrigger}
+                                userLogin={userLogin} like={like} updateLikes={updateLikes}
+                                videoId={video.id}
+                                setVideoList={setVideoList} videoList={videoList}
+                                isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments commentsList={commentsList} addComment={addComment}
                                 video={video} />

@@ -13,7 +13,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     const [inputVideoFields, setInputVideoFields] = useState({
         "id": 0,
         "title": "",
-        "description": "",
+        "": "",
         "url": "",
         "thumbnailUrl": "",
         "uploader": userLogin ? userLogin.userName : "",

@@ -2,32 +2,24 @@ import Video from '../addvideo/Video';
 import { useState, useEffect } from 'react';
 import TextInput from '../register/TextInput';
 import VideoImg from '../addvideo/VideoImg';
-import './EditVideo.css'
+import './EditVideo.css';
 import UpdateButton from './UpdateButton';
 
 
-function EditVideo({ setVideoList, videoId, videoList }) {
+function EditVideo({ handleClose, setVideoList, videoId, videoList,setUpdateTrigger }) {
     const video = videoList.find(v => v.id === parseInt(videoId));
 
-    const [submittingEdit, setSubmittingEdit] = useState(false);
-    const [formErrorsVideo, setFormErrorsVideo] = useState({});
-    const [updateVideoFields, setUpdateVideoFields] = useState({
-        title: "",
-        description: "",
-        url: "",
-        thumbnailUrl: "",
-    });
-
     useEffect(() => {
-        if (video) {
-            setUpdateVideoFields({
-                title: video.title,
-                description: video.description,
-                url: video.url,
-                thumbnailUrl: video.thumbnailUrl,
-            });
-        }
+        console.log("Video found: ", video);
     }, [video]);
+
+    const [submittingEdit, setSubmittingEdit] = useState(false);
+    const [updateVideoFields, setUpdateVideoFields] = useState({
+        title: video ? video.title : "",
+        description: video ? video.description : "",
+        url: video ? video.url : "",
+        thumbnailUrl: video ? video.thumbnailUrl : "",
+    });
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
@@ -38,32 +30,26 @@ function EditVideo({ setVideoList, videoId, videoList }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const errors = validateEdit(updateVideoFields);
-        setFormErrorsVideo(errors);
-        if (Object.keys(errors).length === 0) {
-            setSubmittingEdit(true);
-            updateEdit(videoId);
+        if (!video) {
+            console.error("Video not found");
+            return;
         }
-    };
-
-    const validateEdit = (fields) => {
-        const errors = {};
-        if (!fields.title) {
-            errors.title = "Title is required!";
-        }
-        if (!fields.description) {
-            errors.description = "Description is required!";
-        }
-        if (!fields.url) {
-            errors.url = "Video is required!";
-        }
-        if (!fields.thumbnailUrl) {
-            errors.thumbnailUrl = "Thumbnail is required!";
-        }
-        return errors;
+        setSubmittingEdit(true);
+        updateEdit(videoId);
+        handleClose();
+        setUpdateTrigger(prev => !prev);
     };
 
     const updateEdit = (id) => {
+        // Log the current state of updateVideoFields
+        console.log("Updating video with fields: ", updateVideoFields);
+
+        if (!updateVideoFields.title || !updateVideoFields.description || !updateVideoFields.url || !updateVideoFields.thumbnailUrl) {
+            console.error("Update fields are incomplete");
+            setSubmittingEdit(false);
+            return;
+        }
+
         const updatedVideoList = videoList.map(video =>
             video.id === id ? {
                 ...video,
@@ -73,8 +59,11 @@ function EditVideo({ setVideoList, videoId, videoList }) {
                 thumbnailUrl: updateVideoFields.thumbnailUrl instanceof File ? URL.createObjectURL(updateVideoFields.thumbnailUrl) : updateVideoFields.thumbnailUrl,
             } : video
         );
+
         setVideoList(updatedVideoList);
         setSubmittingEdit(false);
+
+        console.log("Updated Video List: ", updatedVideoList);
     };
 
     return (
@@ -82,10 +71,10 @@ function EditVideo({ setVideoList, videoId, videoList }) {
             <div className="card custom-card-width container">
                 <div className="card-body">
                     <div className="row">
-                        <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
-                        <VideoImg name="thumbnailUrl" onChange={handleChange} errors={formErrorsVideo.thumbnailUrl} />
-                        <TextInput name="title" kind="title" value={updateVideoFields.title} onChange={handleChange} errors={formErrorsVideo.title} />
-                        <TextInput name="description" kind="description" value={updateVideoFields.description} onChange={handleChange} errors={formErrorsVideo.description} />
+                        <Video name="url" onChange={handleChange} />
+                        <VideoImg name="thumbnailUrl" onChange={handleChange} />
+                        <TextInput name="title" kind="title" value={updateVideoFields.title} onChange={handleChange} />
+                        <TextInput name="description" kind="description" value={updateVideoFields.description} onChange={handleChange} />
                     </div>
                 </div>
                 <div className="list-group list-group-flush">
