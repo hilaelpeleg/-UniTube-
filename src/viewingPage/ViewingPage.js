@@ -13,8 +13,7 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
     const [updateTrigger, setUpdateTrigger] = useState(false);
-
-
+    
     const video = videoList.find(v => v.id === parseInt(videoId));
     useEffect(() => {
         if (video) {
@@ -77,7 +76,7 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu userLogin={userLogin} />
+                    <LeftMenu videoList={videoList} setVideoList={setVideoList}userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">

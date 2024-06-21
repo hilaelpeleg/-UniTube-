@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import search from './svg icons/search.svg';
 
-function Search(doSearch) {
+function Search({doSearch}) {
 
     const searchBox = useRef(null);
 
@@ -12,7 +12,7 @@ function Search(doSearch) {
     return (
         <div className="search">
             <img className="ms-2" id="logo" src={search} alt="search" />
-            <input ref={searchBox} onKeyUp={searchfunc} className="searchinput" type="search" placeholder="Search" />
+            <input ref={searchBox} onChange={searchfunc}  onKeyUp={searchfunc} className="searchinput" type="search" placeholder="Search" />
         </div>
     );
 

@@ -11,12 +11,26 @@ import './LeftMenu.css';
 import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
 import Search from './Search';
+import React, { useEffect, useState } from 'react';
+
 
 function LeftMenu({ videoList, setVideoList, userLogin }) {
+    
+    const [originalVideoList, setOriginalVideoList] = useState([]);
 
-    const doSearch = function (input) {
-        setVideoList(videoList.filter((video) => video.title.includes(input)))
-    }
+    useEffect(() => {
+        if (originalVideoList.length === 0) {
+            setOriginalVideoList(videoList);
+        }
+    }, [videoList]);
+
+    const doSearch = (input) => {
+        if (input.trim() === "") {
+            setVideoList(originalVideoList);
+        } else {
+            setVideoList(originalVideoList.filter((video) => video.title.toLowerCase().includes(input.toLowerCase())));
+        }
+    };
 
     const navigate = useNavigate();
     return (
