@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
           <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
-          <Route path="/HomePage" element={<HomePage userList={userList} 
+          <Route path="/" element={<HomePage userList={userList} 
           videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />

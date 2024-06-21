@@ -17,7 +17,7 @@ function LogIn({ userList, setUserLogin }) {
         const user = userList.find(user => user.userName === userName && user.password === password);
         if (user) {
             setUserLogin({ userName: userName, password: password });
-            navigate('/HomePage');
+            navigate('/');
         } else {
             setError("Invalid username or password");
         }

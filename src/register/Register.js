@@ -36,6 +36,9 @@ function Register({ userList, setUserList }) {
         if (!inputFields.userName) {
             errors.userName = "user name is required!";
         }
+        if(userList.find(user => user.userName == inputFields.userName)){
+            errors.userName ="the username is already taken";
+        }
         if (!inputFields.firstName) {
             errors.firstName = "first name is required!";
         }
