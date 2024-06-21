@@ -10,7 +10,6 @@ function VideoItems({videoList, colWidth}) {
     const handleVideoClick = (video) => {
         navigate(`/viewing/${video.id}`);    };
 
-
     return (
         <div className="row gx-3">
             {videoList.map(video => (

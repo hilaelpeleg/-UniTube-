@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from './svg icons/logo.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
@@ -9,42 +11,36 @@ import switchAccount from './svg icons/switch account.svg';
 import setting from './svg icons/setting.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
-import { useNavigate } from 'react-router-dom';
 import Search from './Search';
-import React, { useEffect, useState } from 'react';
 
-
-function LeftMenu({ videoList, setVideoList, userLogin }) {
-    
-    const [originalVideoList, setOriginalVideoList] = useState([]);
-
-    useEffect(() => {
-        if (originalVideoList.length === 0) {
-            setOriginalVideoList(videoList);
+function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList }) {
+ const doSearch = (input) => {
+        if (!originalVideoList) {
+            return;
         }
-    }, [videoList]);
 
-    const doSearch = (input) => {
         if (input.trim() === "") {
-            setVideoList(originalVideoList);
+            setFilteredVideoList(originalVideoList);
         } else {
-            setVideoList(originalVideoList.filter((video) => video.title.toLowerCase().includes(input.toLowerCase())));
+            setFilteredVideoList(originalVideoList.filter(video =>
+                (!videoId || video.id !== parseInt(videoId)) && video.title.toLowerCase().includes(input.toLowerCase())
+            ));
         }
     };
 
     const navigate = useNavigate();
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
-            <div className="container-fluid ">
+            <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
-                <form className="ms-auto ">
-                    <Search doSearch={doSearch}/>
+                <form className="ms-auto">
+                    <Search doSearch={doSearch} />
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
-                    <img src={darkmode} />
+                    <img src={darkmode} alt="Dark mode toggle" />
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
@@ -59,7 +55,7 @@ function LeftMenu({ videoList, setVideoList, userLogin }) {
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={home} text="Home" />
                             </li>
-                            {userLogin && userLogin.userName && ( // Conditional rendering based on userLogin
+                            {userLogin && userLogin.userName && (
                                 <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                     <NavItem src={addVideo} text="Add Video" />
                                 </li>
@@ -76,12 +72,12 @@ function LeftMenu({ videoList, setVideoList, userLogin }) {
                             <li className="nav-item" onClick={() => navigate('/HomePage')}>
                                 <NavItem src={setting} text="Setting" />
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
-        </nav>);
+        </nav>
+    );
 }
 
 export default LeftMenu;

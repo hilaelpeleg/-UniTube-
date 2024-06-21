@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
-import './ViewingPage.css'
+import './ViewingPage.css';
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
@@ -13,14 +13,19 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
     const [updateTrigger, setUpdateTrigger] = useState(false);
-    
+    const [filteredVideoList, setFilteredVideoList] = useState(videoList);
+
+    useEffect(() => {
+        setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
+    }, [videoList]);
+
     const video = videoList.find(v => v.id === parseInt(videoId));
     useEffect(() => {
         if (video) {
             setLike(video.likes);
             setCommentsList(video.comments || []);
         }
-    }, [video, updateTrigger])
+    }, [video, updateTrigger]);
 
     const handleLoadedMetadata = (event) => {
         const videoDuration = event.target.duration;
@@ -76,7 +81,10 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu videoList={videoList} setVideoList={setVideoList}userLogin={userLogin} />
+                    <LeftMenu videoId={video.id}
+                        setFilteredVideoList={setFilteredVideoList}
+                        originalVideoList={videoList} // Pass the original list here
+                        userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">
@@ -108,7 +116,7 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
                     </div>
                 </div>
                 <div className="col-4 ">
-                    <VideoItems videoList={videoList} colWidth={"col-12"}
+                    <VideoItems videoList={filteredVideoList} colWidth={"col-12"}
                     />
                 </div>
             </div>
