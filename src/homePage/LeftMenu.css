@@ -54,9 +54,9 @@
     border-radius: 30px; /* More roundness on hover */
 }
 
-.navbar-brand img {
-    margin-right: 80px; /* Adjust space between the image and any following content */
-}
+/* .navbar-brand img {
+    margin-right: 80px; 
+} */
 
 
 .navbar-brand {

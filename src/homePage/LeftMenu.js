@@ -12,9 +12,12 @@ import setting from './svg icons/setting.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
 import Search from './Search';
+import login from './svg icons/login.svg';
+import logout from './svg icons/logout.svg';
+
 
 function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList }) {
- const doSearch = (input) => {
+    const doSearch = (input) => {
         if (!originalVideoList) {
             return;
         }
@@ -29,6 +32,15 @@ function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList 
     };
 
     const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('/logIn');
+    };
+
+    const handleLogout = () => {
+        // Handle the actual logout logic here if needed
+        navigate('/logIn');
+    };
     return (
         <nav className="navbar bg-body-tertiary fixed-top">
             <div className="container-fluid">
@@ -40,7 +52,21 @@ function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList 
                     <Search doSearch={doSearch} />
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
-                    <img src={darkmode} alt="Dark mode toggle" />
+                    {(userLogin.userName === "") && (
+                        <button type="button" onClick={handleLogin} className="btn btn-light">
+                            Log In
+                            <img src={login} alt="Dark mode toggle" />
+                        </button>
+                    )}
+                    {(userLogin.userName !== "") && (
+                        <button type="button" onClick={handleLogout} className="btn btn-light">
+                            Sign Out
+                            <img src={logout} alt="Dark mode toggle" />
+                        </button>
+                    )}
+                    <button type="button" className="btn btn-light">
+                        <img src={darkmode} alt="Dark mode toggle" />
+                    </button>
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
@@ -49,27 +75,27 @@ function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList 
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={account} text="Your Account" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={home} text="Home" />
                             </li>
-                            {userLogin && userLogin.userName && (
+                            {userLogin.userName !== "" && (
                                 <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                     <NavItem src={addVideo} text="Add Video" />
                                 </li>
                             )}
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={history} text="History" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={playlist} text="Playlists" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={switchAccount} text="Switch Account" />
                             </li>
-                            <li className="nav-item" onClick={() => navigate('/HomePage')}>
+                            <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={setting} text="Setting" />
                             </li>
                         </ul>
