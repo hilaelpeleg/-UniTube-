@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css'
@@ -80,7 +80,7 @@ const ViewingPage = ({ videoList, setVideoList,userLogin}) => {
             </div>
             <div className="row">
                 <div className="col-8 ">
-                    <div className="card" >
+                    <div className="cardV" >
                         <h1>{video.title}</h1>
                         <video className="card-img-top" key={video.id} controls onLoadedMetadata={handleLoadedMetadata}>
                             <source src={video.url} type="video/mp4" />

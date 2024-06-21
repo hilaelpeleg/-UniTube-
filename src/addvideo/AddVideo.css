@@ -2,10 +2,6 @@
     display: flex;
 }
 
-.form-control{
-    width: 250px;
-}
-
 
 .wrapper {
     display: grid;

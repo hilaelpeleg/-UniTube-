@@ -1,7 +1,15 @@
 
 .custom-card-width {
-    width: 40rem;
-    } 
+    max-width: 700px;
+}
+
+.cardR{
+    width: 100%; 
+    margin: auto; 
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
 
 .form-label{
     display: flex;
@@ -12,5 +20,3 @@
     place-items: center;
     height: 100vh;
 }
-
-

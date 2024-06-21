@@ -1,7 +1,8 @@
 import React from 'react';
 import './PopupEdit.css';
+import EditVideo from './EditVideo';
 
-function PopupEdit({ show, handleClose }) {
+function PopupEdit({ show, handleClose, videoId,  videoList,setVideoList }) {
     return (
         show ? (
             <>
@@ -9,15 +10,11 @@ function PopupEdit({ show, handleClose }) {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="staticBackdropLabel"> title</h5>
+                                <h5 className="modal-title"> Edit</h5>
                                 <button type="button" className="btn-close" onClick={handleClose}></button>
                             </div>
                             <div className="modal-body">
-                                ...
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleClose}>Close</button>
-                                <button type="button" className="btn btn-primary">Edit vide</button>
+                            <EditVideo setVideoList={setVideoList} videoId={videoId} videoList={videoList}/>
                             </div>
                         </div>
                     </div>

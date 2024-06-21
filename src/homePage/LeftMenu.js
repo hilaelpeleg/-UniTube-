@@ -13,7 +13,6 @@ import NavItem from './NavItem';
 import { useNavigate } from 'react-router-dom';
 
 function LeftMenu({ userLogin }) {
-    console.log(userLogin.userName);
     const navigate = useNavigate();
     return (
         <nav className="navbar bg-body-tertiary fixed-top">

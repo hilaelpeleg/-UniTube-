@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import ButtonRegister from "./ButtonRegister";
 import './Register.css';
 import ProfilePicture from "./ProfilePicture";
 import Username from "./username";
@@ -97,7 +97,7 @@ function Register({ userList, setUserList }) {
     return (
         <div className="wrapper">
         <div className="card custom-card-width container"  >
-            <div className="card-body">
+            <div className="cardR">
                 <h5 className="card-title">Sign up</h5>
                 <div className="row">
                     <ProfilePicture name="profilePicture" onChange={handleChange} />
@@ -114,10 +114,10 @@ function Register({ userList, setUserList }) {
                 <Username name="userName" value={inputFields.userName} onChange={handleChange} error={formErrors.userName} />
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={handleSubmit} value="Sign me up!" />
+                <ButtonRegister onClick={handleSubmit} value="Sign me up!" />
             </div>
             <div id="Login" className="list-group list-group-flush">
-                <Button onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
+                <ButtonRegister onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
             </div>
         </div>
         </div>

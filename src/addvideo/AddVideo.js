@@ -3,9 +3,9 @@ import './AddVideo.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import TextInput from '../register/TextInput';
-import Button from '../button/Button';
+import TextInputVideo from './TextInputVideo';
 import VideoImg from './VideoImg';
+import ButtonAddVideo from './ButtonAddVideo';
 
 function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
@@ -93,14 +93,14 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
                     <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
                     <VideoImg name="thumbnailUrl" onChange={handleChange}
                         errors={formErrorsVideo.thumbnailUrl} />
-                    <TextInput name="title" kind="title" value={inputVideoFields.title}
+                    <TextInputVideo name="title" kind="title" value={inputVideoFields.title}
                         onChange={handleChange} errors={formErrorsVideo.title} />
-                    <TextInput name="description" kind="description" value={inputVideoFields.description}
+                    <TextInputVideo name="description" kind="description" value={inputVideoFields.description}
                         onChange={handleChange} errors={formErrorsVideo.description} />
                 </div>
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={handleSubmit} value="Add video" />
+                <ButtonAddVideo onClick={handleSubmit} value="Add video" />
             </div>
         </div>
         </div>

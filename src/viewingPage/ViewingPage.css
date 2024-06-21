@@ -67,7 +67,7 @@
     color: #333;
 }
 
-.card {
+.cardV {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -11,7 +11,7 @@ import './PopupEdit.css';
 
 
 
-function RowButtons({ videoid, videoList, setVideoList, like, updateLikes, userLogin, isLike,setIsLike }) {
+function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike,setIsLike }) {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -51,7 +51,7 @@ function RowButtons({ videoid, videoList, setVideoList, like, updateLikes, userL
 
     return (
         <div className="row-buttons-container">
-            <PopupEdit show={showModal} handleClose={handleCloseModal} />
+            <PopupEdit setVideoList={setVideoList} videoId={videoId} videoList={ videoList} show={showModal} handleClose={handleCloseModal} />
             <div >
                 <div className="btn-group margin" role="group" aria-label="Basic example">
                     <button onClick={onclickLike} type="button" className="btn btn-light">
@@ -73,7 +73,7 @@ function RowButtons({ videoid, videoList, setVideoList, like, updateLikes, userL
                     </button>
                 )}
                 <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoid)}>Deleting a video</a></li>
+                    <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoId)}>Deleting a video</a></li>
                     <li><hr className="dropdown-divider" /></li>
                     <li><a className="dropdown-item" href="#" onClick={handleEditClick}>Editing a video</a></li>
                 </ul>

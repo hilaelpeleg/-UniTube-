@@ -1,3 +1,10 @@
+.wrapperEdit {
+    display: grid;
+    place-items: center;
+    height: 50vh;
+    width: 100%;
+}
+
 /* Add to your existing PopupEdit.css or a relevant CSS file */
 .modal.fade .modal-dialog {
     transition: opacity 0.3s ease-in-out;
