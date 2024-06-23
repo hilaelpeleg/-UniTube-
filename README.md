@@ -28,9 +28,9 @@ Development: The project utilizes React components for the frontend development,
 
 Styling: CSS is used for styling components, ensuring a user-friendly and visually appealing interface inspired by the real YouTube application.
 
-# Data Handling: Video information is loaded dynamically from a JSON file, which contains at least 10 pre-defined videos. New videos added through the Add New Video screen are stored temporarily for the current session.
+ Data Handling: Video information is loaded dynamically from a JSON file, which contains at least 10 pre-defined videos. New videos added through the Add New Video screen are stored temporarily for the current session.
 
-# User Authentication: Basic authentication is implemented where users can register and login with their credentials. User data is managed within the application without external dependencies like Google accounts.
+User Authentication: Basic authentication is implemented where users can register and login with their credentials. User data is managed within the application without external dependencies like Google accounts.
 
-# Notes
+Notes
 This application is a static prototype and does not feature server communication or persistent data storage. Future iterations may include these functionalities to enable real-time interaction between users and server-side data management.
