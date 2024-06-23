@@ -29,3 +29,7 @@
 .paddingdots{
     padding-bottom: 4.5px;
 }
+
+.comment-text strong {
+    margin-right: 5px; /* Adjust the value as needed */
+}

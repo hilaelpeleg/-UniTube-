@@ -10,7 +10,7 @@ import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
 
 function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike, setUpdateTrigger }) {
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
 
     const deleteVideo = (id) => {
@@ -34,11 +34,11 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
     };
 
     const handleEditClick = () => {
-        setShowModal(true);
+        setshowModal(true);
     };
 
     const handleCloseModal = () => {
-        setShowModal(false);
+        setshowModal(false);
     };
 
     return (

@@ -2,9 +2,12 @@ import './Comments.css';
 import Send from './viewingsvg/sendcomment.svg';
 import React, { useState } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
+import PopupEditComment from './PopupEditComment';
 
-function Comments({ video, commentsList, addComment, userLogin }) {
+
+function Comments({videoList, setVideoList, setCommentsList, videoId, video, commentsList, addComment, userLogin }) {
     const [comment, setComment] = useState("");
+    const [showModal, setshowModal] = useState(false);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -22,8 +25,34 @@ function Comments({ video, commentsList, addComment, userLogin }) {
         }
     };
 
+    const handleEditClick = () => {
+        setshowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setshowModal(false);
+    };
+
+    const deleteComment = (commentId) => {
+        const remainingComments = commentsList.filter(comment => comment.id !== commentId);
+        setCommentsList(remainingComments);
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === parseInt(videoId) ? { ...video, comments: remainingComments } : video
+            )
+        );
+    };
+
     return (
         <div className="comment-section">
+            <PopupEditComment
+                setVideoList={setVideoList}
+                videoId={videoId}
+                videoList={videoList}
+                show={showModal}
+                handleClose={handleCloseModal}
+                setComment={setCommentsList}
+            />
             <div className="new-comment">
                 <div className="comment-text">
                     <img className="profile-pic" src={video.profilePicture} />
@@ -46,9 +75,9 @@ function Comments({ video, commentsList, addComment, userLogin }) {
                                     <img className="paddingdots" src={dotsvertical} />
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Deleting a comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => deleteVideo(videoId)}  href="#">Deleting a comment</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">Edit comment</a></li>
+                                    <li><a className="dropdown-item" onClick={handleEditClick} href="#">Edit a comment</a></li>
                                 </ul>
                             </div>
                         )}

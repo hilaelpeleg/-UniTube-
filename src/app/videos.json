@@ -9,61 +9,73 @@
     "likes": 400,
     "comments": [
       {
+        "id": 1,
         "profilePicture": "/profiles/ofir.png",
         "name": "Ofir Benesh",
         "text": "amazing!!"
       },
       {
+        "id": 2,
         "profilePicture": "/profiles/tal.png",
         "name": "Tal Ariel ziv",
         "text": "Who's here in 2024?🩵"
       },
       {
+        "id": 3,
         "profilePicture": "/profiles/sahar.png",
         "name": "Sahar Friedman",
         "text": "Can’t believe this was 3 years ago! U grew so  much!SO PROUD OF U OLIVIA😍💪🏻"
       },
       {
+        "id": 4,
         "profilePicture": "/profiles/michal.png",
         "name": "Michal Bledi",
         "text": "woww i love it!! 💘"
       },
       {
+        "id": 5,
         "profilePicture": "/profiles/hila.png",
         "name": "Hila El peleg",
         "text": "Listening on repeat! ❤️"
       },
       {
+        "id": 6,
         "profilePicture": "/profiles/orel.png",
         "name": "Orel Shai",
         "text": "this song rocks"
       },
       {
+        "id": 7,
         "profilePicture": "/profiles/lihi.png",
         "name": "Lihi Amir",
         "text": "🥇🥇🥇🥇"
       },
       {
+        "id": 8,
         "profilePicture": "/profiles/ben.png",
         "name": "Ben Davidian",
         "text": "iconic 👑"
       },
       {
+        "id": 9,
         "profilePicture": "/profiles/ilanit.png",
         "name": "Ilanit Berditchevski",
         "text": "Omg me I love this song soooooo much"
       },
       {
+        "id": 10,
         "profilePicture": "/profiles/nimrod.png",
         "name": "Nimrod Netzer",
         "text": "good song"
       },
       {
+        "id": 11,
         "profilePicture": "/profiles/ron.png",
         "name": "Ron Solomon",
         "text": "My favorite song🩷"
       },
       {
+        "id": 12,
         "profilePicture": "/profiles/shalev.png",
         "name": "Shalev Golan",
         "text": "👏🏻👏🏻"
@@ -83,61 +95,73 @@
     "likes": 900,
     "comments": [
       {
+        "id": 1,
         "profilePicture": "/profiles/ofir.png",
         "name": "Ofir Benesh",
         "text": "This song is a masterpiece! 🔥"
       },
       {
+        "id": 2,
         "profilePicture": "/profiles/tal.png",
         "name": "Tal Ariel ziv",
         "text": "Still loving this in 2024! 🩵"
       },
       {
+        "id": 3,
         "profilePicture": "/profiles/sahar.png",
         "name": "Sahar Friedman",
         "text": "The lyrics hit so deep, amazing work!"
       },
       {
+        "id": 4,
         "profilePicture": "/profiles/michal.png",
         "name": "Michal Bledi",
         "text": "This song gives me chills every time 💘"
       },
       {
+        "id": 5,
         "profilePicture": "/profiles/hila.png",
         "name": "Hila El peleg",
         "text": "Listening to this on repeat, can't get enough! ❤️"
       },
       {
+        "id": 6,
         "profilePicture": "/profiles/orel.png",
         "name": "Orel Shai",
         "text": "Such powerful vocals, wow!"
       },
       {
+        "id": 7,
         "profilePicture": "/profiles/lihi.png",
         "name": "Lihi Amir",
         "text": "This deserves a Grammy 🥇"
       },
       {
+        "id": 8,
         "profilePicture": "/profiles/ben.png",
         "name": "Ben Davidian",
         "text": "Absolutely iconic 👑"
       },
       {
+        "id": 9,
         "profilePicture": "/profiles/ilanit.png",
         "name": "Ilanit Berditchevski",
         "text": "I can't stop singing this!"
       },
       {
+        "id": 10,
         "profilePicture": "/profiles/nimrod.png",
         "name": "Nimrod Netzer",
         "text": "On my playlist for sure!"
       },
       {
+        "id": 11,
         "profilePicture": "/profiles/ron.png",
         "name": "Ron Solomon",
         "text": "My new favorite song 🩷"
       },
       {
+        "id": 12,
         "profilePicture": "/profiles/shalev.png",
         "name": "Shalev Golan",
         "text": "👏🏻👏🏻 Incredible performance!"
@@ -157,61 +181,73 @@
     "likes": 4700,
     "comments": [
       {
+        "id": 1,
         "profilePicture": "/profiles/ofir.png",
         "name": "Ofir Benesh",
         "text": "Her voice is so mesmerizing!"
       },
       {
+        "id": 2,
         "profilePicture": "/profiles/tal.png",
         "name": "Tal Ariel ziv",
         "text": "Lizzy's music never disappoints 💙"
       },
       {
+        "id": 3,
         "profilePicture": "/profiles/sahar.png",
         "name": "Sahar Friedman",
         "text": "This song is pure magic!"
       },
       {
+        "id": 4,
         "profilePicture": "/profiles/michal.png",
         "name": "Michal Bledi",
         "text": "Such a beautiful melody 💖"
       },
       {
+        "id": 5,
         "profilePicture": "/profiles/hila.png",
         "name": "Hila El peleg",
         "text": "I've had this on repeat all day!"
       },
       {
+        "id": 6,
         "profilePicture": "/profiles/orel.png",
         "name": "Orel Shai",
         "text": "Her lyrics always touch my heart"
       },
       {
+        "id": 7,
         "profilePicture": "/profiles/lihi.png",
         "name": "Lihi Amir",
         "text": "This song is so soothing 🥇"
       },
       {
+        "id": 8,
         "profilePicture": "/profiles/ben.png",
         "name": "Ben Davidian",
         "text": "Lizzy's voice is angelic 👑"
       },
       {
+        "id": 9,
         "profilePicture": "/profiles/ilanit.png",
         "name": "Ilanit Berditchevski",
         "text": "I'm in love with this track!"
       },
       {
+        "id": 10,
         "profilePicture": "/profiles/nimrod.png",
         "name": "Nimrod Netzer",
         "text": "Another masterpiece from Lizzy"
       },
       {
+        "id": 11,
         "profilePicture": "/profiles/ron.png",
         "name": "Ron Solomon",
         "text": "This song is everything! 🩷"
       },
       {
+        "id": 12,
         "profilePicture": "/profiles/shalev.png",
         "name": "Shalev Golan",
         "text": "👏🏻👏🏻 Outstanding!"
@@ -231,61 +267,73 @@
     "likes": 14000,
     "comments": [
       {
+        "id": 1,
         "profilePicture": "/profiles/lihi.png",
         "name": "Lihi Amir",
         "text": "Her voice is so soothing 🥇"
       },
       {
+        "id": 2,
         "profilePicture": "/profiles/ben.png",
         "name": "Ben Davidian",
         "text": "Another amazing song by Tate 👑"
       },
       {
+        "id": 3,
         "profilePicture": "/profiles/ilanit.png",
         "name": "Ilanit Berditchevski",
         "text": "I can't stop listening to this!"
       },
       {
+        "id": 4,
         "profilePicture": "/profiles/nimrod.png",
         "name": "Nimrod Netzer",
         "text": "This song is so heartfelt"
       },
       {
+        "id": 5,
         "profilePicture": "/profiles/ron.png",
         "name": "Ron Solomon",
         "text": "This is why I love Tate's music 🩷"
       },
       {
+        "id": 6,
         "profilePicture": "/profiles/ofir.png",
         "name": "Ofir Benesh",
         "text": "Tate's talent is truly unmatched!"
       },
       {
+        "id": 7,
         "profilePicture": "/profiles/tal.png",
         "name": "Tal Ariel Ziv",
         "text": "This song is giving me chills!"
       },
       {
+        "id": 8,
         "profilePicture": "/profiles/sahar.png",
         "name": "Sahar Friedman",
         "text": "Her voice is so powerful and emotional"
       },
       {
+        "id": 9,
         "profilePicture": "/profiles/michal.png",
         "name": "Michal Bledi",
         "text": "The lyrics are so deep 💘"
       },
       {
+        "id": 10,
         "profilePicture": "/profiles/hila.png",
         "name": "Hila El Peleg",
         "text": "I was waiting for this song to drop!"
       },
       {
+        "id": 11,
         "profilePicture": "/profiles/orel.png",
         "name": "Orel Shai",
         "text": "Tate's songs always hit home"
       },
       {
+        "id": 12,
         "profilePicture": "/profiles/shalev.png",
         "name": "Shalev Golan",
         "text": "👏🏻👏🏻 Incredible performance!"
@@ -305,66 +353,78 @@
     "likes": 600,
     "comments": [
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "wowwwwwwwwwwwwwwwwwwwwww!"
+        "id": 1,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "wowwwwwwwwwwwwwwwwwwwwww!"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa Kirel never disappoints!"
+        "id": 2,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa Kirel never disappoints!"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "This song makes me want to dance 👑"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "This song makes me want to dance 👑"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Her energy is unmatched 🥇"
+        "id": 4,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Her energy is unmatched 🥇"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Can't get enough of this track!"
+        "id": 5,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Can't get enough of this track!"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Noa's vocals are amazing!"
+        "id": 6,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Noa's vocals are amazing!"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "This song is on repeat!"
+        "id": 7,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "This song is on repeat!"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "Love the vibe of this song 💘"
+        "id": 8,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "Love the vibe of this song 💘"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "This is a banger!"
+        "id": 9,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "This is a banger!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Noa Kirel is a superstar 🩷"
+        "id": 10,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Noa Kirel is a superstar 🩷"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "The rhythm is so infectious!"
+        "id": 11,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "The rhythm is so infectious!"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "👏🏻👏🏻 Can't stop moving to this!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "👏🏻👏🏻 Can't stop moving to this!"
       }
-  ],
+    ],
     "uploadDate": "2024-06-15",
     "duration": "3:25",
     "profilePicture": "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg"
@@ -379,66 +439,78 @@
     "likes": 700,
     "comments": [
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "Noa's style is so unique!"
+        "id": 1,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "Noa's style is so unique!"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "This song is daring and bold!"
+        "id": 2,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "This song is daring and bold!"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Noa Kirel always surprises us 👑"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Noa Kirel always surprises us 👑"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Love the confidence in this track 🥇"
+        "id": 4,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Love the confidence in this track 🥇"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Provocativit is such a powerful song!"
+        "id": 5,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Provocativit is such a powerful song!"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Noa's vocals are on point!"
+        "id": 6,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Noa's vocals are on point!"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "The beat is so addictive!"
+        "id": 7,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "The beat is so addictive!"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Can't stop listening to this!"
+        "id": 8,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Can't stop listening to this!"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Noa Kirel's best song yet!"
+        "id": 9,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Noa Kirel's best song yet!"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "This song is fire!"
+        "id": 10,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "This song is fire!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Noa's talent shines through 🩷"
+        "id": 11,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Noa's talent shines through 🩷"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "👏🏻👏🏻 Incredible energy in this track!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "👏🏻👏🏻 Incredible energy in this track!"
       }
-  ],
+    ],
     "uploadDate": "2024-06-17",
     "duration": "4:05",
     "profilePicture": "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg"
@@ -453,66 +525,78 @@
     "likes": 2500,
     "comments": [
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Benson Boone's voice is mesmerizing!"
+        "id": 1,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Benson Boone's voice is mesmerizing!"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "This song speaks to my heart 💖"
+        "id": 2,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "This song speaks to my heart 💖"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Such a beautiful melody!"
+        "id": 3,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Such a beautiful melody!"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "Benson Boone's lyrics are so poetic"
+        "id": 4,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "Benson Boone's lyrics are so poetic"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Absolutely love this song!"
+        "id": 5,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Absolutely love this song!"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "Listening to this on repeat 😍"
+        "id": 6,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "Listening to this on repeat 😍"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Benson Boone's talent shines through 🌟"
+        "id": 7,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Benson Boone's talent shines through 🌟"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "This song brings peace to my soul"
+        "id": 8,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "This song brings peace to my soul"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Beautiful Things is such an uplifting song!"
+        "id": 9,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Beautiful Things is such an uplifting song!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Benson Boone's music is pure art 🎨"
+        "id": 10,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Benson Boone's music is pure art 🎨"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "This song is touching hearts everywhere 👑"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "This song is touching hearts everywhere 👑"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Incredible vibes in Beautiful Things!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Incredible vibes in Beautiful Things!"
       }
-  ],
+    ],
     "uploadDate": "2024-01-16",
     "duration": "3:28",
     "profilePicture": "https://yt3.ggpht.com/g0RUvHJKwF9mxKIjRSVTiyVEySjlEAuWV5KhFllyK_Q83KsRTVuTqICPOe47TW70eq0HSmtT=s48-c-k-c0x00ffffff-no-rj"
@@ -527,66 +611,78 @@
     "likes": 800,
     "comments": [
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Miley's voice is so powerful in this song!"
+        "id": 1,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Miley's voice is so powerful in this song!"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "This song hits deep, every time 🎶"
+        "id": 2,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "This song hits deep, every time 🎶"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Angels Like You is my anthem 💖"
+        "id": 3,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Angels Like You is my anthem 💖"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "Miley's emotion in this song is incredible"
+        "id": 4,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "Miley's emotion in this song is incredible"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "On repeat all day, every day"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "On repeat all day, every day"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Miley's vocals give me chills 🌟"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Miley's vocals give me chills 🌟"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Angels Like You is a masterpiece!"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Angels Like You is a masterpiece!"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Can't get enough of this song!"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Can't get enough of this song!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Miley's music speaks to my soul 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Miley's music speaks to my soul 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "This song is everything 💕"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "This song is everything 💕"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Angels Like You deserves all the praise 👏🏻"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Angels Like You deserves all the praise 👏🏻"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Such a powerful ballad by Miley!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Such a powerful ballad by Miley!"
       }
-  ],
+    ],
     "uploadDate": "2021-10-06",
     "duration": "3:33",
     "profilePicture": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSXNHhN0yy1nzNiCPMjXohOmqX8hrt3nJ26iA101Yx6DKsFvZOZ"
@@ -601,64 +697,76 @@
     "likes": 900,
     "comments": [
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa's energy is contagious in this song!"
+        "id": 1,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa's energy is contagious in this song!"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Paamon is my new favorite track! 🎶"
+        "id": 2,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Paamon is my new favorite track! 🎶"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "This song makes me want to dance all night 💃"
+        "id": 3,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "This song makes me want to dance all night 💃"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "Noa's performance in Paamon is top-notch"
+        "id": 4,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "Noa's performance in Paamon is top-notch"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "Can't stop listening to Paamon, it's so catchy!"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "Can't stop listening to Paamon, it's so catchy!"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Noa Kirel always delivers, and Paamon is no exception 🌟"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Noa Kirel always delivers, and Paamon is no exception 🌟"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Paamon is a true banger!"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Paamon is a true banger!"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "This song is on repeat for me!"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "This song is on repeat for me!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Noa's voice is amazing in Paamon 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Noa's voice is amazing in Paamon 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "Paamon is everything I needed in a song 💕"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "Paamon is everything I needed in a song 💕"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Noa Kirel's Paamon is pure gold 👏🏻"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Noa Kirel's Paamon is pure gold 👏🏻"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Such a fantastic track by Noa!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Such a fantastic track by Noa!"
       }
     ],
     "uploadDate": "2024-06-20",
@@ -675,64 +783,76 @@
     "likes": 750,
     "comments": [
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa's style in DEJA VU is unmatched!"
+        "id": 1,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa's style in DEJA VU is unmatched!"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "DEJA VU is an instant hit! 🎶"
+        "id": 2,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "DEJA VU is an instant hit! 🎶"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "This song is on another level 💖"
+        "id": 3,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "This song is on another level 💖"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "Noa's talent shines through in DEJA VU"
+        "id": 4,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "Noa's talent shines through in DEJA VU"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "Can't get DEJA VU out of my head!"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "Can't get DEJA VU out of my head!"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Noa Kirel's DEJA VU is a masterpiece 🌟"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Noa Kirel's DEJA VU is a masterpiece 🌟"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "DEJA VU is pure magic!"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "DEJA VU is pure magic!"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "This song just makes my day every time!"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "This song just makes my day every time!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Noa's vocals are incredible in DEJA VU 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Noa's vocals are incredible in DEJA VU 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "DEJA VU is everything I love about Noa 💕"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "DEJA VU is everything I love about Noa 💕"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Noa Kirel nailed it with DEJA VU 👏🏻"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Noa Kirel nailed it with DEJA VU 👏🏻"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Such an addictive song by Noa!"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Such an addictive song by Noa!"
       }
     ],
     "uploadDate": "2024-06-16",
@@ -749,64 +869,76 @@
     "likes": 750,
     "comments": [
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "This song never gets old! 🎶"
+        "id": 1,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "This song never gets old! 🎶"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Lionel Richie is a legend, and this song is proof!"
+        "id": 2,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Lionel Richie is a legend, and this song is proof!"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "All Night Long is the ultimate feel-good anthem 💃"
+        "id": 3,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "All Night Long is the ultimate feel-good anthem 💃"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "The groove in this song is timeless!"
+        "id": 4,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "The groove in this song is timeless!"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "I dare you not to dance when this song plays!"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "I dare you not to dance when this song plays!"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Lionel's voice is pure magic in All Night Long 🌟"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Lionel's voice is pure magic in All Night Long 🌟"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "This song is a mood lifter, every single time!"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "This song is a mood lifter, every single time!"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "All Night Long brings back so many good memories!"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "All Night Long brings back so many good memories!"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "The energy of this song is contagious! 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "The energy of this song is contagious! 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "All Night Long is the definition of a classic hit 💕"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "All Night Long is the definition of a classic hit 💕"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Lionel Richie knows how to make a hit that lasts!"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Lionel Richie knows how to make a hit that lasts!"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "This song makes me want to dance all night long! 👏🏻"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "This song makes me want to dance all night long! 👏🏻"
       }
     ],
     "uploadDate": "2012-10-04",
@@ -823,64 +955,76 @@
     "likes": 1000,
     "comments": [
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "שיר קסום! 🦄🎶"
+        "id": 1,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "שיר קסום! 🦄🎶"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa מדהימה! 🌟"
+        "id": 2,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa מדהימה! 🌟"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "פשוט מושלם! 👏"
+        "id": 3,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "פשוט מושלם! 👏"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "שיר מקפיץ! 💃"
+        "id": 4,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "שיר מקפיץ! 💃"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "בלתי נשכח! 🦄"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "בלתי נשכח! 🦄"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "קסם אמיתי! ✨"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "קסם אמיתי! ✨"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "מדהים! 🎉"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "מדהים! 🎉"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "אהבתי כל רגע! 💖"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "אהבתי כל רגע! 💖"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "שיר פנטסטי! 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "שיר פנטסטי! 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "שיר חלומי! 🦄"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "שיר חלומי! 🦄"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Noa מעולה! 👏🏻"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Noa מעולה! 👏🏻"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "פשוט וואו! 🌟"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "פשוט וואו! 🌟"
       }
     ],
     "uploadDate": "2024-06-11",
@@ -897,64 +1041,76 @@
     "likes": 14000,
     "comments": [
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "שיר נוגע ללב! 💔"
+        "id": 1,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "שיר נוגע ללב! 💔"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Una canción hermosa! 🎶"
+        "id": 2,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Una canción hermosa! 🎶"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "Beautiful song! 🌟"
+        "id": 3,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "Beautiful song! 🌟"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Una canción impresionante! 💖"
+        "id": 4,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Una canción impresionante! 💖"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "פשוט מושלם! 🌹"
+        "id": 5,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "פשוט מושלם! 🌹"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "Magnifique! ✨"
+        "id": 6,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "Magnifique! ✨"
       },
       {
-          "profilePicture": "/profiles/ofir.png",
-          "name": "Ofir Benesh",
-          "text": "Me encanta esta canción! 🎉"
+        "id": 7,
+        "profilePicture": "/profiles/ofir.png",
+        "name": "Ofir Benesh",
+        "text": "Me encanta esta canción! 🎉"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Ein wunderschönes Lied! 💖"
+        "id": 8,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Ein wunderschönes Lied! 💖"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Una canción atemporal! 🎵"
+        "id": 9,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Una canción atemporal! 🎵"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "שיר יפהפה! 🦄"
+        "id": 10,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "שיר יפהפה! 🦄"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Great song! 👏🏻"
+        "id": 11,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Great song! 👏🏻"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Canzone meravigliosa! 🌟"
+        "id": 12,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Canzone meravigliosa! 🌟"
       }
     ],
     "uploadDate": "2003-02-02",
@@ -971,58 +1127,70 @@
     "likes": 850,
     "comments": [
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "¡Esta canción es un fuego! 🔥"
+        "id": 1,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "¡Esta canción es un fuego! 🔥"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "שיר מושלם! ✨"
+        "id": 2,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "שיר מושלם! ✨"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "text": "Noa's got the groove! 🕺"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Noa's got the groove! 🕺"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Trop drôle! 😂 🇫🇷"
+        "id": 4,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Trop drôle! 😂 🇫🇷"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "Un hit incredibile! 🎶"
+        "id": 5,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "Un hit incredibile! 🎶"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "No puedo dejar de bailar! 💃 🇲🇽"
+        "id": 6,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "No puedo dejar de bailar! 💃 🇲🇽"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Šíleně chytlavá píseň! 🎵"
+        "id": 7,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Šíleně chytlavá píseň! 🎵"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Det her er en banger! 🔥 🇩🇰"
+        "id": 8,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Det her er en banger! 🔥 🇩🇰"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "כיף של שיר! 🌟"
+        "id": 9,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "כיף של שיר! 🌟"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "I'm hooked! 🎧"
+        "id": 10,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "I'm hooked! 🎧"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "Pura diversión! 😊"
+        "id": 11,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "Pura diversión! 😊"
       }
     ],
     "uploadDate": "2024-06-12",
@@ -1039,59 +1207,70 @@
     "likes": 500,
     "comments": [
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "This song is a true banger! 🔥"
+        "id": 1,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "This song is a true banger! 🔥"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "שיר שכולו אנרגיה וכיף! 🌟"
+        "id": 2,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "שיר שכולו אנרגיה וכיף! 🌟"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "Can't stop listening to this hit! 🎧"
+        "id": 3,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "Can't stop listening to this hit! 🎧"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa פשוט מדהימה עם השיר הזה! 💖"
+        "id": 4,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa פשוט מדהימה עם השיר הזה! 💖"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "שיר מושלם לרקוד אליו! 💃"
+        "id": 5,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "שיר מושלם לרקוד אליו! 💃"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Tellement addictif! 😍 🇫🇷"
+        "id": 6,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Tellement addictif! 😍 🇫🇷"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "כל פעם שאני שומעת את זה אני מתמלאת שמחה! 😊"
+        "id": 7,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "כל פעם שאני שומעת את זה אני מתמלאת שמחה! 😊"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "This song is fire! 🔥"
+        "id": 8,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "This song is fire! 🔥"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Det her er fantastisk! 🇩🇰"
+        "id": 9,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Det her er fantastisk! 🇩🇰"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "נעה כל כך מוכשרת! 👏"
+        "id": 10,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "נעה כל כך מוכשרת! 👏"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "מושלם! 👌"
+        "id": 11,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "מושלם! 👌"
       }
     ],
     "uploadDate": "2024-06-14",
@@ -1108,59 +1287,70 @@
     "likes": 800,
     "comments": [
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "This song is shining bright like bling! 💎"
+        "id": 1,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "This song is shining bright like bling! 💎"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "נעה זוהרת כמו היהלום הזה! ✨"
+        "id": 2,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "נעה זוהרת כמו היהלום הזה! ✨"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Can't get enough of the bling bling vibes! 🎶"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Can't get enough of the bling bling vibes! 🎶"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "BLING BLING זה פשוט להיט! 💖"
+        "id": 4,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "BLING BLING זה פשוט להיט! 💖"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "שיר שכל כולו יוקרה ונצנוץ! 🌟"
+        "id": 5,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "שיר שכל כולו יוקרה ונצנוץ! 🌟"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "נעה פשוט מלכה! 👑"
+        "id": 6,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "נעה פשוט מלכה! 👑"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "BLING BLING הוא השיר הכי טוב שלה עד כה! 🎤"
+        "id": 7,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "BLING BLING הוא השיר הכי טוב שלה עד כה! 🎤"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "Noa's got the bling bling going on! 💎"
+        "id": 8,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "Noa's got the bling bling going on! 💎"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Det her er en fantastisk sang! 🇩🇰"
+        "id": 9,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Det her er en fantastisk sang! 🇩🇰"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "אין על נעה! 👌"
+        "id": 10,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "אין על נעה! 👌"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "BLING BLING זה פשוט שיר מושלם! 🎧"
+        "id": 11,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "BLING BLING זה פשוט שיר מושלם! 🎧"
       }
     ],
     "uploadDate": "2024-06-18",
@@ -1177,59 +1367,70 @@
     "likes": 650,
     "comments": [
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "נעה שוברת את כל הסטראוטיפים בשיר הזה! 💪"
+        "id": 1,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "נעה שוברת את כל הסטראוטיפים בשיר הזה! 💪"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "If you're a man, you better listen to this! 🎧"
+        "id": 2,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "If you're a man, you better listen to this! 🎧"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "נעה, את פשוט מדהימה! 👏"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "נעה, את פשוט מדהימה! 👏"
       },
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "This song is a powerful statement! 🌟"
+        "id": 4,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "This song is a powerful statement! 🌟"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "שיר חזק ומלא עוצמה! 💥"
+        "id": 5,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "שיר חזק ומלא עוצמה! 💥"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "Noa's voice is incredible in this song! 🎤"
+        "id": 6,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "Noa's voice is incredible in this song! 🎤"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Cette chanson est tellement puissante! 🇫🇷"
+        "id": 7,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Cette chanson est tellement puissante! 🇫🇷"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "כל מילה במקום! 🌟"
+        "id": 8,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "כל מילה במקום! 🌟"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "If you're a man, take notes! ✏️"
+        "id": 9,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "If you're a man, take notes! ✏️"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Det her er en fantastisk sang! 🇩🇰"
+        "id": 10,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Det her er en fantastisk sang! 🇩🇰"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "שיר פשוט מדהים! 👌"
+        "id": 11,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "שיר פשוט מדהים! 👌"
       }
     ],
     "uploadDate": "2024-06-19",
@@ -1244,61 +1445,72 @@
     "thumbnailUrl": "https://i.ytimg.com/vi/GCdwKhTtNNw/hq720.jpg",
     "uploader": "The Neighbourhood",
     "likes": 500,
-    "comments":  [
+    "comments": [
       {
-          "profilePicture": "/profiles/ron.png",
-          "name": "Ron Solomon",
-          "text": "This song never gets old! 🍂"
+        "id": 1,
+        "profilePicture": "/profiles/ron.png",
+        "name": "Ron Solomon",
+        "text": "This song never gets old! 🍂"
       },
       {
-          "profilePicture": "/profiles/lihi.png",
-          "name": "Lihi Amir",
-          "text": "הכי כיף לשמוע את זה בחורף! ❄️"
+        "id": 2,
+        "profilePicture": "/profiles/lihi.png",
+        "name": "Lihi Amir",
+        "text": "הכי כיף לשמוע את זה בחורף! ❄️"
       },
       {
-          "profilePicture": "/profiles/ben.png",
-          "name": "Ben Davidian",
-          "text": "Sweater Weather on repeat! 🎧"
+        "id": 3,
+        "profilePicture": "/profiles/ben.png",
+        "name": "Ben Davidian",
+        "text": "Sweater Weather on repeat! 🎧"
       },
       {
-          "profilePicture": "/profiles/ilanit.png",
-          "name": "Ilanit Berditchevski",
-          "text": "Tellement nostalgique! 🇫🇷🍁"
+        "id": 4,
+        "profilePicture": "/profiles/ilanit.png",
+        "name": "Ilanit Berditchevski",
+        "text": "Tellement nostalgique! 🇫🇷🍁"
       },
       {
-          "profilePicture": "/profiles/shalev.png",
-          "name": "Shalev Golan",
-          "text": "שיר מושלם לערבים הקרים! 🌙"
+        "id": 5,
+        "profilePicture": "/profiles/shalev.png",
+        "name": "Shalev Golan",
+        "text": "שיר מושלם לערבים הקרים! 🌙"
       },
       {
-          "profilePicture": "/profiles/hila.png",
-          "name": "Hila El Peleg",
-          "text": "The Neighbourhood nailed it with this one! 🔥"
+        "id": 6,
+        "profilePicture": "/profiles/hila.png",
+        "name": "Hila El Peleg",
+        "text": "The Neighbourhood nailed it with this one! 🔥"
       },
       {
-          "profilePicture": "/profiles/tal.png",
-          "name": "Tal Ariel Ziv",
-          "text": "הצלילים המדהימים בשיר הזה! 🎵"
+        "id": 7,
+        "profilePicture": "/profiles/tal.png",
+        "name": "Tal Ariel Ziv",
+        "text": "הצלילים המדהימים בשיר הזה! 🎵"
       },
       {
-          "profilePicture": "/profiles/sahar.png",
-          "name": "Sahar Friedman",
-          "text": "Dette er en klassiker! 🇩🇰"
+        "id": 8,
+        "profilePicture": "/profiles/sahar.png",
+        "name": "Sahar Friedman",
+        "text": "Dette er en klassiker! 🇩🇰"
       },
       {
-          "profilePicture": "/profiles/orel.png",
-          "name": "Orel Shai",
-          "text": "כיף של שיר! 🌟"
+        "id": 9,
+        "profilePicture": "/profiles/orel.png",
+        "name": "Orel Shai",
+        "text": "כיף של שיר! 🌟"
       },
       {
-          "profilePicture": "/profiles/nimrod.png",
-          "name": "Nimrod Netzer",
-          "text": "Sweater Weather is timeless! 🍃"
+        "id": 10,
+        "profilePicture": "/profiles/nimrod.png",
+        "name": "Nimrod Netzer",
+        "text": "Sweater Weather is timeless! 🍃"
       },
       {
-          "profilePicture": "/profiles/michal.png",
-          "name": "Michal Bledi",
-          "text": "אני אוהבת לשמוע את זה בכל עונה! 🌼"
+        "id": 11,
+        "profilePicture": "/profiles/michal.png",
+        "name": "Michal Bledi",
+        "text": "אני אוהבת לשמוע את זה בכל עונה! 🌼"
       }
     ],
     "uploadDate": "2020-04-14",

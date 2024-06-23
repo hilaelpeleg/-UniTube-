@@ -6,6 +6,7 @@ import './ViewingPage.css';
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
+
 const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
@@ -14,6 +15,7 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
     const [duration, setDuration] = useState(null);
     const [updateTrigger, setUpdateTrigger] = useState(false);
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
+
 
     useEffect(() => {
         setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
@@ -73,6 +75,8 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
         }));
     };
 
+
+
     if (!video) {
         return <div>Video not found</div>;
     }
@@ -111,7 +115,8 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments userLogin={userLogin} commentsList={commentsList} addComment={addComment}
-                                video={video} />
+                                videoList={videoList} video={video} 
+                                videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}/>
                         </div>
                     </div>
                 </div>
