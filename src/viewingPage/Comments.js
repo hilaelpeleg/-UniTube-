@@ -14,8 +14,10 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
     };
 
     const handleAddComment = () => {
+        const lastCommentId = commentsList.length > 0 ? commentsList[commentsList.length - 1].id : 0;
         if (comment.trim()) {
             const newComment = {
+                id: (lastCommentId + 1),
                 profilePicture: video.profilePicture, // Assuming this is the user profile picture
                 name: video.uploader, // Assuming a placeholder name for now
                 text: comment
@@ -75,7 +77,7 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
                                     <img className="paddingdots" src={dotsvertical} />
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" onClick={() => deleteVideo(videoId)}  href="#">Deleting a comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => deleteComment(comment.id)}  href="#">Deleting a comment</a></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="dropdown-item" onClick={handleEditClick} href="#">Edit a comment</a></li>
                                 </ul>
