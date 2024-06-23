@@ -3,8 +3,7 @@ import './HomePage.css'
 import LeftMenu from './LeftMenu'
 import React, { useState, useEffect } from 'react';
 
-
-function HomePage({darkMode, setDarkMode, userLogin, videoList}) {
+function HomePage({darkMode, setDarkMode, userLogin, videoList, handleChange}) {
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ function HomePage({darkMode, setDarkMode, userLogin, videoList}) {
             <div className="row">   
                 <div className="col-3 height">
                     <LeftMenu darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
-                        setFilteredVideoList={setFilteredVideoList}
+                        handleChange={() => setDarkMode(!darkMode)} setFilteredVideoList={setFilteredVideoList}
                         userLogin={userLogin} />
                 </div>
             </div>

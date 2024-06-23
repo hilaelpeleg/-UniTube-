@@ -4,7 +4,7 @@
 }
 
 .hover:hover {
-    background-color: rgba(248, 249, 250, 1); /* Adjust the color and opacity as needed */
+    background-color: var(--VideoItems-background); /* Adjust the color and opacity as needed */
     cursor: pointer;
 }
 

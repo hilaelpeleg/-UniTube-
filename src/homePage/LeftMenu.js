@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from './svg icons/logo.svg';
+import logolight from './svg icons/logolight.svg';
 import home from './svg icons/home.svg';
 import addVideo from './svg icons/add-video.svg';
 import darkmode from './svg icons/darkmode.svg';
@@ -14,9 +14,11 @@ import NavItem from './NavItem';
 import Search from './Search';
 import login from './svg icons/login.svg';
 import logout from './svg icons/logout.svg';
+import lightMode from './svg icons/lightMode.svg';
+import logodark from './svg icons/logodark.png';
 
 
-function LeftMenu({darkMode, setDarkMode, videoId, originalVideoList, userLogin, setFilteredVideoList }) {
+function LeftMenu({ handleChange, darkMode, setDarkMode, videoId, originalVideoList, userLogin, setFilteredVideoList }) {
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -47,7 +49,7 @@ function LeftMenu({darkMode, setDarkMode, videoId, originalVideoList, userLogin,
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
+                <img className="ms-2" id="logo" src={darkMode? logodark :logolight} alt="Logo" width="106.4" height="23.2" />
                 <form className="ms-auto">
                     <Search doSearch={doSearch} />
                 </form>
@@ -65,14 +67,19 @@ function LeftMenu({darkMode, setDarkMode, videoId, originalVideoList, userLogin,
                         </button>
                     )}
                     {!darkMode && (
-                    <button type="button" className="btn btn-light">
-                        <img src={darkmode} alt="Dark mode toggle" />
-                    </button>
+                        <button onClick={handleChange} type="button" className="btn btn-light">
+                            <img src={darkmode} alt="Dark mode toggle" />
+                        </button>
+                    )}
+                    {darkMode && (
+                        <button onClick={handleChange} type="button" className="btn btn-light">
+                            <img src={lightMode} alt="Dark mode toggle" />
+                        </button>
                     )}
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
-                        <img className="ms-2" id="logo" src={logo} alt="Logo" width="106.4" height="23.2" />
+                        <img className="ms-2" id="logo" src={darkMode? logodark :logolight} alt="Logo" width="106.4" height="23.2" />
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">

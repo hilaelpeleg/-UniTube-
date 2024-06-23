@@ -7,7 +7,7 @@ import Comments from './Comments';
 import RowButtons from './RowButtons';
 
 
-const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
+const ViewingPage = ({handleChange,darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -85,7 +85,8 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu videoId={video.id}
+                    <LeftMenu darkMode={darkMode} setDarkMode={setDarkMode} videoId={video.id}
+                        handleChange={() => setDarkMode(!darkMode)} 
                         setFilteredVideoList={setFilteredVideoList}
                         originalVideoList={videoList} // Pass the original list here
                         userLogin={userLogin} />
