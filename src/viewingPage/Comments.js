@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
 import PopupEditComment from './PopupEditComment';
 
-
-function Comments({videoList, setVideoList, setCommentsList, videoId, video, commentsList, addComment, userLogin }) {
+function Comments({ videoList, setVideoList, setCommentsList, videoId, video, commentsList, addComment, userLogin }) {
     const [comment, setComment] = useState("");
-    const [showModal, setshowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [editCommentId, setEditCommentId] = useState(null);
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -18,8 +18,8 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
         if (comment.trim()) {
             const newComment = {
                 id: (lastCommentId + 1),
-                profilePicture: video.profilePicture, // Assuming this is the user profile picture
-                name: video.uploader, // Assuming a placeholder name for now
+                profilePicture: video.profilePicture,
+                name: video.uploader,
                 text: comment
             };
             addComment(newComment);
@@ -27,12 +27,14 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
         }
     };
 
-    const handleEditClick = () => {
-        setshowModal(true);
+    const handleEditClick = (commentId) => {
+        setEditCommentId(commentId);
+        setShowModal(true);
     };
 
     const handleCloseModal = () => {
-        setshowModal(false);
+        setShowModal(false);
+        setEditCommentId(null);
     };
 
     const deleteComment = (commentId) => {
@@ -53,15 +55,20 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
                 videoList={videoList}
                 show={showModal}
                 handleClose={handleCloseModal}
-                setComment={setCommentsList}
+                setCommentsList={setCommentsList}
+                commentId={editCommentId}
+                commentsList={commentsList}
             />
             <div className="new-comment">
                 <div className="comment-text">
                     <img className="profile-pic" src={video.profilePicture} />
-                    <input value={comment} className='inputwidth' onChange={handleCommentChange} type="text" placeholder="Add a comment..." />
-                    <button onClick={handleAddComment} type="button" className="btn btn-light">
-                        <img src={Send} />
-                    </button>
+                    <input value={comment} className='inputwidth' onChange={handleCommentChange}
+                        type="text" placeholder={userLogin && userLogin.userName ? "Add a comment..." : "Login to add comment"} />
+                    {userLogin && userLogin.userName && (
+                        <button onClick={handleAddComment} type="button" className="btn btn-light">
+                            <img src={Send} />
+                        </button>
+                    )}
                 </div>
             </div>
             {commentsList.map((comment, index) => (
@@ -73,13 +80,13 @@ function Comments({videoList, setVideoList, setCommentsList, videoId, video, com
                         {comment.text}
                         {userLogin && userLogin.userName && (
                             <div className="dropdown">
-                                <button className="btn btn-light dotsbt" type="button" onClick={handleAddComment} data-bs-toggle="dropdown" aria-expanded="false">
+                                <button className="btn btn-light dotsbt" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img className="paddingdots" src={dotsvertical} />
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" onClick={() => deleteComment(comment.id)}  href="#">Deleting a comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => deleteComment(comment.id)} href="#">Delete comment</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" onClick={handleEditClick} href="#">Edit a comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => handleEditClick(comment.id)} href="#">Edit comment</a></li>
                                 </ul>
                             </div>
                         )}

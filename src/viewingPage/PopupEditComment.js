@@ -1,8 +1,9 @@
+// PopupEditComment.js
 import React from 'react';
 import EditComment from './EditComment';
 import './PopupEditComment.css';
 
-function PopupEditComment({ handleClose, show, setComment, videoId, videoList, setUpdateTrigger }) {
+function PopupEditComment({videoId, setVideoList, videoList, handleClose, show, setCommentsList, commentId, commentsList }) {
     return (
         show ? (
             <>     
@@ -10,16 +11,18 @@ function PopupEditComment({ handleClose, show, setComment, videoId, videoList, s
                     <div className="modal-dialog wrapperEdit">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title"> Edit</h5>
+                                <h5 className="modal-title">Edit</h5>
                                 <button type="button" className="btn-close" onClick={handleClose}></button>
                             </div>
                             <div className="modal-body">
                                 <EditComment
                                     handleClose={handleClose}
-                                    setComment={setComment}
-                                    videoId={videoId}
+                                    setCommentsList={setCommentsList}
+                                    commentId={commentId}
+                                    commentsList={commentsList}
                                     videoList={videoList}
-                                    setUpdateTrigger={setUpdateTrigger}
+                                    setVideoList={setVideoList}
+                                    videoId={videoId}
                                 />
                             </div>
                         </div>

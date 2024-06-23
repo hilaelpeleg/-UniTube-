@@ -1,73 +1,80 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TextInput from '../register/TextInput';
 import UpdateButton from './UpdateButton';
 
-
-function EditComment({ handleClose, setComment, videoId, videoList,setUpdateTrigger }) {
-    const video = videoList.find(v => v.id === parseInt(videoId));
+function EditComment({videoId,setVideoList, videoList, handleClose, setCommentsList, commentId, commentsList }) {
+    const comment = commentsList.find(c => c.id === commentId);
 
     useEffect(() => {
-        console.log("Video found: ", video);
-    }, [video]);
+        if (comment) {
+            setUpdateCommentFields({ newcomment: comment.text });
+        }
+    }, [comment]);
 
     const [submittingEdit, setSubmittingEdit] = useState(false);
-    const [updateCommentFields, setUpdateVideoFields] = useState({
-        description: video ? video.description : "",
+    const [updateCommentFields, setUpdateCommentFields] = useState({
+        newcomment: comment ? comment.text : "",
     });
 
     const handleChange = (event) => {
-        const { name, value, files } = event.target;
-        setUpdateVideoFields({
-            ...updateCommentFields, [name]: files ? files[0] : value
+        const { name, value } = event.target;
+        setUpdateCommentFields({
+            ...updateCommentFields, [name]: value
         });
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!video) {
-            console.error("Video not found");
+        if (!comment) {
+            console.error("Comment not found");
             return;
         }
         setSubmittingEdit(true);
-        updateEdit(videoId);
+        updateEdit(commentId);
         handleClose();
-        setUpdateTrigger(prev => !prev);
     };
 
     const updateEdit = (id) => {
-        // Log the current state of updateVideoFields
-        console.log("Updating video with fields: ", updateCommentFields);
-
-        if (!updateCommentFields.description) {
+        if (!updateCommentFields.newcomment) {
             console.error("Update fields are incomplete");
             setSubmittingEdit(false);
             return;
         }
 
+        const updatedCommentsList = commentsList.map(comment =>
+            comment.id === id ? {
+                ...comment,
+                text: updateCommentFields.newcomment,
+            } : comment
+        );
+
+        setCommentsList(updatedCommentsList);
+        setSubmittingEdit(false);
+
+        // Update the videoList with the updated comments
         const updatedVideoList = videoList.map(video =>
-            video.id === id ? {
+            video.id === videoId ? {
                 ...video,
-                description: updateCommentFields.description,
+                comments: updatedCommentsList
             } : video
         );
 
-        setComment(updatedVideoList);
-        setSubmittingEdit(false);
+        setVideoList(updatedVideoList);
 
-        console.log("Updated Video List: ", updatedVideoList);
+        console.log("Updated Comments List: ", updatedCommentsList);
     };
 
     return (
-            <div className="card custom-card-width container">
-                <div className="card-body">
-                    <div className="row">
-                        <TextInput name="description" kind="Edit comment" value={updateCommentFields.description} onChange={handleChange} />
-                    </div>
-                </div>
-                <div className="list-group list-group-flush">
-                    <UpdateButton onClick={handleSubmit} value="Update comment" />
+        <div className="card custom-card-width container">
+            <div className="card-body">
+                <div className="row">
+                    <TextInput name="newcomment" kind="Edit comment" value={updateCommentFields.newcomment} onChange={handleChange} />
                 </div>
             </div>
+            <div className="list-group list-group-flush">
+                <UpdateButton onClick={handleSubmit} value="Update comment" />
+            </div>
+        </div>
     );
 }
 

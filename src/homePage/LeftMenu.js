@@ -16,7 +16,7 @@ import login from './svg icons/login.svg';
 import logout from './svg icons/logout.svg';
 
 
-function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList }) {
+function LeftMenu({darkMode, setDarkMode, videoId, originalVideoList, userLogin, setFilteredVideoList }) {
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -54,7 +54,7 @@ function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList 
                 <a className="navbar-brand ms-auto" href="#">
                     {(userLogin.userName === "") && (
                         <button type="button" onClick={handleLogin} className="btn btn-light">
-                            Log In
+                            Login
                             <img src={login} alt="Dark mode toggle" />
                         </button>
                     )}
@@ -64,9 +64,11 @@ function LeftMenu({ videoId, originalVideoList, userLogin, setFilteredVideoList 
                             <img src={logout} alt="Dark mode toggle" />
                         </button>
                     )}
+                    {!darkMode && (
                     <button type="button" className="btn btn-light">
                         <img src={darkmode} alt="Dark mode toggle" />
                     </button>
+                    )}
                 </a>
                 <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">

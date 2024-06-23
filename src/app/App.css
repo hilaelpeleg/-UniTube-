@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: var(--background-color);
 }
 
 .App-logo {
@@ -21,7 +22,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(238, 22, 22);
 }
 
 .App-link {
@@ -37,6 +38,6 @@
   }
 }
 
-
-
-
+.Toggle{
+  position: right;
+}
