@@ -2,7 +2,6 @@ import Video from '../addvideo/Video';
 import { useState, useEffect } from 'react';
 import TextInput from '../register/TextInput';
 import VideoImg from '../addvideo/VideoImg';
-import './EditVideo.css';
 import UpdateButton from './UpdateButton';
 
 

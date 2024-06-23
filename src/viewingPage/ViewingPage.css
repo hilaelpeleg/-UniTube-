@@ -57,7 +57,7 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-}
+    }
 
 .comment-text {
     background: #f0f0f0;
@@ -89,5 +89,4 @@
 .card-body {
     width: 100%; /* Full width */
 }
-
 

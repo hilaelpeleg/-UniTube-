@@ -5,3 +5,27 @@
     padding: 8px;
     border: 1px solid #ccc;
 }
+
+.dotsbt{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+
+.comment {
+    align-items: center; /* יישור הכפתור למרכז */
+    
+}
+
+.comment-text {
+    padding-right: 10px; /* ריווח מימין */
+    display: flex;
+
+}
+
+.paddingdots{
+    padding-bottom: 4.5px;
+}

@@ -3,10 +3,18 @@
 }
 
 .row-buttons-container {
-    display: inline-block;
+    display: flex;
     justify-content: center; 
     width: 100%;
     border-radius: 8px;
     margin-top: 30px;
     background-color: #f0f0f0;
 }
+
+
+.btn-group-container-row {
+    display: flex;
+    align-items: center;
+}
+
+

@@ -9,14 +9,14 @@ import { useState } from 'react';
 import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
 
-function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike,setUpdateTrigger }) {
+function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike, setUpdateTrigger }) {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
     const deleteVideo = (id) => {
         const remainingVideos = videoList.filter(video => video.id !== id);
         setVideoList(remainingVideos);
-        navigate("/HomePage");
+        navigate("/");
     };
 
     const onclickLike = () => {
@@ -51,34 +51,36 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
                 handleClose={handleCloseModal}
                 setUpdateTrigger={setUpdateTrigger}
             />
-            <div>
+            <div className='btn-group-container-row'>
                 <div className="btn-group margin" role="group" aria-label="Basic example">
                     <button onClick={onclickLike} type="button" className="btn btn-light">
-                        <img className="marginbutton" src={thumb_up} />
+                        <img className="marginbutton" src={thumb_up} alt="Like" />
                         {like}
                     </button>
                     <button onClick={onclickDislike} type="button" className="btn btn-light">
-                        <img className="marginbutton" src={thumb_down} />
+                        <img className="marginbutton" src={thumb_down} alt="Dislike" />
                     </button>
                 </div>
                 <button type="button" className="btn btn-light margin">
-                    <img className="marginbutton" src={share} />
+                    <img className="marginbutton" src={share} alt="Share" />
                     Share
                 </button>
                 <button type="button" className="btn btn-light margin">
-                    <img className="marginbutton" src={download} />
+                    <img className="marginbutton" src={download} alt="Download" />
                     Download
                 </button>
                 {userLogin && userLogin.userName && (
-                    <button type="button" className="btn btn-light margin dropdown-toggle" onClick={handleEditClick}>
-                        <img className="marginbutton" src={Dots} />
-                    </button>
+                    <div className="dropdown">
+                        <button type="button" className="btn btn-light margin dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img className="marginbutton" src={Dots} alt="Options" />
+                        </button>
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoId)}>Deleting a video</a></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <li><a className="dropdown-item" href="#" onClick={handleEditClick}>Editing a video</a></li>
+                        </ul>
+                    </div>
                 )}
-                <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoId)}>Deleting a video</a></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="#" onClick={handleEditClick}>Editing a video</a></li>
-                </ul>
             </div>
         </div>
     )

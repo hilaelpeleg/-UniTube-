@@ -79,7 +79,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     useEffect(() => {
         if (Object.keys(formErrorsVideo).length === 0 && submittingVideo) {
             AddNewVideo();
-            navigate("/HomePage");
+            navigate("/");
         }
 
     }, [formErrorsVideo]);

@@ -110,7 +110,7 @@ const ViewingPage = ({ videoList, setVideoList, userLogin }) => {
                                 setVideoList={setVideoList} videoList={videoList}
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
-                            <Comments commentsList={commentsList} addComment={addComment}
+                            <Comments userLogin={userLogin} commentsList={commentsList} addComment={addComment}
                                 video={video} />
                         </div>
                     </div>
