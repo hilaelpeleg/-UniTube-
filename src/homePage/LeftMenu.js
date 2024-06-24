@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logolight from './svg icons/logolight.svg';
-import home from './svg icons/home.svg';
+import homedark from './svg icons/homedark.svg';
+import homelight from './svg icons/homelight.svg';
 import addVideolight from './svg icons/add-videolight.svg';
 import addVideodark from './svg icons/add-videodark.svg';
 import darkmode from './svg icons/darkmode.svg';
@@ -9,9 +10,12 @@ import historydark from './svg icons/historydark.svg';
 import historylight from './svg icons/historylight.svg';
 import accountdrak from './svg icons/accountdark.svg';
 import accountlight from './svg icons/accountlight.svg';
-import playlist from './svg icons/playlist.svg';
-import switchAccount from './svg icons/switch account.svg';
-import setting from './svg icons/setting.svg';
+import playlistdark from './svg icons/playlistdark.svg';
+import playlistlight from './svg icons/playlistlight.svg';
+import switchAccountdark from './svg icons/switchdark.svg';
+import switchAccountlight from './svg icons/switchlight.svg';
+import settingdark from './svg icons/settingdark.svg';
+import settinglight from './svg icons/settinglight.svg';
 import './LeftMenu.css';
 import NavItem from './NavItem';
 import Search from './Search';
@@ -95,7 +99,7 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
                                 <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
-                                <NavItem src={home} text="Home" />
+                                <NavItem src={darkMode ? homedark : homelight} text="Home" />
                             </li>
                             {userLogin.userName !== "" && (
                                 <li className="nav-item" onClick={() => navigate('/AddVideo')}>
@@ -106,13 +110,13 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
                                 <NavItem src={darkMode ? historydark : historylight} text="History" fill={svgFillColor}/>
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
-                                <NavItem src={playlist} text="Playlists" />
+                                <NavItem src={darkMode ? playlistdark : playlistlight} text="Playlists" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
-                                <NavItem src={switchAccount} text="Switch Account" />
+                                <NavItem src={darkMode ? switchAccountdark : switchAccountlight} text="Switch Account" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
-                                <NavItem src={setting} text="Setting" />
+                                <NavItem src={darkMode ? settingdark : settinglight} text="Setting" />
                             </li>
                         </ul>
                     </div>
