@@ -12,11 +12,14 @@ body {
   --bs-tertiary-bg-rgb: #f8f9fa;
   --bs-bg-opacity:#f8f9fa;
   --search-bg:#e6e3e3;
-  /* --bs-navbar-toggler-border-color:rgba(var(--bs-emphasis-color-rgb), 0.15); */
   --bs-offcanvas-bg:var(--bs-offcanvas-bg);
   --bs-cardview: #fff;
   --bs-RowButtons: #f0f0f0;
   --bs-comment-section: #fff;
+  --bs-bg-leftMenu: #fff;
+  --bs-leftMenu-text: #64728F;
+  --bs-icon-leftMenu: #64728F;
+  --bs-comment-text-inputbox: #f0f0f0;
 }
 
 [data-theme="dark"] {
@@ -27,12 +30,15 @@ body {
   --VideoItems-background: #3a3a3a;
   --bs-tertiary-bg-rgb: #3a3a3a;
   --bs-bg-opacity: #3a3a3a;
-  --search-bg: #696565;
-  /* --bs-navbar-toggler-border-color:#cdcdcd; */
+  --search-bg: #ffffff;
   --bs-offcanvas-bg:#3a3a3a;
   --bs-cardview:#3a3a3a;
   --bs-RowButtons: #696565;
   --bs-comment-section: #696565;
-
+  --bs-bg-leftMenu: #3a3a3a;
+  --bs-leftMenu-text:  #ffffff;
+  --bs-icon-leftMenu: #ffffff;
+  --bs-comment-text-inputbox: #3a3a3a;
 
 }
+

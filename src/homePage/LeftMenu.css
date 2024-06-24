@@ -67,7 +67,7 @@
     background-color:var(--bs-tertiary-bg-rgb) !important;
 }
 
-/* .offcanvas {
-    background-color: var(--bs-offcanvas-bg);
-} */
+.offcanvas{
+    background-color: var(--bs-bg-leftMenu);
+}
 

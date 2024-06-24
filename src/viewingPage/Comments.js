@@ -60,7 +60,7 @@ function Comments({ videoList, setVideoList, setCommentsList, videoId, video, co
                 commentsList={commentsList}
             />
             <div className="new-comment">
-                <div className="comment-text">
+                <div className="comment-text-input">
                     <img className="profile-pic" src={video.profilePicture} />
                     <input value={comment} className='inputwidth' onChange={handleCommentChange}
                         type="text" placeholder={userLogin && userLogin.userName ? "Add a comment..." : "Login to add comment"} />

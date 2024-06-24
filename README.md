@@ -34,3 +34,14 @@ User Authentication: Basic authentication is implemented where users can registe
 
 Notes
 This application is a static prototype and does not feature server communication or persistent data storage. Future iterations may include these functionalities to enable real-time interaction between users and server-side data management.
+
+Pictures from the website:
+Login page
+
+
+SignUp page
+
+
+Feed page
+
+viewingpage:
