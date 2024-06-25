@@ -70,7 +70,7 @@ function Register({ userList, setUserList }) {
             profilePictureUrl = URL.createObjectURL(inputFields.profilePicture);
         } else if (!profilePictureUrl) {
             // Default profile picture URL
-            profilePictureUrl = 'https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg';
+            profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
         }
         const user = {
             "firstName": inputFields.firstName,

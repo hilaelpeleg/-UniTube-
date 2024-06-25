@@ -18,14 +18,9 @@ function App() {
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
   const [darkMode,setDarkMode] = useState(false);
 
-  const handlechangeDarkMode = () => {
-    setDarkMode(prevMode => !prevMode);
-  };
-  
   return (
     <Router>
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
-        {/* <Toggle handleChange={() => setDarkMode(!darkMode)} /> */}
         <Routes>
           <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
           <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
@@ -35,7 +30,7 @@ function App() {
           setVideoList={setVideoList} userList={userList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
-          setVideoList={setVideoList}  userLogin={userLogin}/>}/>
+          setVideoList={setVideoList} userList={userList} userLogin={userLogin}/>}/>
         </Routes>
       </div>
     </Router>

@@ -7,7 +7,7 @@ import Comments from './Comments';
 import RowButtons from './RowButtons';
 
 
-const ViewingPage = ({handleChange,darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
+const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -15,6 +15,7 @@ const ViewingPage = ({handleChange,darkMode,setDarkMode, videoList, setVideoList
     const [duration, setDuration] = useState(null);
     const [updateTrigger, setUpdateTrigger] = useState(false);
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
+    const user = userLogin && userList ? userList.find(user => user.userName === userLogin.userName) : null;
 
 
     useEffect(() => {
@@ -117,7 +118,8 @@ const ViewingPage = ({handleChange,darkMode,setDarkMode, videoList, setVideoList
                                 setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments userLogin={userLogin} commentsList={commentsList} addComment={addComment}
                                 videoList={videoList} video={video} 
-                                videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}/>
+                                videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}
+                                user={user} userList={userList}/>
                         </div>
                     </div>
                 </div>

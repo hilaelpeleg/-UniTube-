@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
 import PopupEditComment from './PopupEditComment';
 
-function Comments({ videoList, setVideoList, setCommentsList, videoId, video, commentsList, addComment, userLogin }) {
+function Comments({ user, userList, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment, userLogin }) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [editCommentId, setEditCommentId] = useState(null);
@@ -13,17 +13,23 @@ function Comments({ videoList, setVideoList, setCommentsList, videoId, video, co
         setComment(event.target.value);
     };
 
+
     const handleAddComment = () => {
+        if (!user) { // הוספתי בדיקה אם המשתמש מוגדר
+            console.error("User is not defined");
+            return;
+        }
         const lastCommentId = commentsList.length > 0 ? commentsList[commentsList.length - 1].id : 0;
         if (comment.trim()) {
             const newComment = {
                 id: (lastCommentId + 1),
-                profilePicture: video.profilePicture,
-                name: video.uploader,
+                profilePicture: user && user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
+                name: user ? user.userName : 'Unknown User',
                 text: comment
             };
             addComment(newComment);
             setComment("");
+            console.log(user.profilePicture);
         }
     };
 
@@ -61,27 +67,31 @@ function Comments({ videoList, setVideoList, setCommentsList, videoId, video, co
             />
             <div className="new-comment">
                 <div className="comment-text-input">
-                    <img className="profile-pic" src={video.profilePicture} />
-                    <input value={comment} className='inputwidth' onChange={handleCommentChange}
-                        type="text" placeholder={userLogin && userLogin.userName ? "Add a comment..." : "Login to add comment"} />
+                    <img className="profile-pic" src={user && user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                    <input
+                        value={comment}
+                        className='inputwidth'
+                        onChange={handleCommentChange}
+                        type="text"
+                        placeholder={userLogin && userLogin.userName ? "Add a comment..." : "Login to add comment"}
+                    />
                     {userLogin && userLogin.userName && (
                         <button onClick={handleAddComment} type="button" className="btn btn-light">
-                            <img src={Send} />
+                            <img src={Send} alt="Send" />
                         </button>
                     )}
                 </div>
             </div>
             {commentsList.map((comment, index) => (
                 <div key={index} className="comment">
-                    <img src={comment.profilePicture} alt={`Profile picture of 
-                        ${comment.name}`} className="profile-pic" />
+                    <img src={comment.profilePicture || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt={`Profile picture of ${comment.name}`} className="profile-pic" />
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
                         {comment.text}
                         {userLogin && userLogin.userName && (
                             <div className="dropdown">
                                 <button className="btn btn-light dotsbt" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img className="paddingdots" src={dotsvertical} />
+                                    <img className="paddingdots" src={dotsvertical} alt="Menu" />
                                 </button>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" onClick={() => deleteComment(comment.id)} href="#">Delete comment</a></li>
