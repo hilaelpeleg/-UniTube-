@@ -1,45 +1,53 @@
-import TextInput from "../register/TextInput";
-import Button from "../button/Button";
+import TextInputLog from "./TextInputLog";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LogIn.css';
+import ButtonLog from "./ButtonLog";
 
 
 function LogIn({ userList, setUserLogin }) {
-
+    // useState hooks to manage local state for username, password, and error messages
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
+        // Function to handle login logic
+
     const handleLogin = () => {
+                // Find the user in the userList with the provided username and password
+
         const user = userList.find(user => user.userName === userName && user.password === password);
         if (user) {
+                        // If user is found, update the userLogin state and navigate to the home page
+
             setUserLogin({ userName: userName, password: password });
-            navigate('/HomePage');
+            navigate('/');
         } else {
+                        // If user is not found, set an error message
+
             setError("Invalid username or password");
         }
     };
 
     return (
         <div className="wrapper">
-        <div className="card custom-card-width container" >
+        <div className="card custom-card-width-L container" >
             <div className="card-body">
             <h5 className="card-title">Log In</h5>
-                <TextInput className="form-control" name="userName" kind="user name"
+                <TextInputLog className="form-control" name="userName" kind="user name"
                     value={userName} onChange={(event) => setUserName(event.target.value)} />
                 <div className="row">
-                    <TextInput name="password" kind="password" type="password"
+                    <TextInputLog name="password" kind="password" type="password"
                         value={password} onChange={(event) => setPassword(event.target.value)} />
                 </div>
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={handleLogin} value="LogIn" />
+                <ButtonLog onClick={handleLogin} value="LogIn" />
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={() => navigate('/Register')} value="Create a new account!" />
+                <ButtonLog onClick={() => navigate('/Register')} value="Create a new account!" />
             </div>
         </div>
         </div>

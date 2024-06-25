@@ -1,7 +1,35 @@
 .new-comment input[type="text"] {
+    border-radius: 8px;
+    margin-bottom: 10px;
     width: 80%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 10px;
+}
+
+.dotsbt{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+
+.comment {
+    align-items: center; /* יישור הכפתור למרכז */
+    
+}
+
+.comment-text {
+    padding-right: 10px; /* ריווח מימין */
+    display: flex;
+
+}
+
+.paddingdots{
+    padding-bottom: 4.5px;
+}
+
+.comment-text strong {
+    margin-right: 5px; /* Adjust the value as needed */
 }

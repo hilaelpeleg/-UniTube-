@@ -1,0 +1,27 @@
+.custom-margin {
+    margin: 10px; 
+  }
+
+
+.widtL{
+  width: 550px;
+  margin:1px;
+}
+
+.mx-auto{
+margin: 0%;
+}
+
+.color{
+  --bs-btn-color: #748bb9;
+  --bs-btn-bg:  #f0f0f0;
+  --bs-btn-border-color: #f0f0f0;
+    --bs-btn-hover-color:  #748bb9;
+    --bs-btn-hover-bg:#d3d4d5;
+    --bs-btn-hover-border-color:  #d3d4d5;
+    --bs-btn-border-radius: 40px;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #748bb9;
+    --bs-btn-active-bg: #d3d4d5;
+    --bs-btn-active-border-color: #d3d4d5;
+}

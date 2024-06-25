@@ -3,17 +3,18 @@ import './AddVideo.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import TextInput from '../register/TextInput';
-import Button from '../button/Button';
+import TextInputVideo from './TextInputVideo';
 import VideoImg from './VideoImg';
+import ButtonAddVideo from './ButtonAddVideo';
 
 function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
+        // build new video
         "id": 0,
         "title": "",
-        "description": "",
+        "": "",
         "url": "",
         "thumbnailUrl": "",
         "uploader": userLogin ? userLogin.userName : "",
@@ -38,6 +39,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     }
 
     const validate = (inputVideoFields) => {
+        // Setting limits
         const errors = {}
         if (!inputVideoFields.title) {
             errors.title = "Title is required!";
@@ -79,30 +81,30 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     useEffect(() => {
         if (Object.keys(formErrorsVideo).length === 0 && submittingVideo) {
             AddNewVideo();
-            navigate("/HomePage");
+            navigate("/");
         }
 
     }, [formErrorsVideo]);
 
     return (
+        // Defining fields that need to be filled when adding a video 
         <div className="wrapper">
-        <div className="card custom-card-width container"  >
-            <div className="card-body">
-                <h5 className="card-title">Add video</h5>
-                <div className="row">
-                    <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
-                    <VideoImg name="thumbnailUrl" onChange={handleChange}
-                        errors={formErrorsVideo.thumbnailUrl} />
-                    <TextInput name="title" kind="title" value={inputVideoFields.title}
-                        onChange={handleChange} errors={formErrorsVideo.title} />
-                    <TextInput name="description" kind="description" value={inputVideoFields.description}
-                        onChange={handleChange} errors={formErrorsVideo.description} />
+            <div className="card custom-card-width container"  >
+                <div className="card-body">
+                    <h5 className="card-title">Add video</h5>
+                    <div className="row">
+                        <VideoImg name="thumbnailUrl" onChange={handleChange}
+                            errors={formErrorsVideo.thumbnailUrl} />
+                        <TextInputVideo name="title" kind="title" value={inputVideoFields.title}
+                            onChange={handleChange} errors={formErrorsVideo.title} />
+                        <TextInputVideo name="description" kind="description" value={inputVideoFields.description}
+                            onChange={handleChange} errors={formErrorsVideo.description} />
+                    </div>
+                </div>
+                <div className="list-group list-group-flush">
+                    <ButtonAddVideo onClick={handleSubmit} value="Add video" />
                 </div>
             </div>
-            <div className="list-group list-group-flush">
-                <Button onClick={handleSubmit} value="Add video" />
-            </div>
-        </div>
         </div>
     );
 }

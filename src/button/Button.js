@@ -2,8 +2,7 @@ import './button.css'
 
 
 function Button({ onClick, value }) {
-
-
+    // button 
     return (
         <div className="d-grid col-6 mx-auto my-3 widthb">
             <button className="btn btn-primary color" type="button" onClick={onClick}>{value} </button>

@@ -2,25 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
-import './ViewingPage.css'
+import './ViewingPage.css';
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
-const ViewingPage = ({ videoList, setVideoList }) => {
+// ViewingPage component to display a single video with comments and actions
+
+const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
+    const [likedVideos, setLikedVideos] = useState({});
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
+    const [updateTrigger, setUpdateTrigger] = useState(false);
+    const [filteredVideoList, setFilteredVideoList] = useState(videoList);
+    const user = userLogin && userList ? userList.find(user => user.userName === userLogin.userName) : null;
 
 
-    const video = videoList.find(v => v.id === parseInt(videoId));
+    useEffect(() => {
+        setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
+    }, [videoList]);
+
+    const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
     useEffect(() => {
         if (video) {
-            setLike(video.likes);
-            setCommentsList(video.comments || []);
+            setLike(video.likes); // Set the initial number of likes
+            setCommentsList(video.comments || []);// Set the initial list of comments
         }
-    }, [video])
-
+    }, [video, updateTrigger]);
 
     const handleLoadedMetadata = (event) => {
         const videoDuration = event.target.duration;
@@ -42,16 +51,6 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         return `${minutes}:${seconds}`;
     };
 
-
-    const updateLikes = (newLikes) => {
-        setLike(newLikes);
-        setVideoList(prevList =>
-            prevList.map(video =>
-                video.id === parseInt(videoId) ? { ...video, likes: newLikes } : video
-            )
-        );
-    };
-
     const addComment = (newComment) => {
         const updatedComments = [...commentsList, newComment];
         setCommentsList(updatedComments);
@@ -62,22 +61,44 @@ const ViewingPage = ({ videoList, setVideoList }) => {
         );
     };
 
+    const updateLikes = (newLikes) => {
+        setLike(newLikes);
+        setVideoList(prevList =>
+            prevList.map(video =>
+                video.id === parseInt(videoId) ? { ...video, likes: newLikes } : video
+            )
+        );
+    };
+
+    const handleLikeToggle = (id) => {
+        setLikedVideos((prev) => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
+
+
+
     if (!video) {
-        return <div>Video not found</div>;
+        return <div>Video not found</div>; 
     }
 
     return (
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu />
+                    <LeftMenu darkMode={darkMode} setDarkMode={setDarkMode} videoId={video.id}
+                        handleChange={() => setDarkMode(!darkMode)} 
+                        setFilteredVideoList={setFilteredVideoList}
+                        originalVideoList={videoList} // Pass the original list here
+                        userLogin={userLogin} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-8 ">
-                    <div className="card" >
+                    <div className="cardV" >
                         <h1>{video.title}</h1>
-                        <video className="card-img-top" key={video.id} controls onLoadedMetadata={handleLoadedMetadata}>
+                        <video className="card-img-top" key={video.url} controls onLoadedMetadata={handleLoadedMetadata}>
                             <source src={video.url} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -90,15 +111,21 @@ const ViewingPage = ({ videoList, setVideoList }) => {
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
                             </div>
-                            <RowButtons like={like} updateLikes={updateLikes} videoid={video.id} 
-                            setVideoList={setVideoList} videoList={videoList}/>
-                            <Comments commentsList={commentsList} addComment={addComment}
-                            video= {video} />
+                            <RowButtons setUpdateTrigger={setUpdateTrigger}
+                                userLogin={userLogin} like={like} updateLikes={updateLikes}
+                                videoId={video.id}
+                                setVideoList={setVideoList} videoList={videoList}
+                                isLike={!!likedVideos[video.id]}
+                                setIsLike={() => handleLikeToggle(video.id)} />
+                            <Comments userLogin={userLogin} commentsList={commentsList} addComment={addComment}
+                                videoList={videoList} video={video} 
+                                videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}
+                                user={user} userList={userList}/>
                         </div>
                     </div>
                 </div>
                 <div className="col-4 ">
-                    <VideoItems videoList={videoList} colWidth={"col-12"}
+                    <VideoItems videoList={filteredVideoList} colWidth={"col-12"}
                     />
                 </div>
             </div>

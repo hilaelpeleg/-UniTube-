@@ -1,5 +1,6 @@
 import Register from '../register/Register';
 import './App.css';
+import '../index.css';
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../login/LogIn';
@@ -8,36 +9,28 @@ import AddVideo from '../addvideo/AddVideo';
 import videosData from './videos.json';
 import ViewingPage from '../viewingPage/ViewingPage';
 import profiles from './profiles.json';
-
-export const profilePictureURLjason = "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg";
+// import Toggle from './Toggle.js';
 
 function App() {
   
-
   const [userList, setUserList] = useState(profiles);
-
-  
-
-  const updatedVideosData = videosData.map(video => ({
-    ...video,
-    profilePicture: profilePictureURLjason
-  }));
-
-  const [videoList, setVideoList] = useState(updatedVideosData);
+  const [videoList, setVideoList] = useState(videosData);
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
+  const [darkMode,setDarkMode] = useState(false);
 
   return (
     <Router>
-      <div className="App">
+      <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
           <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
           <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
-          <Route path="/HomePage" element={<HomePage userList={userList} 
-          videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
+          <Route path="/" element={<HomePage darkMode={darkMode} setDarkMode={setDarkMode} userList={userList} 
+          handleChange={() => setDarkMode(!darkMode)} videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
-          setVideoList={setVideoList} />}/>
+          handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
+          setVideoList={setVideoList} userList={userList} userLogin={userLogin}/>}/>
         </Routes>
       </div>
     </Router>

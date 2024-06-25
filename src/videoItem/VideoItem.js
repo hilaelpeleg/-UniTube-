@@ -2,6 +2,7 @@ import './VideoItem.css'
 
 function VideoItem({ props, onClick }) {
     return (
+        // create the video item div 
         <div >
             <div className="thumbnail-container">
                 <img src={props.thumbnailUrl} id="img-top" className="card-img-top" alt="profile" onClick={onClick} />

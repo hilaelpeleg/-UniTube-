@@ -12,7 +12,7 @@
 }
 
 .search {
-    background-color: #e6e3e3;
+    background-color:var(--search-bg);
     width: max-content;
     display: flex;
     align-items: center;
@@ -54,13 +54,20 @@
     border-radius: 30px; /* More roundness on hover */
 }
 
-.navbar-brand img {
-    margin-right: 80px; /* Adjust space between the image and any following content */
-}
-
 
 .navbar-brand {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: flex-start; /* Align items to the left */
 }
+
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1; 
+    background-color:var(--bs-tertiary-bg-rgb) !important;
+}
+
+.offcanvas{
+    background-color: var(--bs-bg-leftMenu);
+}
+

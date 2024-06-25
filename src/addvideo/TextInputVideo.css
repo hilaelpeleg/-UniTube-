@@ -1,0 +1,13 @@
+.margin{
+    margin: 10px;
+}
+
+.formerror{
+    color: red;
+}
+
+
+#Addvideo{
+    width: 220px;
+    display: block;
+}

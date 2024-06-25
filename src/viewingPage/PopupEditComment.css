@@ -1,0 +1,27 @@
+.modal.fade .modal-dialog {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;  /* Start with hidden */
+}
+
+.modal.show .modal-dialog {
+  opacity: 1;  /* Fade to visible */
+}
+
+.modal-dialog {
+  max-width: 90%; 
+  width: 90%;     
+  max-height: 80vh; 
+  height: auto;  
+}
+
+.modal-content {
+  width: 60%;  /* Change the width of the modal content */
+  height: auto; }
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60; /* Change the width of the modal body */
+  height: auto; /* Set the height of the modal body to auto */
+}

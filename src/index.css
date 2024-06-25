@@ -1,13 +1,44 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --background-color:#f0f0f0;
+  --bs-heading-color: #000000;
+  --bs-card-color:#000000;
+  --bs-secondary-color: #000000;
+  --VideoItems-background: rgba(248, 249, 250, 1);
+  --bs-tertiary-bg-rgb: #f8f9fa;
+  --bs-bg-opacity:#f8f9fa;
+  --search-bg:#e6e3e3;
+  --bs-offcanvas-bg:var(--bs-offcanvas-bg);
+  --bs-cardview: #fff;
+  --bs-RowButtons: #f0f0f0;
+  --bs-comment-section: #fff;
+  --bs-bg-leftMenu: #fff;
+  --bs-leftMenu-text: #64728F;
+  --bs-icon-leftMenu: #64728F;
+  --bs-comment-text-inputbox: #f0f0f0;
 }
+
+[data-theme="dark"] {
+  --background-color: #232323;
+  --bs-heading-color: #ffffff;
+  --bs-card-color:#ffffff;
+  --bs-secondary-color:#ffffff;
+  --VideoItems-background: #3a3a3a;
+  --bs-tertiary-bg-rgb: #3a3a3a;
+  --bs-bg-opacity: #3a3a3a;
+  --search-bg: #ffffff;
+  --bs-offcanvas-bg:#3a3a3a;
+  --bs-cardview:#3a3a3a;
+  --bs-RowButtons: #696565;
+  --bs-comment-section: #696565;
+  --bs-bg-leftMenu: #3a3a3a;
+  --bs-leftMenu-text:  #ffffff;
+  --bs-icon-leftMenu: #ffffff;
+  --bs-comment-text-inputbox: #3a3a3a;
+
+}
+

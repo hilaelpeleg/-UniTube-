@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import ButtonRegister from "./ButtonRegister";
 import './Register.css';
 import ProfilePicture from "./ProfilePicture";
 import Username from "./username";
@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Register({ userList, setUserList }) {
+        // useState hooks to manage local state for form errors, submission status, and input fields
+
     const [formErrors, setFormErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
     const [inputFields, setInputFields] = useState({
@@ -18,6 +20,7 @@ function Register({ userList, setUserList }) {
         userName: "",
         profilePicture: null
     });
+    // handleChange function to update state when input fields change
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -31,10 +34,16 @@ function Register({ userList, setUserList }) {
         setSubmitting(true);
     }
 
+        // validate function to check if input fields meet the required criteria
+
     const validate = (inputFields) => {
+        // create limits for the inputs
         const errors = {}
         if (!inputFields.userName) {
             errors.userName = "user name is required!";
+        }
+        if(userList.find(user => user.userName == inputFields.userName)){
+            errors.userName ="the username is already taken";
         }
         if (!inputFields.firstName) {
             errors.firstName = "first name is required!";
@@ -58,6 +67,7 @@ function Register({ userList, setUserList }) {
     }
 
 
+    // addNewUser function to add a new user to the user list
 
     const addNewUser = () => {
         let profilePictureUrl = inputFields.profilePicture;
@@ -67,7 +77,7 @@ function Register({ userList, setUserList }) {
             profilePictureUrl = URL.createObjectURL(inputFields.profilePicture);
         } else if (!profilePictureUrl) {
             // Default profile picture URL
-            profilePictureUrl = 'https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2281862025.jpg';
+            profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
         }
         const user = {
             "firstName": inputFields.firstName,
@@ -83,6 +93,7 @@ function Register({ userList, setUserList }) {
 
     const navigate = useNavigate();
 
+    // useEffect hook to handle form submission and navigation
 
     useEffect(() => {
         console.log(formErrors);
@@ -97,7 +108,7 @@ function Register({ userList, setUserList }) {
     return (
         <div className="wrapper">
         <div className="card custom-card-width container"  >
-            <div className="card-body">
+            <div className="cardR">
                 <h5 className="card-title">Sign up</h5>
                 <div className="row">
                     <ProfilePicture name="profilePicture" onChange={handleChange} />
@@ -114,10 +125,10 @@ function Register({ userList, setUserList }) {
                 <Username name="userName" value={inputFields.userName} onChange={handleChange} error={formErrors.userName} />
             </div>
             <div className="list-group list-group-flush">
-                <Button onClick={handleSubmit} value="Sign me up!" />
+                <ButtonRegister onClick={handleSubmit} value="Sign me up!" />
             </div>
             <div id="Login" className="list-group list-group-flush">
-                <Button onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
+                <ButtonRegister onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
             </div>
         </div>
         </div>

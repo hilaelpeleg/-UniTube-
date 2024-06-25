@@ -1,5 +1,6 @@
 function VideoImg({name, onChange, errors}) {
     return (
+        // img of the video
         <div className="mb-3">
             <label htmlFor="formFileSm" className="form-label">please upload video img</label>
             <input className="form-control form-control-sm" onChange={onChange}
