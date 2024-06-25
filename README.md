@@ -16,55 +16,27 @@ Our suggestion is to login with the user:
 
 even though it does not matter so much.
 
-#Features
-Registration Screen
+## Features
+
+### Sign up
 Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.
 
-Login Screen
+### Login Screen
 Provides a simple login form where users can enter their username and password to access the application.
 
-Video List Screen
-Displays a scrollable list of videos similar to the homepage of YouTube, including left menu, search functionality, and login button.
+### Home page
+The Home Page is the starting point of the application where users can view a list of videos. Users do not need to log in to access the Home Page. If users log in, they will be able to add, edit, and delete comments and videos.
 
-Video Playback Screen
-Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments.
+### Editing and Deleting videos and comments
+Editing and deleting videos and comments can only be done if you are logged in. These actions are available on the video viewing page.
 
-Add New Video Screen
-Allows authenticated users to add new videos to the platform. The newly added videos are displayed in the video list screen but are not stored permanently (only in-memory for the session).
+### Add a new video
+Adding a new video can be done through the "Add Video" button in the left menu. Only logged-in users can add new videos. 
 
-Theme Toggle
-Includes a button to switch between dark mode and light mode for the application's theme.
+### View Video Page
+Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments. Only logged-in users can add, edit, and delete comments, as well as edit the video and its details. Additionally, logged-in users can like or dislike a video.
 
-Project Workflow Development
-The project utilizes React components for the frontend development, managing different screens such as Registration, Login, Video List, Video Playback, and Add New Video.
+### Log out
+Logging out can be done through the menu, by clicking on the button below.
 
-Styling
-CSS is used for styling components, ensuring a user-friendly and visually appealing interface inspired by the real YouTube application.
 
-Data Handling
-Video information is loaded dynamically from a JSON file, which contains at least 10 pre-defined videos. New videos added through the Add New Video screen are stored temporarily for the current session.
-
-User Authentication
-Basic authentication is implemented where users can register and login with their credentials. User data is managed within the application without external dependencies like Google accounts.
-
-Notes
-This application is a static prototype and does not feature server communication or persistent data storage. Future iterations may include these functionalities to enable real-time interaction between users and server-side data management.
-
-Screenshots
-Login Page
-
-SignUp Page
-
-Home Page
-
-View Video Page
-
-Add New Video Page
-
-These images are placeholders. Replace path/to/... with the actual paths to the images on your local setup.
-
-Contributing
-Contributions to the project are welcome. Please fork the repository and submit pull requests for review.
-
-License
-This project is licensed under the MIT License.
