@@ -1,3 +1,6 @@
+
+![Unitube](https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb8af6e8-a672-42de-847b-7f7818985946)
+
 # UniTube
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
 
@@ -42,6 +45,13 @@ Logging out can be done through the menu, by clicking on the button below.
 # Pictures from the website:
 
 ## Home page
+<img width="960" alt="homepage" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/22d111d8-5dd4-4121-a5ac-ce4f7f2f6d08">
 
 
 ## View Video Page
+<img width="960" alt="view page" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/8ebad413-d246-4867-9a44-d1d2e7aae9a1">
+
+## Dark mode
+<img width="960" alt="darkmode" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/cb0893c6-b22a-47a3-8bd2-b8f82086720d">
+
+<img width="960" alt="homepage" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb674da2-9127-4941-bd4b-9944e947a0af">
