@@ -54,4 +54,3 @@ Logging out can be done through the menu, by clicking on the button below.
 ## Dark mode
 <img width="960" alt="darkmode" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/cb0893c6-b22a-47a3-8bd2-b8f82086720d">
 
-<img width="960" alt="homepage" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb674da2-9127-4941-bd4b-9944e947a0af">
