@@ -26,7 +26,10 @@ import logodark from './svg icons/logodark.png';
 
 
 
-function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogin, setFilteredVideoList }) {
+function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogin, setFilteredVideoList })
+// Function to handle the search input and filter the video list
+
+{
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -43,12 +46,13 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
 
     const navigate = useNavigate();
 
+        // Handle login button click
     const handleLogin = () => {
         navigate('/logIn');
     };
+    // Handle logout button click
 
     const handleLogout = () => {
-        // Handle the actual logout logic here if needed
         navigate('/logIn');
     };
 
@@ -57,7 +61,7 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
     return (
         <nav className="navbar bg-body-tertiary fixed-top" >
             <div className="container-fluid">
-                <button className="navbar-toggler" data-bs-theme={darkMode ? "dark" : "light"}  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <button className="navbar-toggler" data-bs-theme={darkMode ? "dark" : "light"} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <img className="ms-2" id="logo" src={darkMode ? logodark : logolight} alt="Logo" width="106.4" height="23.2" />
@@ -107,7 +111,7 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
                                 </li>
                             )}
                             <li className="nav-item" onClick={() => navigate('/')}>
-                                <NavItem src={darkMode ? historydark : historylight} text="History" fill={svgFillColor}/>
+                                <NavItem src={darkMode ? historydark : historylight} text="History" fill={svgFillColor} />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? playlistdark : playlistlight} text="Playlists" />

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Register({ userList, setUserList }) {
+        // useState hooks to manage local state for form errors, submission status, and input fields
+
     const [formErrors, setFormErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
     const [inputFields, setInputFields] = useState({
@@ -18,6 +20,7 @@ function Register({ userList, setUserList }) {
         userName: "",
         profilePicture: null
     });
+    // handleChange function to update state when input fields change
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -31,7 +34,10 @@ function Register({ userList, setUserList }) {
         setSubmitting(true);
     }
 
+        // validate function to check if input fields meet the required criteria
+
     const validate = (inputFields) => {
+        // create limits for the inputs
         const errors = {}
         if (!inputFields.userName) {
             errors.userName = "user name is required!";
@@ -61,6 +67,7 @@ function Register({ userList, setUserList }) {
     }
 
 
+    // addNewUser function to add a new user to the user list
 
     const addNewUser = () => {
         let profilePictureUrl = inputFields.profilePicture;
@@ -86,6 +93,7 @@ function Register({ userList, setUserList }) {
 
     const navigate = useNavigate();
 
+    // useEffect hook to handle form submission and navigation
 
     useEffect(() => {
         console.log(formErrors);

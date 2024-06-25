@@ -5,6 +5,7 @@ import EditVideo from './EditVideo';
 function PopupEdit({ show, handleClose, videoId, videoList, setVideoList,setUpdateTrigger }) {
     return (
         show ? (
+            // popup edit modal
             <>
                 <div className="modal fade show" id="staticBackdrop" style={{ display: 'block' }} aria-modal="true" role="dialog">
                     <div className="modal-dialog wrapperEdit">

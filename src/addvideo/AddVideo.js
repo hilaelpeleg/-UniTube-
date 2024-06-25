@@ -11,6 +11,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
+        // build new video
         "id": 0,
         "title": "",
         "": "",
@@ -38,6 +39,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     }
 
     const validate = (inputVideoFields) => {
+        // Setting limits
         const errors = {}
         if (!inputVideoFields.title) {
             errors.title = "Title is required!";
@@ -85,24 +87,24 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
     }, [formErrorsVideo]);
 
     return (
+        // Defining fields that need to be filled when adding a video 
         <div className="wrapper">
-        <div className="card custom-card-width container"  >
-            <div className="card-body">
-                <h5 className="card-title">Add video</h5>
-                <div className="row">
-                    <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
-                    <VideoImg name="thumbnailUrl" onChange={handleChange}
-                        errors={formErrorsVideo.thumbnailUrl} />
-                    <TextInputVideo name="title" kind="title" value={inputVideoFields.title}
-                        onChange={handleChange} errors={formErrorsVideo.title} />
-                    <TextInputVideo name="description" kind="description" value={inputVideoFields.description}
-                        onChange={handleChange} errors={formErrorsVideo.description} />
+            <div className="card custom-card-width container"  >
+                <div className="card-body">
+                    <h5 className="card-title">Add video</h5>
+                    <div className="row">
+                        <VideoImg name="thumbnailUrl" onChange={handleChange}
+                            errors={formErrorsVideo.thumbnailUrl} />
+                        <TextInputVideo name="title" kind="title" value={inputVideoFields.title}
+                            onChange={handleChange} errors={formErrorsVideo.title} />
+                        <TextInputVideo name="description" kind="description" value={inputVideoFields.description}
+                            onChange={handleChange} errors={formErrorsVideo.description} />
+                    </div>
+                </div>
+                <div className="list-group list-group-flush">
+                    <ButtonAddVideo onClick={handleSubmit} value="Add video" />
                 </div>
             </div>
-            <div className="list-group list-group-flush">
-                <ButtonAddVideo onClick={handleSubmit} value="Add video" />
-            </div>
-        </div>
         </div>
     );
 }

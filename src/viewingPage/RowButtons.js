@@ -9,9 +9,12 @@ import { useState } from 'react';
 import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
 
+// RowButtons component to display and manage actions like like, dislike, share, download, edit, and delete
 function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike, setUpdateTrigger }) {
     const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
+
+        // Function to delete a video by its ID
 
     const deleteVideo = (id) => {
         const remainingVideos = videoList.filter(video => video.id !== id);
@@ -36,6 +39,8 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
     const handleEditClick = () => {
         setshowModal(true);
     };
+
+        // Function to close the edit modal
 
     const handleCloseModal = () => {
         setshowModal(false);

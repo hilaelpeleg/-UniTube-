@@ -19,8 +19,8 @@
 }
 
 #img-top {
-    width: 100%; /* להתאמה לרוחב ההורה */
-    height: auto; /* להתאמה לגובה אוטומטי */
+    width: 100%; /* Matches the width of the parent element */
+    height: auto; /* Automatically adjusts the height */
 }
 
 .square {

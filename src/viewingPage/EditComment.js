@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import TextInput from '../register/TextInput';
 import UpdateButton from './UpdateButton';
 
-function EditComment({videoId,setVideoList, videoList, handleClose, setCommentsList, commentId, commentsList }) {
+// Component to handle the editing of a comment
+
+function EditComment({ videoId, setVideoList, videoList, handleClose, setCommentsList, commentId, commentsList }) {
+    // Find the comment to edit
+
     const comment = commentsList.find(c => c.id === commentId);
+    // Initialize the state with the comment's text
 
     useEffect(() => {
         if (comment) {
@@ -15,6 +20,8 @@ function EditComment({videoId,setVideoList, videoList, handleClose, setCommentsL
     const [updateCommentFields, setUpdateCommentFields] = useState({
         newcomment: comment ? comment.text : "",
     });
+
+        // Handle input change
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -40,6 +47,7 @@ function EditComment({videoId,setVideoList, videoList, handleClose, setCommentsL
             setSubmittingEdit(false);
             return;
         }
+        // Update the comments list with the edited comment
 
         const updatedCommentsList = commentsList.map(comment =>
             comment.id === id ? {

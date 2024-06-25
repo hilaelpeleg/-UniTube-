@@ -6,6 +6,7 @@ import './ViewingPage.css';
 import Comments from './Comments';
 import RowButtons from './RowButtons';
 
+// ViewingPage component to display a single video with comments and actions
 
 const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
     const { videoId } = useParams();
@@ -22,11 +23,11 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
         setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
     }, [videoList]);
 
-    const video = videoList.find(v => v.id === parseInt(videoId));
+    const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
     useEffect(() => {
         if (video) {
-            setLike(video.likes);
-            setCommentsList(video.comments || []);
+            setLike(video.likes); // Set the initial number of likes
+            setCommentsList(video.comments || []);// Set the initial list of comments
         }
     }, [video, updateTrigger]);
 
@@ -79,7 +80,7 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
 
 
     if (!video) {
-        return <div>Video not found</div>;
+        return <div>Video not found</div>; 
     }
 
     return (

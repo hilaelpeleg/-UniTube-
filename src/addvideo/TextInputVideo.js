@@ -1,6 +1,7 @@
 import './TextInputVideo.css'
 
 function TextInputVideo({ name, kind, onChange, error, type}) {
+    // text input div
     return (
         <div className="col-md-4 margin ">
             <input type={type} className="form-control" id="Addvideo"

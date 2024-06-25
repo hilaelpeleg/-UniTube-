@@ -7,41 +7,64 @@ Download the repository to your computer
 Install dependencies (for running the app) using npm install
 Install react-router-dom by typing npm install react-router-dom
 Run the app using npm start
-Our suggestion is to login with the user: user name: Hila El peleg, password: 12345, even though it does not matter so much.
 
+Our suggestion is to login with the user:
 
-# Features
-Registration Screen: Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.
+▪️Username: Hila El peleg
 
-Login Screen: Provides a simple login form where users can enter their username and password to access the application.
+▪️Password: 12345
 
-Video List Screen: Displays a scrollable list of videos similar to the homepage of YouTube, including left menu, search functionality, and login button.
+even though it does not matter so much.
 
-Video Playback Screen: Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments.
+#Features
+Registration Screen
+Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.
 
-Add New Video Screen: Allows authenticated users to add new videos to the platform. The newly added videos are displayed in the video list screen but are not stored permanently (only in-memory for the session).
+Login Screen
+Provides a simple login form where users can enter their username and password to access the application.
 
-Theme Toggle: Includes a button to switch between dark mode and light mode for the application's theme.
+Video List Screen
+Displays a scrollable list of videos similar to the homepage of YouTube, including left menu, search functionality, and login button.
 
-Project Workflow
-Development: The project utilizes React components for the frontend development, managing different screens such as Registration, Login, Video List, Video Playback, and Add New Video.
+Video Playback Screen
+Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments.
 
-Styling: CSS is used for styling components, ensuring a user-friendly and visually appealing interface inspired by the real YouTube application.
+Add New Video Screen
+Allows authenticated users to add new videos to the platform. The newly added videos are displayed in the video list screen but are not stored permanently (only in-memory for the session).
 
- Data Handling: Video information is loaded dynamically from a JSON file, which contains at least 10 pre-defined videos. New videos added through the Add New Video screen are stored temporarily for the current session.
+Theme Toggle
+Includes a button to switch between dark mode and light mode for the application's theme.
 
-User Authentication: Basic authentication is implemented where users can register and login with their credentials. User data is managed within the application without external dependencies like Google accounts.
+Project Workflow Development
+The project utilizes React components for the frontend development, managing different screens such as Registration, Login, Video List, Video Playback, and Add New Video.
+
+Styling
+CSS is used for styling components, ensuring a user-friendly and visually appealing interface inspired by the real YouTube application.
+
+Data Handling
+Video information is loaded dynamically from a JSON file, which contains at least 10 pre-defined videos. New videos added through the Add New Video screen are stored temporarily for the current session.
+
+User Authentication
+Basic authentication is implemented where users can register and login with their credentials. User data is managed within the application without external dependencies like Google accounts.
 
 Notes
 This application is a static prototype and does not feature server communication or persistent data storage. Future iterations may include these functionalities to enable real-time interaction between users and server-side data management.
 
-Pictures from the website:
-Login page
+Screenshots
+Login Page
 
+SignUp Page
 
-SignUp page
+Home Page
 
+View Video Page
 
-Feed page
+Add New Video Page
 
-viewingpage:
+These images are placeholders. Replace path/to/... with the actual paths to the images on your local setup.
+
+Contributing
+Contributions to the project are welcome. Please fork the repository and submit pull requests for review.
+
+License
+This project is licensed under the MIT License.

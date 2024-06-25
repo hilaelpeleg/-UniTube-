@@ -15,13 +15,13 @@
 }
 
 .modal-content {
-  width: 60%;  /* שינוי הרוחב של תוכן המודאל */
+  width: 60%;  /* Change the width of the modal content */
   height: auto; }
 
 .modal-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60;  /* שינוי הרוחב של ה-body */
-  height: auto; /* שינוי הגובה של ה-body ל-auto */
+  width: 60; /* Change the width of the modal body */
+  height: auto; /* Set the height of the modal body to auto */
 }

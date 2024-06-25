@@ -4,6 +4,7 @@ function Username({name, onChange, error }) {
 
 
     return (
+        // the user name input div
         <div className="col-md-6 position-relative margin">
             <div className="input-group has-validation">
                 <span className="input-group-text" id="validationTooltipUsernamePrepend">@</span>

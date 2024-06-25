@@ -6,19 +6,27 @@ import ButtonLog from "./ButtonLog";
 
 
 function LogIn({ userList, setUserLogin }) {
-
+    // useState hooks to manage local state for username, password, and error messages
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
 
+        // Function to handle login logic
+
     const handleLogin = () => {
+                // Find the user in the userList with the provided username and password
+
         const user = userList.find(user => user.userName === userName && user.password === password);
         if (user) {
+                        // If user is found, update the userLogin state and navigate to the home page
+
             setUserLogin({ userName: userName, password: password });
             navigate('/');
         } else {
+                        // If user is not found, set an error message
+
             setError("Invalid username or password");
         }
     };

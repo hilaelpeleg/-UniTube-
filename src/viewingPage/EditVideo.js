@@ -4,8 +4,11 @@ import TextInput from '../register/TextInput';
 import VideoImg from '../addvideo/VideoImg';
 import UpdateButton from './UpdateButton';
 
+// Component to handle the editing of a video
 
 function EditVideo({ handleClose, setVideoList, videoId, videoList,setUpdateTrigger }) {
+        // Find the video to edit based on videoId
+
     const video = videoList.find(v => v.id === parseInt(videoId));
 
     useEffect(() => {
@@ -48,6 +51,7 @@ function EditVideo({ handleClose, setVideoList, videoId, videoList,setUpdateTrig
             setSubmittingEdit(false);
             return;
         }
+        // Create a new updated video list with the edited video
 
         const updatedVideoList = videoList.map(video =>
             video.id === id ? {

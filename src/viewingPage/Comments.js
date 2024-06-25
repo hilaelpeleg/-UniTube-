@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
 import PopupEditComment from './PopupEditComment';
 
+// Comments component for handling the display and management of comments
+
 function Comments({ user, userList, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment, userLogin }) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -13,9 +15,10 @@ function Comments({ user, userList, videoList, setVideoList, setCommentsList, vi
         setComment(event.target.value);
     };
 
+    // Handle adding a new comment
 
     const handleAddComment = () => {
-        if (!user) { // הוספתי בדיקה אם המשתמש מוגדר
+        if (!user) {// Added check to see if user is defined
             console.error("User is not defined");
             return;
         }
@@ -38,10 +41,14 @@ function Comments({ user, userList, videoList, setVideoList, setCommentsList, vi
         setShowModal(true);
     };
 
+        // Handle closing the edit comment modal
+
     const handleCloseModal = () => {
         setShowModal(false);
         setEditCommentId(null);
     };
+
+        // Handle deleting a comment
 
     const deleteComment = (commentId) => {
         const remainingComments = commentsList.filter(comment => comment.id !== commentId);
