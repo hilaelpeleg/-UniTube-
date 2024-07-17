@@ -20,6 +20,7 @@ body {
   --bs-leftMenu-text: #64728F;
   --bs-icon-leftMenu: #64728F;
   --bs-comment-text-inputbox: #f0f0f0;
+  --bs-user-bg:  #f0f0f0;
 }
 
 [data-theme="dark"] {
@@ -39,6 +40,7 @@ body {
   --bs-leftMenu-text:  #ffffff;
   --bs-icon-leftMenu: #ffffff;
   --bs-comment-text-inputbox: #3a3a3a;
+  --bs-user-bg: #696565;
 
 }
 
