@@ -2,6 +2,8 @@
 ![Unitube](https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb8af6e8-a672-42de-847b-7f7818985946)
 
 # UniTube
+🌟 Welcome to Unitube! 🌟
+
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
 
 
