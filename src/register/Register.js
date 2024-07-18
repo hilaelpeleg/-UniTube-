@@ -57,9 +57,6 @@ function Register({ userList, setUserList }) {
         if (inputFields.password.length < 8) {
             errors.password = "password is too short";
         }
-        if (!/[a-zA-Z]/.test(inputFields.password)) {
-            errors.password = "password must contain at least one letter";
-        }
         if (!inputFields.reEnterPassword) {
             errors.reEnterPassword = "re enter password is required!";
         }
@@ -120,7 +117,7 @@ function Register({ userList, setUserList }) {
                         onChange={handleChange} error={formErrors.firstName} type={"text"}/>
                     <TextInput name="lastName"  kind="last name" value={inputFields.lastName}
                         onChange={handleChange} error={formErrors.lastName} type={"text"}/>
-                     <div class="form-text-pass">password must include 8 letters and numbers!</div>
+                     <div class="form-text-pass">password must include 8 numbers!</div>
                     <TextInput name="password"  kind="password" value={inputFields.password}
                         onChange={handleChange} error={formErrors.password} type="password"/>
                     <TextInput name="reEnterPassword"  kind="re-enter password" value={inputFields.reEnterPassword}
