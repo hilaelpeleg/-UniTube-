@@ -50,7 +50,7 @@ Logging out can be done through the menu, by clicking on the button below.
 ## View Video Page
 <img width="960" alt="viewing page" src="https://github.com/user-attachments/assets/712efc0f-5861-4866-a16f-e4f58c4d27ef">
 
-## Dark mode
+## View Video Page (Dark mode)
 <img width="960" alt="darkmodeviewingpage" src="https://github.com/user-attachments/assets/829c5979-f3ef-4a18-b46f-e19d234ecb24">
 
 ## Register
