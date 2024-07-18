@@ -54,7 +54,7 @@ function Register({ userList, setUserList }) {
         if (!inputFields.password) {
             errors.password = "password is required!";
         }
-        if (inputFields.password.length < 5) {
+        if (inputFields.password.length < 8) {
             errors.password = "password is too short";
         }
         if (!inputFields.reEnterPassword) {
