@@ -12,7 +12,7 @@ UniTube is a static video-sharing platform designed to showcase video content si
 - Run the app using **npm start**
 - Our suggestion is to login with the user:
        - Username: Hila El peleg
-       - Password: 12345
+       - Password: 12345678
 
 even though it does not matter so much.
 
