@@ -44,17 +44,25 @@ Logging out can be done through the menu, by clicking on the button below.
 
 # Pictures from the website:
 
+## Register
+<img width="960" alt="register" src="https://github.com/user-attachments/assets/642e6d1b-3332-45ac-b9c6-449ce56da3f3">
+
+## Login 
+<img width="960" alt="login" src="https://github.com/user-attachments/assets/804b2254-4a23-4ea2-9578-430d0302a5b8">
+
 ## Home page
 <img width="959" alt="homepage" src="https://github.com/user-attachments/assets/5ad07ace-4873-4811-af38-2b72ff62bea2">
 
 ## View Video Page
 <img width="960" alt="viewing page" src="https://github.com/user-attachments/assets/712efc0f-5861-4866-a16f-e4f58c4d27ef">
 
-## Dark mode
+## View Video Page (Dark mode)
 <img width="960" alt="darkmodeviewingpage" src="https://github.com/user-attachments/assets/829c5979-f3ef-4a18-b46f-e19d234ecb24">
 
-## register
-<img width="960" alt="register" src="https://github.com/user-attachments/assets/48557c1b-1ead-4562-829c-e9af4b07ee3f">
+## comments
+<img width="960" alt="comments" src="https://github.com/user-attachments/assets/dc30d081-0403-483c-812e-91e8d0b2342e">
 
-## login 
-<img width="960" alt="login" src="https://github.com/user-attachments/assets/804b2254-4a23-4ea2-9578-430d0302a5b8">
+## Edit video 
+<img width="960" alt="edit video" src="https://github.com/user-attachments/assets/c5826367-a13e-4207-86e9-f946bfbdea5e">
+
+
