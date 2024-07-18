@@ -3,7 +3,7 @@
     "firstName": "Noa",
     "lastName": "Kirel",
     "password": "12345",
-    "reEnterPassword": "12345",
+    "reEnterPassword": "12345678",
     "userName": "Noa Kirel",
     "profilePicture": "https://www.eurovisionlive.com/wp-content/uploads/Israel-2023-Noa-Kirel-Eran-Levi.jpg"
   },
@@ -11,7 +11,7 @@
     "firstName": "Hila",
     "lastName": "El Peleg",
     "password": "12345",
-    "reEnterPassword": "12345",
+    "reEnterPassword": "12345678",
     "userName": "Hila El peleg",
     "profilePicture": "/profiles/hila.png"
   }
