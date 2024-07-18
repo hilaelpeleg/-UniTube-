@@ -40,7 +40,7 @@ Adding a new video can be done through the "Add Video" button in the left menu. 
 Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments. Only logged-in users can add, edit, and delete comments, as well as edit the video and its details. Additionally, logged-in users can like or dislike a video.
 
 - ### Log out
-Logging out can be done through the menu, by clicking on the button below.
+Logging out can be done through the menu, by clicking on the button.
 
 # Pictures from the website:
 
