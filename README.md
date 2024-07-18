@@ -65,4 +65,8 @@ Logging out can be done through the menu, by clicking on the button below.
 ## Edit video 
 <img width="960" alt="edit video" src="https://github.com/user-attachments/assets/c5826367-a13e-4207-86e9-f946bfbdea5e">
 
+## Add video 
+<img width="960" alt="add video" src="https://github.com/user-attachments/assets/f3e7f9a0-5f41-471a-9c04-278aef84d064">
+
+
 
