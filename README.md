@@ -53,8 +53,8 @@ Logging out can be done through the menu, by clicking on the button below.
 ## Dark mode
 <img width="960" alt="darkmodeviewingpage" src="https://github.com/user-attachments/assets/829c5979-f3ef-4a18-b46f-e19d234ecb24">
 
-## register
-<img width="960" alt="register" src="https://github.com/user-attachments/assets/48557c1b-1ead-4562-829c-e9af4b07ee3f">
+## Register
+<img width="960" alt="register" src="https://github.com/user-attachments/assets/642e6d1b-3332-45ac-b9c6-449ce56da3f3">
 
-## login 
+## Login 
 <img width="960" alt="login" src="https://github.com/user-attachments/assets/804b2254-4a23-4ea2-9578-430d0302a5b8">
