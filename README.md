@@ -45,12 +45,16 @@ Logging out can be done through the menu, by clicking on the button below.
 # Pictures from the website:
 
 ## Home page
-<img width="960" alt="homepage" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/22d111d8-5dd4-4121-a5ac-ce4f7f2f6d08">
-
+<img width="959" alt="homepage" src="https://github.com/user-attachments/assets/5ad07ace-4873-4811-af38-2b72ff62bea2">
 
 ## View Video Page
-<img width="960" alt="view page" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/8ebad413-d246-4867-9a44-d1d2e7aae9a1">
+<img width="960" alt="viewing page" src="https://github.com/user-attachments/assets/712efc0f-5861-4866-a16f-e4f58c4d27ef">
 
 ## Dark mode
-<img width="960" alt="darkmode" src="https://github.com/hilaelpeleg/-UniTube/assets/131517121/cb0893c6-b22a-47a3-8bd2-b8f82086720d">
+<img width="960" alt="darkmodeviewingpage" src="https://github.com/user-attachments/assets/829c5979-f3ef-4a18-b46f-e19d234ecb24">
 
+## register
+<img width="960" alt="register" src="https://github.com/user-attachments/assets/48557c1b-1ead-4562-829c-e9af4b07ee3f">
+
+## login 
+<img width="960" alt="login" src="https://github.com/user-attachments/assets/804b2254-4a23-4ea2-9578-430d0302a5b8">
