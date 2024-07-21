@@ -93,6 +93,7 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
                 <div className="card-body">
                     <h5 className="card-title">Add video</h5>
                     <div className="row">
+                    <Video name="url" onChange={handleChange} errors={formErrorsVideo.url} />
                         <VideoImg name="thumbnailUrl" onChange={handleChange}
                             errors={formErrorsVideo.thumbnailUrl} />
                         <TextInputVideo name="title" kind="title" value={inputVideoFields.title}

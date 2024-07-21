@@ -16,12 +16,12 @@
 
 
 .comment {
-    align-items: center; /* יישור הכפתור למרכז */
+    align-items: center; 
     
 }
 
 .comment-text {
-    padding-right: 10px; /* ריווח מימין */
+    padding-right: 10px; 
     display: flex;
 
 }

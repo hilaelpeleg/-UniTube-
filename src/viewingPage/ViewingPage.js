@@ -91,7 +91,8 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
                         handleChange={() => setDarkMode(!darkMode)} 
                         setFilteredVideoList={setFilteredVideoList}
                         originalVideoList={videoList} // Pass the original list here
-                        userLogin={userLogin} />
+                        userLogin={userLogin} 
+                        userList={userList} />
                 </div>
             </div>
             <div className="row">
@@ -124,7 +125,7 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
                         </div>
                     </div>
                 </div>
-                <div className="col-4 ">
+                <div className="col-4 scrollable">
                     <VideoItems videoList={filteredVideoList} colWidth={"col-12"}
                     />
                 </div>

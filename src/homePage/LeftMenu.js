@@ -25,11 +25,12 @@ import lightMode from './svg icons/lightMode.svg';
 import logodark from './svg icons/logodark.png';
 
 
-
-function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogin, setFilteredVideoList })
+function LeftMenu({ userList, handleChange, darkMode, videoId, originalVideoList, userLogin, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 
 {
+    const user = userLogin && userList ? userList.find(user => user.userName === userLogin.userName) : null;
+
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -46,7 +47,7 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
 
     const navigate = useNavigate();
 
-        // Handle login button click
+    // Handle login button click
     const handleLogin = () => {
         navigate('/logIn');
     };
@@ -70,24 +71,22 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
                     {(userLogin.userName === "") && (
-                        <button type="button" onClick={handleLogin} className="btn btn-light">
-                            Login
+                        <button type="button" onClick={handleLogin} className="btn btn-light btnrigtmargin">
                             <img src={login} alt="Dark mode toggle" />
                         </button>
                     )}
                     {(userLogin.userName !== "") && (
-                        <button type="button" onClick={handleLogout} className="btn btn-light">
-                            Sign Out
+                        <button type="button" onClick={handleLogout} className="btn btn-light btnrigtmargin">
                             <img src={logout} alt="Dark mode toggle" />
                         </button>
                     )}
                     {!darkMode && (
-                        <button onClick={handleChange} type="button" className="btn btn-light">
+                        <button onClick={handleChange} type="button" className="btn btn-light btnrigtmargin">
                             <img src={darkmode} alt="Dark mode toggle" />
                         </button>
                     )}
                     {darkMode && (
-                        <button onClick={handleChange} type="button" className="btn btn-light">
+                        <button onClick={handleChange} type="button" className="btn btn-light btnrigtmargin">
                             <img src={lightMode} alt="Dark mode toggle" />
                         </button>
                     )}
@@ -99,6 +98,12 @@ function LeftMenu({ handleChange, darkMode, videoId, originalVideoList, userLogi
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            {user && (
+                                <div className='user'>
+                                    <img className="profile-pic" src={user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                                    <strong className="username">{user.userName}</strong>
+                                </div>
+                            )}
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
                             </li>

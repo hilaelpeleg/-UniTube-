@@ -1,4 +1,4 @@
-import './VideoItem.css'
+import './videoItem.css'
 
 function VideoItem({ props, onClick }) {
     return (

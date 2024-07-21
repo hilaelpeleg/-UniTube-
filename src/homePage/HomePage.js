@@ -3,7 +3,7 @@ import './HomePage.css'
 import LeftMenu from './LeftMenu'
 import React, { useState, useEffect } from 'react';
 
-function HomePage({ darkMode, setDarkMode, userLogin, videoList, handleChange }) {
+function HomePage({ darkMode, setDarkMode, userLogin, videoList, handleChange, userList }) {
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function HomePage({ darkMode, setDarkMode, userLogin, videoList, handleChange })
         <div className="container-fluid ">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
+                    <LeftMenu userList={userList} darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
                         handleChange={() => setDarkMode(!darkMode)} setFilteredVideoList={setFilteredVideoList}
                         userLogin={userLogin} />
                 </div>

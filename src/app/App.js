@@ -9,7 +9,6 @@ import AddVideo from '../addvideo/AddVideo';
 import videosData from './videos.json';
 import ViewingPage from '../viewingPage/ViewingPage';
 import profiles from './profiles.json';
-// import Toggle from './Toggle.js';
 
 function App() {
   

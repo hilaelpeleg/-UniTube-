@@ -13,8 +13,10 @@ import './PopupEdit.css';
 function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike, setUpdateTrigger }) {
     const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
+    const [hasDisliked, setHasDisliked] = useState(false);
 
-        // Function to delete a video by its ID
+    
+    // Function to delete a video by its ID
 
     const deleteVideo = (id) => {
         const remainingVideos = videoList.filter(video => video.id !== id);
@@ -24,23 +26,34 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
 
     const onclickLike = () => {
         if (userLogin && userLogin.userName && !isLike) {
-            updateLikes(like + 1);
+            if (hasDisliked) {
+                updateLikes(like + 1);
+                setHasDisliked(false);
+            } else {
+                updateLikes(like + 1);
+            }
             setIsLike(true);
         }
     };
 
     const onclickDislike = () => {
-        if (userLogin && userLogin.userName && !isLike) {
+        if (userLogin && userLogin.userName && isLike) {
+            if (like > 1) updateLikes(like -1);
+            else updateLikes(0); // Handle edge case if likes is 1 or less
+            setIsLike(false);
+            setHasDisliked(true);
+        } else if (userLogin && userLogin.userName && !isLike && !hasDisliked) {
             if (like > 0) updateLikes(like - 1);
-            setIsLike(true);
+            setHasDisliked(true);
         }
     };
+
 
     const handleEditClick = () => {
         setshowModal(true);
     };
 
-        // Function to close the edit modal
+    // Function to close the edit modal
 
     const handleCloseModal = () => {
         setshowModal(false);
