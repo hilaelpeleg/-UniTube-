@@ -64,7 +64,7 @@ Logging out can be done through the menu, by clicking on the button.
 ## comments 💬
 <img width="960" alt="comments" src="https://github.com/user-attachments/assets/dc30d081-0403-483c-812e-91e8d0b2342e">
 
-## Add or deldete comment 📝🗑️
+## Edit or deldete comment 📝🗑️
 <img width="338" alt="commentszoom" src="https://github.com/user-attachments/assets/afc5d5d3-4ac1-4c50-ab26-727a708b2872">
 
 ## Add comment ✍️
