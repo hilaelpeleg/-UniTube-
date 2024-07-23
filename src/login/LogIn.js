@@ -16,23 +16,20 @@ function LogIn({ userList, setUserLogin }) {
 
         // Function to handle login logic
 
-    const handleLogin = () => {
-        setFormErrors(validateLogin(userName, password));
-
-                // Find the user in the userList with the provided username and password
-
-        const user = userList.find(user => user.userName === userName && user.password === password);
-        if (user) {
-                        // If user is found, update the userLogin state and navigate to the home page
-
-            setUserLogin({ userName: userName, password: password });
-            navigate('/');
-        } else {
-                        // If user is not found, set an error message
-
-            setError("Invalid username or password");
-        }
-    };
+        const handleLogin = () => {
+            const errors = validateLogin(userName, password);
+            setFormErrors(errors);
+    
+            if (Object.keys(errors).length === 0) {
+                const user = userList.find(user => user.userName === userName && user.password === password);
+                if (user) {
+                    setUserLogin({ userName: userName, password: password });
+                    navigate('/');
+                } else {
+                    setError("Invalid username or password");
+                }
+            }
+        };
 
     const validateLogin = (userName, password) => {
         const errors = {};

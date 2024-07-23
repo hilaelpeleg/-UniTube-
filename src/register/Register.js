@@ -117,7 +117,7 @@ function Register({ userList, setUserList }) {
                         onChange={handleChange} error={formErrors.firstName} type={"text"}/>
                     <TextInput name="lastName"  kind="last name" value={inputFields.lastName}
                         onChange={handleChange} error={formErrors.lastName} type={"text"}/>
-                     <div class="form-text-pass">password must include 8 numbers!</div>
+                     <div className="form-text-pass">password must include 8 numbers!</div>
                     <TextInput name="password"  kind="password" value={inputFields.password}
                         onChange={handleChange} error={formErrors.password} type="password"/>
                     <TextInput name="reEnterPassword"  kind="re-enter password" value={inputFields.reEnterPassword}
