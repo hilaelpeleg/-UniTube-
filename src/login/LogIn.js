@@ -26,7 +26,7 @@ function LogIn({ userList, setUserLogin }) {
                     setUserLogin({ userName: userName, password: password });
                     navigate('/');
                 } else {
-                    setError("Invalid username or password");
+                    setFormErrors(prevErrors => ({ ...prevErrors, userName: "Invalid username or password" }));
                 }
             }
         };
