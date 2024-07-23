@@ -51,11 +51,11 @@ function Register({ userList, setUserList }) {
         if (!inputFields.lastName) {
             errors.lastName = "last name is required!";
         }
-        if (!inputFields.password) {
-            errors.password = "password is required!";
-        }
         if (inputFields.password.length < 8) {
             errors.password = "password is too short";
+        }
+        if (!inputFields.password) {
+            errors.password = "password is required!";
         }
         if (!inputFields.reEnterPassword) {
             errors.reEnterPassword = "re enter password is required!";
