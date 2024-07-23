@@ -1,4 +1,3 @@
-<img width="957" alt="beforeaddcomment" src="https://github.com/user-attachments/assets/13ec31d8-70fc-4935-8257-d6786e32103f">
 ![Unitube](https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb8af6e8-a672-42de-847b-7f7818985946)
 
 # UniTube
