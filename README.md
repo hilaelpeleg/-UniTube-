@@ -1,10 +1,11 @@
-
+<img width="957" alt="beforeaddcomment" src="https://github.com/user-attachments/assets/13ec31d8-70fc-4935-8257-d6786e32103f">
 ![Unitube](https://github.com/hilaelpeleg/-UniTube/assets/131517121/fb8af6e8-a672-42de-847b-7f7818985946)
 
 # UniTube
 🌟 Welcome to Unitube! 🌟
 
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
+This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
 
 # running the application 🚀
@@ -64,19 +65,24 @@ Logging out can be done through the menu, by clicking on the button.
 ## comments 💬
 <img width="960" alt="comments" src="https://github.com/user-attachments/assets/dc30d081-0403-483c-812e-91e8d0b2342e">
 
-## Add comment
+## Add or deldete comment 📝🗑️
 <img width="338" alt="commentszoom" src="https://github.com/user-attachments/assets/afc5d5d3-4ac1-4c50-ab26-727a708b2872">
 
-## Edit comment
-<img width="960" alt="editcomment" src="https://github.com/user-attachments/assets/cef577a2-4746-4735-b0c6-3f855ecb0921">
+## Add comment ✍️
+<img width="957" alt="beforeaddcomment" src="https://github.com/user-attachments/assets/2105e83b-1a68-4b70-ad40-9cc59bca9d6e">
+<img width="956" alt="addcomment" src="https://github.com/user-attachments/assets/6fbafc2c-032c-45e4-a559-953c3e3b6b40">
 
-## Edit video ✂️
-<img width="960" alt="edit video" src="https://github.com/user-attachments/assets/c5826367-a13e-4207-86e9-f946bfbdea5e">
+## Edit comment 📝
+<img width="960" alt="editcomment" src="https://github.com/user-attachments/assets/cef577a2-4746-4735-b0c6-3f855ecb0921">
 
 ## Add video ➕🎬
 <img width="960" alt="add video" src="https://github.com/user-attachments/assets/f3e7f9a0-5f41-471a-9c04-278aef84d064">
 
+## Edit video ✂️
+<img width="960" alt="edit video" src="https://github.com/user-attachments/assets/c5826367-a13e-4207-86e9-f946bfbdea5e">
 
+## Edit or delete video ✂️🗑️
+<img width="957" alt="deledtvideo" src="https://github.com/user-attachments/assets/32966317-70e8-4e16-9475-4c986782917f">
 
 
 
