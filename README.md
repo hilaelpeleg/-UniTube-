@@ -24,7 +24,7 @@ The name "UniTube" is a fusion of two key concepts: "University" and "YouTube," 
 ## Features ✨
 
 - ### Sign up ✍️
-Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.
+Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
 
 - ### Login Screen 🔑
 Provides a simple login form where users can enter their username and password to access the application.
