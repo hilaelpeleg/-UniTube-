@@ -24,10 +24,10 @@ The name "UniTube" is a fusion of two key concepts: "University" and "YouTube," 
 ## Features ✨
 
 - ### Sign up ✍️
-Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture.The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
+Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture. The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
 
 - ### Login Screen 🔑
-Provides a simple login form where users can enter their username and password to access the application.
+Provides a simple login form where users can enter their username and password to access the application. The login form includes validation checks to ensure that all required fields are filled out and verifies that the entered username and password match an existing user in the system.
 
 - ### Home page 🏠
 The Home Page is the starting point of the application where users can view a list of videos. Users do not need to log in to access the Home Page. If users log in, they will be able to add, edit, and delete comments and videos.
@@ -54,6 +54,9 @@ Logging out can be done through the menu, by clicking on the button.
 
 ## Login  🔐
 <img width="960" alt="login" src="https://github.com/user-attachments/assets/804b2254-4a23-4ea2-9578-430d0302a5b8">
+
+## Login Validation Checks ✔️
+<img width="949" alt="loginvalid" src="https://github.com/user-attachments/assets/fb7baa2b-1d12-436e-bb88-2ffc693af35f">
 
 ## Home page  🏡
 <img width="959" alt="homepage" src="https://github.com/user-attachments/assets/5ad07ace-4873-4811-af38-2b72ff62bea2">
