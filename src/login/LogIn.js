@@ -10,25 +10,36 @@ function LogIn({ userList, setUserLogin }) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [formErrors, setFormErrors] = useState({});
 
     const navigate = useNavigate();
 
         // Function to handle login logic
 
-    const handleLogin = () => {
-                // Find the user in the userList with the provided username and password
+        const handleLogin = () => {
+            const errors = validateLogin(userName, password);
+            setFormErrors(errors);
+    
+            if (Object.keys(errors).length === 0) {
+                const user = userList.find(user => user.userName === userName && user.password === password);
+                if (user) {
+                    setUserLogin({ userName: userName, password: password });
+                    navigate('/');
+                } else {
+                    setFormErrors(prevErrors => ({ ...prevErrors, userName: "Invalid username or password" }));
+                }
+            }
+        };
 
-        const user = userList.find(user => user.userName === userName && user.password === password);
-        if (user) {
-                        // If user is found, update the userLogin state and navigate to the home page
-
-            setUserLogin({ userName: userName, password: password });
-            navigate('/');
-        } else {
-                        // If user is not found, set an error message
-
-            setError("Invalid username or password");
+    const validateLogin = (userName, password) => {
+        const errors = {};
+        if (!userName) {
+            errors.userName = "User name is required!";
         }
+        if (!password) {
+            errors.password = "Password is required!";
+        }
+        return errors;
     };
 
     return (
@@ -37,10 +48,10 @@ function LogIn({ userList, setUserLogin }) {
             <div className="card-body">
             <h5 className="card-title">Log In</h5>
                 <TextInputLog className="form-control" name="userName" kind="user name"
-                    value={userName} onChange={(event) => setUserName(event.target.value)} />
+                    value={userName} onChange={(event) => setUserName(event.target.value)}  error={formErrors.userName}/>
                 <div className="row">
                     <TextInputLog name="password" kind="password" type="password"
-                        value={password} onChange={(event) => setPassword(event.target.value)} />
+                        value={password} onChange={(event) => setPassword(event.target.value)}  error={formErrors.password}/>
                 </div>
             </div>
             <div className="list-group list-group-flush">
