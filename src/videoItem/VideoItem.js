@@ -16,7 +16,7 @@ function VideoItem({ props, onClick }) {
                 <div className="box">
                     <p className="card-text p">{props.uploader}</p>
                     <p className="card-text p">{props.description}</p>
-                    <p className="card-text"><small className="text-body-secondary">{props.uploadDate} {props.likes}</small></p>
+                    <p className="card-text"><small className="text-body-secondary">{props.uploadDate}</small></p>
                 </div>
             </div>
         </div>
