@@ -1,21 +1,41 @@
 import Register from '../register/Register';
 import './App.css';
 import '../index.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from '../login/LogIn';
 import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
-import videosData from './videos.json';
 import ViewingPage from '../viewingPage/ViewingPage';
 import profiles from './profiles.json';
 
 function App() {
   
   const [userList, setUserList] = useState(profiles);
-  const [videoList, setVideoList] = useState(videosData);
+  const [videoList, setVideoList] = useState([]);
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
   const [darkMode,setDarkMode] = useState(false);
+
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch('http://localhost:8200/api/videos/all', { // בקשה לנתיב הנכון בשרת
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const data = await res.json();
+        setVideoList(data);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    };
+
+    fetchVideos(); // קריאה לפונקציה כדי להביא את הסרטונים כאשר הקומפוננטה נטענת
+  }, []);
+
 
   return (
     <Router>
