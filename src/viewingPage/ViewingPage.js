@@ -27,9 +27,19 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
     useEffect(() => {
         if (video) {
             setLike(video.likes); // Set the initial number of likes
-            setCommentsList(video.comments || []);// Set the initial list of comments
+            fetchComments(); // Fetch comments from the server
         }
     }, [video, updateTrigger]);
+
+    const fetchComments = async () => {
+        try {
+            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`);
+            const data = await response.json();
+            setCommentsList(data);
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+        }
+    };
 
     const handleLoadedMetadata = (event) => {
         const videoDuration = event.target.duration;
@@ -51,15 +61,28 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
         return `${minutes}:${seconds}`;
     };
 
-    const addComment = (newComment) => {
-        const updatedComments = [...commentsList, newComment];
-        setCommentsList(updatedComments);
-        setVideoList(prevList =>
-            prevList.map(video =>
-                video.id === parseInt(videoId) ? { ...video, comments: updatedComments } : video
-            )
-        );
+    const addComment = async (newComment) => {
+        try {
+            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newComment),
+            });
+
+            if (response.ok) {
+                const savedComment = await response.json();
+                const updatedComments = [...commentsList, savedComment];
+                setCommentsList(updatedComments);
+            } else {
+                console.error('Failed to add comment');
+            }
+        } catch (error) {
+            console.error('Error adding comment:', error);
+        }
     };
+
 
     const updateLikes = (newLikes) => {
         setLike(newLikes);

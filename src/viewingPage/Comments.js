@@ -6,7 +6,7 @@ import PopupEditComment from './PopupEditComment';
 
 // Comments component for handling the display and management of comments
 
-function Comments({ user, userList, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment, userLogin }) {
+function Comments({ user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment, userLogin }) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [editCommentId, setEditCommentId] = useState(null);
