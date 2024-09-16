@@ -14,22 +14,43 @@ function LogIn({ userList, setUserLogin }) {
 
     const navigate = useNavigate();
 
-        // Function to handle login logic
+    // Function to handle login logic
+    const handleLogin = async () => {
+        const errors = validateLogin(userName, password);
+        setFormErrors(errors);
 
-        const handleLogin = () => {
-            const errors = validateLogin(userName, password);
-            setFormErrors(errors);
-    
-            if (Object.keys(errors).length === 0) {
-                const user = userList.find(user => user.userName === userName && user.password === password);
-                if (user) {
-                    setUserLogin({ userName: userName, password: password });
+        if (Object.keys(errors).length === 0) {
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userName, password })
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                    const token = responseData.token;
+
+                    // Save token in Local Storage
+                    localStorage.setItem('token', token);
+
+                    // Set the logged-in user information
+                    setUserLogin({ userName });
+
+                    // Redirect the user to the home page or any protected route
                     navigate('/');
                 } else {
-                    setFormErrors(prevErrors => ({ ...prevErrors, userName: "Invalid username or password" }));
+                    // Show error message if the login fails
+                    setFormErrors({ userName: "Invalid username or password" });
                 }
+            } catch (error) {
+                // Handle server or network errors
+                setError("Login failed. Please try again later.");
             }
-        };
+        }
+    };
 
     const validateLogin = (userName, password) => {
         const errors = {};
