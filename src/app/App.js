@@ -15,12 +15,22 @@ function App() {
   const [videoList, setVideoList] = useState([]);
   const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
   const [darkMode,setDarkMode] = useState(false);
+  const [logedinuser, setlogedinuser] = useState({
+    firstName: "",
+    lastName:"",
+    password:"",
+    reEnterPassword:"",
+    userName:"",
+    profilePicture:""
+  });
+  const [token, settoken] = useState("");
+
 
 
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch('http://localhost:8200/api/videos/all', { // בקשה לנתיב הנכון בשרת
+        const res = await fetch('http://localhost:8200/api/videos/all', { 
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -33,7 +43,7 @@ function App() {
       }
     };
 
-    fetchVideos(); // קריאה לפונקציה כדי להביא את הסרטונים כאשר הקומפוננטה נטענת
+    fetchVideos(); 
   }, []);
 
 
@@ -42,7 +52,7 @@ function App() {
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
           <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
-          <Route path="/logIn" element={<Login userList={userList} setUserLogin={setUserLogin} />} />
+          <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser}/>} />
           <Route path="/" element={<HomePage darkMode={darkMode} setDarkMode={setDarkMode} userList={userList} 
           handleChange={() => setDarkMode(!darkMode)} videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}

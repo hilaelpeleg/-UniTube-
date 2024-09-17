@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './LogIn.css';
 import ButtonLog from "./ButtonLog";
 
-
-function LogIn({ userList, setUserLogin }) {
-    // useState hooks to manage local state for username, password, and error messages
+function LogIn({ setlogedinuser, setToken }) {
+    // useState hooks to manage local state for password, and error messages
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -14,43 +13,49 @@ function LogIn({ userList, setUserLogin }) {
 
     const navigate = useNavigate();
 
-    // Function to handle login logic
-    const handleLogin = async () => {
-        const errors = validateLogin(userName, password);
-        setFormErrors(errors);
-
-        if (Object.keys(errors).length === 0) {
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ userName, password })
-                });
-
-                if (response.ok) {
-                    const responseData = await response.json();
-                    const token = responseData.token;
-
-                    // Save token in Local Storage
-                    localStorage.setItem('token', token);
-
-                    // Set the logged-in user information
-                    setUserLogin({ userName });
-
-                    // Redirect the user to the home page or any protected route
-                    navigate('/');
-                } else {
-                    // Show error message if the login fails
-                    setFormErrors({ userName: "Invalid username or password" });
+        // Function to handle login logic
+        const handleLogin = async () => {
+            const errors = validateLogin(userName, password);
+            setFormErrors(errors);
+    
+            if (Object.keys(errors).length === 0) {
+                try {
+                    const response = await fetch('/api/tokens', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ userName, password })
+                    });
+    
+                    if (response.ok) {
+                        const responseData = await response.json();
+                        const token = responseData.token;
+    
+                        // Fetch user details from the server
+                        const userResponse = await fetch(`/api/users/${userName}`, {
+                            method: 'GET',
+                            headers: {
+                                'Authorization': token,  // Send token in the header
+                                'Content-Type': 'application/json',
+                            },
+                        });
+                        const user = await userResponse.json();
+    
+                        // Save user details in state for easy access across pages
+                        setlogedinuser(user);
+                        setToken(token); // Save token in state to be used for further requests
+    
+                        // Redirect to homepage or any other protected route
+                        navigate('/');
+                    } else {
+                        setFormErrors({ userName: "Invalid username or password" });
+                    }
+                } catch (error) {
+                    setError("Login failed. Please try again later.");
                 }
-            } catch (error) {
-                // Handle server or network errors
-                setError("Login failed. Please try again later.");
             }
-        }
-    };
+        };
 
     const validateLogin = (userName, password) => {
         const errors = {};
