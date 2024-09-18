@@ -18,14 +18,10 @@ function App() {
   const [logedinuser, setlogedinuser] = useState({
     firstName: "",
     lastName:"",
-    password:"",
-    reEnterPassword:"",
     userName:"",
     profilePicture:""
   });
-  const [token, settoken] = useState("");
-
-
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -51,8 +47,8 @@ function App() {
     <Router>
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
-          <Route path="/Register" element={<Register userList={userList} setUserList={setUserList} />} />
-          <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser}/>} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken}/>} />
           <Route path="/" element={<HomePage darkMode={darkMode} setDarkMode={setDarkMode} userList={userList} 
           handleChange={() => setDarkMode(!darkMode)} videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
           <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}

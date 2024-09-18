@@ -7,7 +7,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
 
-function Register({ userList, setUserList }) {
+function Register() {
         // useState hooks to manage local state for form errors, submission status, and input fields
 
     const [formErrors, setFormErrors] = useState({});
@@ -34,8 +34,9 @@ function Register({ userList, setUserList }) {
         setSubmitting(true);
     }
 
-        // validate function to check if input fields meet the required criteria
+    
 
+    // validate function to check if input fields meet the required criteria
     const validate = (inputFields) => {
         // create limits for the inputs
         const errors = {}
