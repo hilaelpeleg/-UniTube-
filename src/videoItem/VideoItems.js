@@ -18,14 +18,18 @@ function VideoItems({ videoList, colWidth }) {
 
     return (
         <div className="row gx-3">
-            {videoList.map(video => (
-                <div key={video.id} className={`${colWidth} hover`}>
-                    <VideoItem
-                        onClick={() => handleVideoClick(video)}
-                        props={video}
-                    />
-                </div>
-            ))}
+            {videoList && videoList.length > 0 ? (
+                videoList.map(video => (
+                    <div key={video.id} className={`${colWidth} hover`}>
+                        <VideoItem
+                            onClick={() => handleVideoClick(video)}
+                            props={video}
+                        />
+                    </div>
+                ))
+            ) : (
+                <p>No videos available</p> // Fallback message if no videos are available
+            )}
         </div>
     );
 }

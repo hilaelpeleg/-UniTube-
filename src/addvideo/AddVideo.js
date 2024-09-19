@@ -7,7 +7,7 @@ import TextInputVideo from './TextInputVideo';
 import VideoImg from './VideoImg';
 import ButtonAddVideo from './ButtonAddVideo';
 
-function AddVideo({ userList, videoList, setVideoList, userLogin }) {
+function AddVideo({ userList, videoList, setVideoList, logedinuser }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
@@ -17,12 +17,12 @@ function AddVideo({ userList, videoList, setVideoList, userLogin }) {
         "": "",
         "url": "",
         "thumbnailUrl": "",
-        "uploader": userLogin ? userLogin.userName : "",
+        "uploader": logedinuser ? logedinuser.userName : "",
         "likes": 0,
         "comments": [],
         "uploadDate": "",
         "duration": "",
-        "profilePicture": userLogin && userList.length > 0 ? userList.find(user => user.userName === userLogin.userName)?.profilePicture : null
+        "profilePicture": logedinuser && logedinuser.length > 0 ? logedinuser.profilePicture : null
     });
 
     const handleChange = (event) => {

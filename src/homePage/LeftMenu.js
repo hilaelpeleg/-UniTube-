@@ -25,11 +25,11 @@ import lightMode from './svg icons/lightMode.svg';
 import logodark from './svg icons/logodark.png';
 
 
-function LeftMenu({ userList, handleChange, darkMode, videoId, originalVideoList, userLogin, setFilteredVideoList })
+function LeftMenu({logedinuser, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 
 {
-    const user = userLogin && userList ? userList.find(user => user.userName === userLogin.userName) : null;
+    const user = logedinuser ? logedinuser : null;
 
     const doSearch = (input) => {
         if (!originalVideoList) {
@@ -70,12 +70,12 @@ function LeftMenu({ userList, handleChange, darkMode, videoId, originalVideoList
                     <Search doSearch={doSearch} />
                 </form>
                 <a className="navbar-brand ms-auto" href="#">
-                    {(userLogin.userName === "") && (
+                    {(user.userName === "") && (
                         <button type="button" onClick={handleLogin} className="btn btn-light btnrigtmargin">
                             <img src={login} alt="Dark mode toggle" />
                         </button>
                     )}
-                    {(userLogin.userName !== "") && (
+                    {(user.userName !== "") && (
                         <button type="button" onClick={handleLogout} className="btn btn-light btnrigtmargin">
                             <img src={logout} alt="Dark mode toggle" />
                         </button>
@@ -110,7 +110,7 @@ function LeftMenu({ userList, handleChange, darkMode, videoId, originalVideoList
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? homedark : homelight} text="Home" />
                             </li>
-                            {userLogin.userName !== "" && (
+                            {user.userName !== "" && (
                                 <li className="nav-item" onClick={() => navigate('/AddVideo')}>
                                     <NavItem src={darkMode ? addVideodark : addVideolight} text="Add Video" />
                                 </li>

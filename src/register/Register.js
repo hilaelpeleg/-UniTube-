@@ -5,10 +5,11 @@ import Username from "./username";
 import TextInput from "./TextInput";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import CheckUserNameExists from "./CheckUserNameExists";
+import CreateUser from "./CreateUser";
 
 function Register() {
-        // useState hooks to manage local state for form errors, submission status, and input fields
+    // useState hooks to manage local state for form errors, submission status, and input fields
 
     const [formErrors, setFormErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
@@ -24,7 +25,8 @@ function Register() {
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
-        setInputFields({ ...inputFields, [name]: files ? files[0] : value
+        setInputFields({
+            ...inputFields, [name]: files ? files[0] : value
         });
     };
 
@@ -34,18 +36,21 @@ function Register() {
         setSubmitting(true);
     }
 
-    
-
     // validate function to check if input fields meet the required criteria
-    const validate = (inputFields) => {
+    const validate = async (inputFields) => {
         // create limits for the inputs
         const errors = {}
+        // Check if username is provided
         if (!inputFields.userName) {
-            errors.userName = "user name is required!";
+            errors.userName = "User name is required!";
+        } else {
+            // Check if username already exists by calling the async function
+            const usernameExists = await CheckUserNameExists(inputFields.userName);
+            if (usernameExists) {
+                errors.userName = "The username is already taken";
+            }
         }
-        if(userList.find(user => user.userName == inputFields.userName)){
-            errors.userName ="the username is already taken";
-        }
+
         if (!inputFields.firstName) {
             errors.firstName = "first name is required!";
         }
@@ -67,10 +72,8 @@ function Register() {
         return errors;
     }
 
-
-    // addNewUser function to add a new user to the user list
-
-    const addNewUser = () => {
+    // addNewUser function to add a new user to the server
+    const addNewUser = async () => {
         let profilePictureUrl = inputFields.profilePicture;
 
         // Check if profilePicture is a file and create a URL if it is
@@ -80,17 +83,26 @@ function Register() {
             // Default profile picture URL
             profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
         }
-        const user = {
-            "firstName": inputFields.firstName,
-            "lastName": inputFields.lastName,
-            "password": inputFields.password,
-            "reEnterPassword": inputFields.reEnterPassword,
-            "userName": inputFields.userName,
-            "profilePicture": profilePictureUrl
+
+        const userDetails = {
+            firstName: inputFields.firstName,
+            lastName: inputFields.lastName,
+            password: inputFields.password,
+            userName: inputFields.userName,
+            profilePicture: profilePictureUrl
+        };
+
+        // Call the CreateUser function to send the data to the server
+        const newUser = await CreateUser(userDetails);
+
+        if (newUser) {
+            console.log('User created and added to the server:', newUser);
+            navigate('/logIn');  // Redirect to login page after successful registration
+        } else {
+            console.error('Failed to create user');
+            setFormErrors({ userName: "Failed to create user" });
         }
-        setUserList([...userList, user]);
-        console.log(userList);
-    }
+    };
 
     const navigate = useNavigate();
 
@@ -108,31 +120,31 @@ function Register() {
 
     return (
         <div className="wrapper">
-        <div className="card custom-card-width container"  >
-            <div className="cardR">
-                <h5 className="card-title">Sign up</h5>
-                <div className="row">
-                    <ProfilePicture name="profilePicture" onChange={handleChange} />
-                    <TextInput name="firstName" kind="first name" 
-                    value={inputFields.firstName}
-                        onChange={handleChange} error={formErrors.firstName} type={"text"}/>
-                    <TextInput name="lastName"  kind="last name" value={inputFields.lastName}
-                        onChange={handleChange} error={formErrors.lastName} type={"text"}/>
-                     <div className="form-text-pass">password must include 8 numbers!</div>
-                    <TextInput name="password"  kind="password" value={inputFields.password}
-                        onChange={handleChange} error={formErrors.password} type="password"/>
-                    <TextInput name="reEnterPassword"  kind="re-enter password" value={inputFields.reEnterPassword}
-                        onChange={handleChange} error={formErrors.reEnterPassword} type="password"/>
+            <div className="card custom-card-width container"  >
+                <div className="cardR">
+                    <h5 className="card-title">Sign up</h5>
+                    <div className="row">
+                        <ProfilePicture name="profilePicture" onChange={handleChange} />
+                        <TextInput name="firstName" kind="first name"
+                            value={inputFields.firstName}
+                            onChange={handleChange} error={formErrors.firstName} type={"text"} />
+                        <TextInput name="lastName" kind="last name" value={inputFields.lastName}
+                            onChange={handleChange} error={formErrors.lastName} type={"text"} />
+                        <div className="form-text-pass">password must include 8 numbers!</div>
+                        <TextInput name="password" kind="password" value={inputFields.password}
+                            onChange={handleChange} error={formErrors.password} type="password" />
+                        <TextInput name="reEnterPassword" kind="re-enter password" value={inputFields.reEnterPassword}
+                            onChange={handleChange} error={formErrors.reEnterPassword} type="password" />
+                    </div>
+                    <Username name="userName" value={inputFields.userName} onChange={handleChange} error={formErrors.userName} />
                 </div>
-                <Username name="userName" value={inputFields.userName} onChange={handleChange} error={formErrors.userName} />
+                <div className="list-group list-group-flush">
+                    <ButtonRegister onClick={handleSubmit} value="Sign me up!" />
+                </div>
+                <div id="Login" className="list-group list-group-flush">
+                    <ButtonRegister onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
+                </div>
             </div>
-            <div className="list-group list-group-flush">
-                <ButtonRegister onClick={handleSubmit} value="Sign me up!" />
-            </div>
-            <div id="Login" className="list-group list-group-flush">
-                <ButtonRegister onClick={() => navigate('/logIn')} value="Already have an account? Log in!" />
-            </div>
-        </div>
         </div>
     );
 

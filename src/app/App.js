@@ -33,7 +33,7 @@ function App() {
           },
         });
         const data = await res.json();
-        setVideoList(data);
+        setVideoList(data ?? []);
       } catch (error) {
         console.error('Error fetching videos:', error);
       }
@@ -49,9 +49,9 @@ function App() {
         <Routes>
           <Route path="/Register" element={<Register />} />
           <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken}/>} />
-          <Route path="/" element={<HomePage darkMode={darkMode} setDarkMode={setDarkMode} userList={userList} 
-          handleChange={() => setDarkMode(!darkMode)} videoList={videoList} setVideoList={setVideoList} userLogin={userLogin} />} />
-          <Route path="/AddVideo" element={<AddVideo userLogin={userLogin} videoList={videoList}
+          <Route path="/" element={<HomePage logedinuser={logedinuser} darkMode={darkMode}
+           setDarkMode={setDarkMode} videoList={videoList}/>} />
+          <Route path="/AddVideo" element={<AddVideo logedinuser={logedinuser} videoList={videoList}
           setVideoList={setVideoList} userList={userList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
