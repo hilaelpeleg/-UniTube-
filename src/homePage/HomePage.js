@@ -3,8 +3,9 @@ import './HomePage.css'
 import LeftMenu from './LeftMenu'
 import React, { useState, useEffect } from 'react';
 
-function HomePage({logedinuser, darkMode, setDarkMode, userLogin, videoList}) {
+function HomePage({logedinuser, darkMode, setDarkMode, videoList}) {
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
+    const user = logedinuser ? logedinuser : null;
 
     useEffect(() => {
         setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
@@ -14,9 +15,9 @@ function HomePage({logedinuser, darkMode, setDarkMode, userLogin, videoList}) {
         <div className="container-fluid ">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu logedinuser={logedinuser} darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
+                    <LeftMenu user={user} darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
                         handleChange={() => setDarkMode(!darkMode)} setFilteredVideoList={setFilteredVideoList}
-                        userLogin={userLogin} />
+                         />
                 </div>
             </div>
             <div className="row">

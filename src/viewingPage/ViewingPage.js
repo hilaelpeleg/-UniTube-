@@ -8,7 +8,7 @@ import RowButtons from './RowButtons';
 
 // ViewingPage component to display a single video with comments and actions
 
-const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, userLogin }) => {
+const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -16,8 +16,7 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
     const [duration, setDuration] = useState(null);
     const [updateTrigger, setUpdateTrigger] = useState(false);
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
-    const user = userLogin && userList ? userList.find(user => user.userName === userLogin.userName) : null;
-
+    const user = logedinuser ? logedinuser : null;
 
     useEffect(() => {
         setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
@@ -33,9 +32,14 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
 
     const fetchComments = async () => {
         try {
-            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`);
+            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            });
             const data = await response.json();
-            setCommentsList(data);
+            setCommentsList(Array.isArray(data) ? data : []);
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
@@ -70,7 +74,6 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
                 },
                 body: JSON.stringify(newComment),
             });
-
             if (response.ok) {
                 const savedComment = await response.json();
                 const updatedComments = [...commentsList, savedComment];
@@ -100,8 +103,6 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
         }));
     };
 
-
-
     if (!video) {
         return <div>Video not found</div>; 
     }
@@ -114,8 +115,7 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
                         handleChange={() => setDarkMode(!darkMode)} 
                         setFilteredVideoList={setFilteredVideoList}
                         originalVideoList={videoList} // Pass the original list here
-                        userLogin={userLogin} 
-                        userList={userList} />
+                        user={user}  />
                 </div>
             </div>
             <div className="row">
@@ -136,15 +136,15 @@ const ViewingPage = ({userList, darkMode,setDarkMode, videoList, setVideoList, u
                                 </div>
                             </div>
                             <RowButtons setUpdateTrigger={setUpdateTrigger}
-                                userLogin={userLogin} like={like} updateLikes={updateLikes}
+                                user={user} like={like} updateLikes={updateLikes}
                                 videoId={video.id}
                                 setVideoList={setVideoList} videoList={videoList}
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
-                            <Comments userLogin={userLogin} commentsList={commentsList} addComment={addComment}
+                            <Comments commentsList={commentsList} addComment={addComment}
                                 videoList={videoList} video={video} 
                                 videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}
-                                user={user} userList={userList}/>
+                                user={user}/>
                         </div>
                     </div>
                 </div>

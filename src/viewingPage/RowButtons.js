@@ -10,7 +10,7 @@ import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
 
 // RowButtons component to display and manage actions like like, dislike, share, download, edit, and delete
-function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userLogin, isLike, setIsLike, setUpdateTrigger }) {
+function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user, isLike, setIsLike, setUpdateTrigger }) {
     const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
     const [hasDisliked, setHasDisliked] = useState(false);
@@ -25,7 +25,7 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
     };
 
     const onclickLike = () => {
-        if (userLogin && userLogin.userName && !isLike) {
+        if (user && user.userName && !isLike) {
             if (hasDisliked) {
                 updateLikes(like + 1);
                 setHasDisliked(false);
@@ -37,12 +37,12 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
     };
 
     const onclickDislike = () => {
-        if (userLogin && userLogin.userName && isLike) {
+        if (user && user.userName && isLike) {
             if (like > 1) updateLikes(like -1);
             else updateLikes(0); // Handle edge case if likes is 1 or less
             setIsLike(false);
             setHasDisliked(true);
-        } else if (userLogin && userLogin.userName && !isLike && !hasDisliked) {
+        } else if (user && user.userName && !isLike && !hasDisliked) {
             if (like > 0) updateLikes(like - 1);
             setHasDisliked(true);
         }
@@ -87,7 +87,7 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, userL
                     <img className="marginbutton" src={download} alt="Download" />
                     Download
                 </button>
-                {userLogin && userLogin.userName && (
+                {user && user.userName && (
                     <div className="dropdown">
                         <button type="button" className="btn btn-light margin dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className="marginbutton" src={Dots} alt="Options" />

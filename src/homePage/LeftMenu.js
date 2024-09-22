@@ -25,12 +25,11 @@ import lightMode from './svg icons/lightMode.svg';
 import logodark from './svg icons/logodark.png';
 
 
-function LeftMenu({logedinuser, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
+function LeftMenu({user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 
 {
-    const user = logedinuser ? logedinuser : null;
-
+    
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;

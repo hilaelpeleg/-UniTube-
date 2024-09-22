@@ -6,7 +6,7 @@ import PopupEditComment from './PopupEditComment';
 
 // Comments component for handling the display and management of comments
 
-function Comments({ user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment, userLogin }) {
+function Comments({ user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment}) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [editCommentId, setEditCommentId] = useState(null);
@@ -22,17 +22,14 @@ function Comments({ user, videoList, setVideoList, setCommentsList, videoId, com
             console.error("User is not defined");
             return;
         }
-        const lastCommentId = commentsList.length > 0 ? commentsList[commentsList.length - 1].id : 0;
         if (comment.trim()) {
             const newComment = {
-                id: (lastCommentId + 1),
                 profilePicture: user && user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
                 name: user ? user.userName : 'Unknown User',
                 text: comment
             };
             addComment(newComment);
             setComment("");
-            console.log(user.profilePicture);
         }
     };
 
@@ -80,9 +77,9 @@ function Comments({ user, videoList, setVideoList, setCommentsList, videoId, com
                         className='inputwidth'
                         onChange={handleCommentChange}
                         type="text"
-                        placeholder={userLogin && userLogin.userName ? "Add a comment..." : "Login to add comment"}
+                        placeholder={user && user.userName ? "Add a comment..." : "Login to add comment"}
                     />
-                    {userLogin && userLogin.userName && (
+                    {user && user.userName && (
                         <button onClick={handleAddComment} type="button" className="btn btn-light">
                             <img src={Send} alt="Send" />
                         </button>
@@ -95,7 +92,7 @@ function Comments({ user, videoList, setVideoList, setCommentsList, videoId, com
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
                         {comment.text}
-                        {userLogin && userLogin.userName && (
+                        {user && user.userName && (
                             <div className="dropdown">
                                 <button className="btn btn-light dotsbt" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img className="paddingdots" src={dotsvertical} alt="Menu" />

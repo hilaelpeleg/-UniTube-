@@ -7,7 +7,7 @@ import TextInputVideo from './TextInputVideo';
 import VideoImg from './VideoImg';
 import ButtonAddVideo from './ButtonAddVideo';
 
-function AddVideo({ userList, videoList, setVideoList, logedinuser }) {
+function AddVideo({videoList, setVideoList, logedinuser }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({

@@ -11,9 +11,7 @@ import profiles from './profiles.json';
 
 function App() {
   
-  const [userList, setUserList] = useState(profiles);
   const [videoList, setVideoList] = useState([]);
-  const [userLogin, setUserLogin] = useState({ userName: "", password: "" });
   const [darkMode,setDarkMode] = useState(false);
   const [logedinuser, setlogedinuser] = useState({
     firstName: "",
@@ -52,10 +50,10 @@ function App() {
           <Route path="/" element={<HomePage logedinuser={logedinuser} darkMode={darkMode}
            setDarkMode={setDarkMode} videoList={videoList}/>} />
           <Route path="/AddVideo" element={<AddVideo logedinuser={logedinuser} videoList={videoList}
-          setVideoList={setVideoList} userList={userList} />} />
+          setVideoList={setVideoList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
-          setVideoList={setVideoList} userList={userList} userLogin={userLogin}/>}/>
+          setVideoList={setVideoList} logedinuser={logedinuser}/>}/>
         </Routes>
       </div>
     </Router>
