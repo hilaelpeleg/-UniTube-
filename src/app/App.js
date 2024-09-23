@@ -50,7 +50,7 @@ function App() {
            setDarkMode={setDarkMode} videoList={videoList}/>} />
           <Route path="/AddVideo" element={<AddVideo logedinuser={logedinuser} videoList={videoList}
           setVideoList={setVideoList} />} />
-          <Route path="/Viewing/:videoId"  element={<ViewingPage  videoList={videoList}
+          <Route path="/Viewing/:videoId"  element={<ViewingPage token= {token} videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
           setVideoList={setVideoList} logedinuser={logedinuser}/>}/>
         </Routes>

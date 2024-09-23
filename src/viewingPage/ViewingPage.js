@@ -8,7 +8,7 @@ import RowButtons from './RowButtons';
 import { API_URL } from '../config';
 
 // ViewingPage component to display a single video with comments and actions
-const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
+const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -40,8 +40,6 @@ const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser
             });
             const data = await response.json();
             setCommentsList(Array.isArray(data) ? data : []);
-            console.log(data);
-            console.log(commentsList);
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
@@ -137,16 +135,15 @@ const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
                             </div>
-                            <RowButtons setUpdateTrigger={setUpdateTrigger}
+                            <RowButtons token={token} setUpdateTrigger={setUpdateTrigger}
                                 user={user} like={like} updateLikes={updateLikes}
-                                videoId={video.id}
+                                video={video}
                                 setVideoList={setVideoList} videoList={videoList}
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments commentsList={commentsList} addComment={addComment}
-                                videoList={videoList} video={video} 
-                                videoId={video.id} setVideoList={setVideoList} setCommentsList={setCommentsList}
-                                user={user}/>
+                                videoList={videoList} videoId={video.id} setVideoList={setVideoList} 
+                                setCommentsList={setCommentsList} user={user}/>
                         </div>
                     </div>
                 </div>

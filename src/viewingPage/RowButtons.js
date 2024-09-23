@@ -8,18 +8,43 @@ import './RowButtons.css';
 import { useState } from 'react';
 import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
+import { API_URL } from '../config';
+
 
 // RowButtons component to display and manage actions like like, dislike, share, download, edit, and delete
-function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user, isLike, setIsLike, setUpdateTrigger }) {
+function RowButtons({ token, video, videoList, setVideoList, like, updateLikes, user, isLike, setIsLike, setUpdateTrigger }) {
     const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
     const [hasDisliked, setHasDisliked] = useState(false);
 
     // Function to delete a video by its ID
-    const deleteVideo = (id) => {
+    const deleteVideo = async (id) => {
         const remainingVideos = videoList.filter(video => video.id !== id);
         setVideoList(remainingVideos);
-        navigate("/");
+        try {
+            // Send a DELETE request to delete the video
+            const response = await fetch(`${API_URL}/api/users/${user.userName}/videos/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,  // Include the token for authorization
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            // Check for successful response
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error(errorData.error); // Log any errors returned from the server
+                throw new Error('Failed to delete video'); // Handle error
+            }
+
+            const data = await response.json();
+            console.log(data.message); // Log success message if needed
+        } catch (error) {
+            console.error('Error deleting video:', error);
+        }
+
+        navigate("/"); // Redirect to another page after deletion
     };
 
     const onclickLike = () => {
@@ -36,7 +61,7 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user,
 
     const onclickDislike = () => {
         if (user && user.userName && isLike) {
-            if (like > 1) updateLikes(like -1);
+            if (like > 1) updateLikes(like - 1);
             else updateLikes(0); // Handle edge case if likes is 1 or less
             setIsLike(false);
             setHasDisliked(true);
@@ -60,7 +85,7 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user,
         <div className="row-buttons-container">
             <PopupEdit
                 setVideoList={setVideoList}
-                videoId={videoId}
+                videoId={video.id}
                 videoList={videoList}
                 show={showModal}
                 handleClose={handleCloseModal}
@@ -84,13 +109,13 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user,
                     <img className="marginbutton" src={download} alt="Download" />
                     Download
                 </button>
-                {user && user.userName && (
+                {user && user.userName === video.uploader && (
                     <div className="dropdown">
                         <button type="button" className="btn btn-light margin dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img className="marginbutton" src={Dots} alt="Options" />
                         </button>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(videoId)}>Deleting a video</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={() => deleteVideo(video.id)}>Deleting a video</a></li>
                             <li><hr className="dropdown-divider" /></li>
                             <li><a className="dropdown-item" href="#" onClick={handleEditClick}>Editing a video</a></li>
                         </ul>
