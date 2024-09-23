@@ -1,7 +1,9 @@
+import { API_URL } from '../config';
+
 // CreateUser function to send the new user to the server
 const CreateUser = async (userDetails) => {
     try {
-        const response = await fetch('http://localhost:8200/api/users/user', {
+        const response = await fetch(`${API_URL}/api/users/user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

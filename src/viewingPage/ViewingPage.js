@@ -5,9 +5,9 @@ import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css';
 import Comments from './Comments';
 import RowButtons from './RowButtons';
+import { API_URL } from '../config';
 
 // ViewingPage component to display a single video with comments and actions
-
 const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
@@ -32,7 +32,7 @@ const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser
 
     const fetchComments = async () => {
         try {
-            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`,{
+            const response = await fetch(`${API_URL}/api/comments/${videoId}`,{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,6 +40,8 @@ const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser
             });
             const data = await response.json();
             setCommentsList(Array.isArray(data) ? data : []);
+            console.log(data);
+            console.log(commentsList);
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
@@ -67,7 +69,7 @@ const ViewingPage = ({darkMode,setDarkMode, videoList, setVideoList, logedinuser
 
     const addComment = async (newComment) => {
         try {
-            const response = await fetch(`http://localhost:8200/api/comments/${videoId}`, {
+            const response = await fetch(`${API_URL}/api/comments/${videoId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

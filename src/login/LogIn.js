@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LogIn.css';
 import ButtonLog from "./ButtonLog";
+import { API_URL } from '../config';
 
 function LogIn({ setlogedinuser, setToken }) {
     // useState hooks to manage local state for password, and error messages
@@ -21,7 +22,7 @@ function LogIn({ setlogedinuser, setToken }) {
 
         if (Object.keys(errors).length === 0) {
             try {
-                const response = await fetch('http://localhost:8200/api/tokens/', {
+                const response = await fetch(`${API_URL}/api/tokens/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -34,7 +35,7 @@ function LogIn({ setlogedinuser, setToken }) {
                     const token = responseData.token;
                     console.log("Token received:", token);
                     
-                    const userResponse = await fetch(`http://localhost:8200/api/users/${userName}`, {
+                    const userResponse = await fetch(`${API_URL}/api/users/${userName}`, {
                         method: 'GET',
                         headers: {
                             'Authorization': token,  // Send token in the header

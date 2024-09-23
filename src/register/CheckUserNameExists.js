@@ -1,6 +1,8 @@
+import { API_URL } from '../config';
+
 const CheckUserNameExists = async (userName) => {
     try {
-        const response = await fetch(`http://localhost:8200/api/users/${userName}`, {
+        const response = await fetch(`${API_URL}/api/users/${userName}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

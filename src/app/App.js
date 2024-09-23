@@ -7,10 +7,9 @@ import Login from '../login/LogIn';
 import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
 import ViewingPage from '../viewingPage/ViewingPage';
-import profiles from './profiles.json';
+import { API_URL } from '../config';
 
 function App() {
-  
   const [videoList, setVideoList] = useState([]);
   const [darkMode,setDarkMode] = useState(false);
   const [logedinuser, setlogedinuser] = useState({
@@ -24,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch('http://localhost:8200/api/videos/all', { 
+        const res = await fetch(`${API_URL}/api/videos/all`, { 
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

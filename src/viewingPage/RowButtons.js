@@ -15,9 +15,7 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user,
     const navigate = useNavigate();
     const [hasDisliked, setHasDisliked] = useState(false);
 
-    
     // Function to delete a video by its ID
-
     const deleteVideo = (id) => {
         const remainingVideos = videoList.filter(video => video.id !== id);
         setVideoList(remainingVideos);
@@ -47,7 +45,6 @@ function RowButtons({ videoId, videoList, setVideoList, like, updateLikes, user,
             setHasDisliked(true);
         }
     };
-
 
     const handleEditClick = () => {
         setshowModal(true);
