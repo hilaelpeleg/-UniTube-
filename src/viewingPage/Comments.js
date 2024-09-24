@@ -3,10 +3,10 @@ import Send from './viewingsvg/sendcomment.svg';
 import React, { useState } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
 import PopupEditComment from './PopupEditComment';
+import { API_URL } from '../config';
 
 // Comments component for handling the display and management of comments
-
-function Comments({ user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment}) {
+function Comments({token, user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment}) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [editCommentId, setEditCommentId] = useState(null);
@@ -45,16 +45,30 @@ function Comments({ user, videoList, setVideoList, setCommentsList, videoId, com
         setEditCommentId(null);
     };
 
-        // Handle deleting a comment
-
-    const deleteComment = (commentId) => {
-        const remainingComments = commentsList.filter(comment => comment.id !== commentId);
-        setCommentsList(remainingComments);
-        setVideoList(prevList =>
-            prevList.map(video =>
-                video.id === parseInt(videoId) ? { ...video, comments: remainingComments } : video
-            )
-        );
+    // Handle deleting a comment
+    const deleteComment = async(commentId) => {
+        try {
+        const response = await fetch(`${API_URL}/api/comments/${commentId}`,{
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json',
+            },
+            });
+            if (response.ok) {  
+                const remainingComments = commentsList.filter(comment => comment.id !== commentId);
+                setCommentsList(remainingComments);
+                setVideoList(prevList =>
+                    prevList.map(video =>
+                        video.id === parseInt(videoId) ? { ...video, comments: remainingComments } : video
+                    )
+                );
+            } else {
+                throw new Error('Failed to delete the comment.');
+            }
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        }
     };
 
     return (
@@ -92,7 +106,7 @@ function Comments({ user, videoList, setVideoList, setCommentsList, videoId, com
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
                         {comment.text}
-                        {user && user.userName && (
+                        {user && user.userName === comment.name &&(
                             <div className="dropdown">
                                 <button className="btn btn-light dotsbt" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img className="paddingdots" src={dotsvertical} alt="Menu" />

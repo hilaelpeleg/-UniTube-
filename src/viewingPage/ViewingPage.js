@@ -70,6 +70,7 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
             const response = await fetch(`${API_URL}/api/comments/${videoId}`, {
                 method: 'POST',
                 headers: {
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newComment),
@@ -141,7 +142,7 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
                                 setVideoList={setVideoList} videoList={videoList}
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
-                            <Comments commentsList={commentsList} addComment={addComment}
+                            <Comments token={token} commentsList={commentsList} addComment={addComment}
                                 videoList={videoList} videoId={video.id} setVideoList={setVideoList} 
                                 setCommentsList={setCommentsList} user={user}/>
                         </div>
