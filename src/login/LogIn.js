@@ -38,7 +38,7 @@ function LogIn({ setlogedinuser, setToken }) {
                     const userResponse = await fetch(`${API_URL}/api/users/${userName}`, {
                         method: 'GET',
                         headers: {
-                            'Authorization': token,  // Send token in the header
+                            'Authorization': `Bearer ${token}`,  // Send token in the header
                             'Content-Type': 'application/json',
                         },
                     });

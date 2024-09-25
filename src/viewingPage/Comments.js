@@ -16,7 +16,6 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
     };
 
     // Handle adding a new comment
-
     const handleAddComment = () => {
         if (!user) {// Added check to see if user is defined
             console.error("User is not defined");
@@ -38,8 +37,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
         setShowModal(true);
     };
 
-        // Handle closing the edit comment modal
-
+    // Handle closing the edit comment modal
     const handleCloseModal = () => {
         setShowModal(false);
         setEditCommentId(null);
@@ -47,6 +45,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
 
     // Handle deleting a comment
     const deleteComment = async(commentId) => {
+        console.log("Comment ID: ", commentId);
         try {
         const response = await fetch(`${API_URL}/api/comments/${commentId}`,{
             method: 'DELETE',
@@ -56,7 +55,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
             },
             });
             if (response.ok) {  
-                const remainingComments = commentsList.filter(comment => comment.id !== commentId);
+                const remainingComments = commentsList.filter(comment => comment._id !== commentId);
                 setCommentsList(remainingComments);
                 setVideoList(prevList =>
                     prevList.map(video =>
@@ -71,6 +70,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
         }
     };
 
+    console.log(commentsList);
     return (
         <div className="comment-section">
             <PopupEditComment
@@ -100,8 +100,8 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
                     )}
                 </div>
             </div>
-            {commentsList.map((comment, index) => (
-                <div key={index} className="comment">
+            {commentsList.map((comment) => (
+                <div key={comment._id} className="comment">
                     <img src={comment.profilePicture || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt={`Profile picture of ${comment.name}`} className="profile-pic" />
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
@@ -112,9 +112,9 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
                                     <img className="paddingdots" src={dotsvertical} alt="Menu" />
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" onClick={() => deleteComment(comment.id)} href="#">Delete comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => deleteComment(comment._id)} href="#">Delete comment</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" onClick={() => handleEditClick(comment.id)} href="#">Edit comment</a></li>
+                                    <li><a className="dropdown-item" onClick={() => handleEditClick(comment._id)} href="#">Edit comment</a></li>
                                 </ul>
                             </div>
                         )}
