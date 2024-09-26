@@ -102,7 +102,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
             </div>
             {commentsList.map((comment) => (
                 <div key={comment._id} className="comment">
-                    <img src={comment.profilePicture || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt={`Profile picture of ${comment.name}`} className="profile-pic" />
+                    <img src={`http://localhost:8200${comment.profilePicture}` || 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt={`Profile picture of ${comment.name}`} className="profile-pic" />
                     <div className="comment-text">
                         <strong>{comment.name}  </strong>
                         {comment.text}
