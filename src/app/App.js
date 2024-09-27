@@ -44,7 +44,7 @@ function App() {
     <Router>
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
-          <Route path="/Register" element={<Register />} />
+          <Route path="/Register" element={<Register token={token}/>} />
           <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken}/>} />
           <Route path="/" element={<HomePage logedinuser={logedinuser} darkMode={darkMode}
            setDarkMode={setDarkMode} videoList={videoList}/>} />
