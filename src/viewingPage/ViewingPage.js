@@ -123,8 +123,8 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
                 <div className="col-8 ">
                     <div className="cardV" >
                         <h1>{video.title}</h1>
-                        <video className="card-img-top" key={video.url} controls onLoadedMetadata={handleLoadedMetadata}>
-                            <source src={video.url} type="video/mp4" />
+                        <video className="card-img-top" key={`http://localhost:8200${video.url}`}  controls onLoadedMetadata={handleLoadedMetadata}>
+                            <source src={`http://localhost:8200${video.url}`} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                         <div className="card-body">

@@ -4,7 +4,7 @@ import './PopupEditComment.css';
 
 // PopupEditComment.js
 
-function PopupEditComment({videoId, setVideoList, videoList, handleClose, show, setCommentsList, commentId, commentsList }) {
+function PopupEditComment({token, videoId, setVideoList, videoList, handleClose, show, setCommentsList, commentId, commentsList }) {
     return (
         show ? (
             <>     
@@ -17,6 +17,7 @@ function PopupEditComment({videoId, setVideoList, videoList, handleClose, show, 
                             </div>
                             <div className="modal-body">
                                 <EditComment
+                                token={token}
                                     handleClose={handleClose}
                                     setCommentsList={setCommentsList}
                                     commentId={commentId}
