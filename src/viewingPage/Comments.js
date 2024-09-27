@@ -1,6 +1,6 @@
 import './Comments.css';
 import Send from './viewingsvg/sendcomment.svg';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import dotsvertical from './viewingsvg/dots-vertical.svg';
 import PopupEditComment from './PopupEditComment';
 import { API_URL } from '../config';
@@ -9,7 +9,7 @@ import { API_URL } from '../config';
 function Comments({token, user, videoList, setVideoList, setCommentsList, videoId, commentsList, addComment}) {
     const [comment, setComment] = useState("");
     const [showModal, setShowModal] = useState(false);
-    const [editCommentId, setEditCommentId] = useState(null);
+    const [editCommentId, setEditCommentId] = useState("");
 
     const handleCommentChange = (event) => {
         setComment(event.target.value);
@@ -32,6 +32,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
         }
     };
 
+
     const handleEditClick = (commentId) => {
         setEditCommentId(commentId);
         setShowModal(true);
@@ -45,7 +46,6 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
 
     // Handle deleting a comment
     const deleteComment = async(commentId) => {
-        console.log("Comment ID: ", commentId);
         try {
         const response = await fetch(`${API_URL}/api/comments/${commentId}`,{
             method: 'DELETE',
@@ -70,7 +70,6 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
         }
     };
 
-    console.log(commentsList);
     return (
         <div className="comment-section">
             <PopupEditComment
@@ -82,10 +81,11 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
                 setCommentsList={setCommentsList}
                 commentId={editCommentId}
                 commentsList={commentsList}
+                token={token}
             />
             <div className="new-comment">
                 <div className="comment-text-input">
-                    <img className="profile-pic" src={user && user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                    <img className="profile-pic" src={user && user.profilePicture ? `http://localhost:8200${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                     <input
                         value={comment}
                         className='inputwidth'
