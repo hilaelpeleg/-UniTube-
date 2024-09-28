@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch(${API_URL}/api/videos/, { 
+        const res = await fetch(`${API_URL}/api/videos/`, { 
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
