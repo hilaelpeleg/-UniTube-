@@ -8,9 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import CheckUserNameExists from "./CheckUserNameExists";
 import CreateUser from "./CreateUser";
 
-function Register() {
+function Register({ token }) {
     // useState hooks to manage local state for form errors, submission status, and input fields
-
     const [formErrors, setFormErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
     const [inputFields, setInputFields] = useState({
@@ -21,8 +20,8 @@ function Register() {
         userName: "",
         profilePicture: null
     });
-    // handleChange function to update state when input fields change
 
+    // handleChange function to update state when input fields change
     const handleChange = (e) => {
         const { name, value, files } = e.target;
         setInputFields({
@@ -30,16 +29,20 @@ function Register() {
         });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(inputFields));
-        setSubmitting(true);
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+        const errors = await validate(inputFields); // Validate input fields
+        setFormErrors(errors); // Update form errors state
+
+        if (Object.keys(errors).length === 0) { // Proceed only if there are no errors
+            setSubmitting(true); // Indicate submission is in progress
+            addNewUser(); // Call the function to add the new user
+        }
+    };
 
     // validate function to check if input fields meet the required criteria
     const validate = async (inputFields) => {
-        // create limits for the inputs
-        const errors = {}
+        const errors = {};
         // Check if username is provided
         if (!inputFields.userName) {
             errors.userName = "User name is required!";
@@ -52,75 +55,69 @@ function Register() {
         }
 
         if (!inputFields.firstName) {
-            errors.firstName = "first name is required!";
+            errors.firstName = "First name is required!";
         }
         if (!inputFields.lastName) {
-            errors.lastName = "last name is required!";
-        }
-        if (inputFields.password.length < 8) {
-            errors.password = "password is too short";
+            errors.lastName = "Last name is required!";
         }
         if (!inputFields.password) {
-            errors.password = "password is required!";
+            errors.password = "Password is required!";
+        } else if (inputFields.password.length < 8) {
+            errors.password = "Password is too short";
         }
         if (!inputFields.reEnterPassword) {
-            errors.reEnterPassword = "re enter password is required!";
-        }
-        else if (inputFields.password !== inputFields.reEnterPassword) {
+            errors.reEnterPassword = "Re-enter password is required!";
+        } else if (inputFields.password !== inputFields.reEnterPassword) {
             errors.reEnterPassword = "Passwords do not match";
         }
         return errors;
-    }
+    };
 
     // addNewUser function to add a new user to the server
     const addNewUser = async () => {
-        let profilePictureUrl = inputFields.profilePicture;
-
-        // Check if profilePicture is a file and create a URL if it is
-        if (profilePictureUrl instanceof File) {
-            profilePictureUrl = URL.createObjectURL(inputFields.profilePicture);
-        } else if (!profilePictureUrl) {
-            // Default profile picture URL
-            profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
-        }
-
         const userDetails = {
             firstName: inputFields.firstName,
             lastName: inputFields.lastName,
             password: inputFields.password,
             userName: inputFields.userName,
-            profilePicture: profilePictureUrl
+            profilePicture: null // Initialize profilePicture as null
         };
 
-        // Call the CreateUser function to send the data to the server
-        const newUser = await CreateUser(userDetails);
+        // Check if a profile picture is provided
+        if (inputFields.profilePicture instanceof File) {
+            const profilePictureUrl = URL.createObjectURL(inputFields.profilePicture); // Create a URL for the file
+            userDetails.profilePicture = profilePictureUrl; // Set the URL in userDetails
+            await submitUserDetails(userDetails); // Submit user details to the server
+        } else {
+            // If no profile picture is provided, use a default image URL
+            userDetails.profilePicture = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
+            await submitUserDetails(userDetails); // Submit user details with default image
+        }
+    };
 
+    // Function to send user details to the server
+    const submitUserDetails = async (userDetails) => {
+        const newUser = await CreateUser(userDetails, token); // Call the CreateUser function with userDetails
         if (newUser) {
-            console.log('User created and added to the server:', newUser);
+            console.log('User created and added to the server:', newUser); // Log success message
             navigate('/logIn');  // Redirect to login page after successful registration
         } else {
-            console.error('Failed to create user');
-            setFormErrors({ userName: "Failed to create user" });
+            console.error('Failed to create user'); // Log error message
+            setFormErrors({ userName: "Failed to create user" }); // Update form errors state
         }
     };
 
     const navigate = useNavigate();
 
     // useEffect hook to handle form submission and navigation
-
     useEffect(() => {
         console.log(formErrors);
-        if (Object.keys(formErrors).length == 0 && submitting) {
-            addNewUser();
-            console.log(inputFields);
-            navigate('/logIn'); // Redirect to login page
-        }
-
+        // The submission logic has been moved to handleSubmit now
     }, [formErrors]);
 
     return (
         <div className="wrapper">
-            <div className="card custom-card-width container"  >
+            <div className="card custom-card-width container">
                 <div className="cardR">
                     <h5 className="card-title">Sign up</h5>
                     <div className="row">
@@ -130,7 +127,7 @@ function Register() {
                             onChange={handleChange} error={formErrors.firstName} type={"text"} />
                         <TextInput name="lastName" kind="last name" value={inputFields.lastName}
                             onChange={handleChange} error={formErrors.lastName} type={"text"} />
-                        <div className="form-text-pass">password must include 8 numbers!</div>
+                        <div className="form-text-pass">Password must include 8 characters!</div>
                         <TextInput name="password" kind="password" value={inputFields.password}
                             onChange={handleChange} error={formErrors.password} type="password" />
                         <TextInput name="reEnterPassword" kind="re-enter password" value={inputFields.reEnterPassword}
@@ -147,7 +144,6 @@ function Register() {
             </div>
         </div>
     );
-
 }
 
 export default Register;

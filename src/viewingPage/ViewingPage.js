@@ -97,11 +97,35 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
         );
     };
 
-    const handleLikeToggle = (id) => {
+    const handleLikeToggle = async () => {
+        const isLiked = likedVideos[videoId] || false; // Get the current liked state
+        const newLikesCount = isLiked ? like - 1 : like + 1; // Calculate new likes count
+
         setLikedVideos((prev) => ({
             ...prev,
-            [id]: !prev[id]
+            [videoId]: !prev[videoId] // Toggle the liked state
         }));
+
+        // Update the like count on the server
+        try {
+            const response = await fetch(`${API_URL}/api/videos/${videoId}`, {
+                method: 'PUT', // HTTP method for updating likes
+                headers: {
+                    'Authorization': `Bearer ${token}`, // Send the token for authentication
+                    'Content-Type': 'application/json', // Set content type to JSON
+                },
+                body: JSON.stringify({ likes: newLikesCount }), // Send the new likes count
+            });
+
+            if (response.ok) {
+                const updatedVideo = await response.json(); // Get the updated video data
+                setLike(updatedVideo.likes); // Update local likes count
+            } else {
+                console.error('Failed to update likes'); // Log error if update fails
+            }
+        } catch (error) {
+            console.error('Error updating likes:', error); // Log error if request fails
+        }
     };
 
     if (!video) {
