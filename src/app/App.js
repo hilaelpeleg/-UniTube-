@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/videos/`, { 
+        const res = await fetch(${API_URL}/api/videos/, { 
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -44,11 +44,11 @@ function App() {
     <Router>
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
-          <Route path="/Register" element={<Register />} />
+          <Route path="/Register" element={<Register token={token}/>} />
           <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken}/>} />
           <Route path="/" element={<HomePage logedinuser={logedinuser} darkMode={darkMode}
            setDarkMode={setDarkMode} videoList={videoList}/>} />
-          <Route path="/AddVideo" element={<AddVideo logedinuser={logedinuser} videoList={videoList}
+          <Route path="/AddVideo" element={<AddVideo token={token} logedinuser={logedinuser} videoList={videoList}
           setVideoList={setVideoList} />} />
           <Route path="/Viewing/:videoId"  element={<ViewingPage token= {token} videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
