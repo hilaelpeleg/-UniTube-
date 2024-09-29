@@ -23,13 +23,14 @@ import login from './svg icons/login.svg';
 import logout from './svg icons/logout.svg';
 import lightMode from './svg icons/lightMode.svg';
 import logodark from './svg icons/logodark.png';
+import { API_URL } from '../config';
 
 
-function LeftMenu({user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
+function LeftMenu({ user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 
 {
-    
+
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -99,7 +100,7 @@ function LeftMenu({user, handleChange, darkMode, videoId, originalVideoList, set
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {user && (
                                 <div className='user'>
-                                    <img className="profile-pic" src={user.profilePicture ? user.profilePicture : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                                    <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                                     <strong className="username">{user.userName}</strong>
                                 </div>
                             )}

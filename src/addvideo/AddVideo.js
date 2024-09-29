@@ -12,6 +12,7 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
     const [formErrorsVideo, setFormErrorsVideo] = useState({});
     const [submittingVideo, setSubmittingVideo] = useState(false);
     const [inputVideoFields, setInputVideoFields] = useState({
+        id: 0,
         title: "",
         description: "",
         url: null, // Use null for file uploads
@@ -57,22 +58,30 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         return errors;
     };
 
-    const addNewVideo = async (id) => {
+    const addNewVideo = async () => {
+        const lastVideoId = videoList.length > 0 ? videoList[videoList.length - 1].id : 0; // Get the last video ID
+        const newId = lastVideoId + 1; // Increment ID for the new video
         const formData = new FormData(); // Create a FormData object
+        const formattedDate = new Date().toLocaleDateString('en-GB');
+
+        formData.append('id', newId); // Append new ID to FormData
         formData.append('title', inputVideoFields.title); // Append title to FormData
         formData.append('description', inputVideoFields.description); // Append description
         formData.append('url', inputVideoFields.url); // Append video file
         formData.append('thumbnailUrl', inputVideoFields.thumbnailUrl); // Append thumbnail file
         formData.append('uploader', inputVideoFields.uploader); // Append uploader's name
-        formData.append('uploadDate', inputVideoFields.uploadDate); // Append upload date
+        formData.append('uploadDate', formattedDate);
         formData.append('duration', inputVideoFields.duration); // Append duration
         formData.append('likes', inputVideoFields.likes); // Append initial likes count
+        formData.append('profilePicture', logedinuser && logedinuser.length > 0 ? logedinuser.profilePicture : null); // Append profile picture
+
 
         // Send API request to upload the video with token
-        const response = await fetch(`${API_URL}/api/${id}/videos`, {
+        const response = await fetch(`${API_URL}/api/users/${inputVideoFields.uploader}/videos`, {
             method: 'POST',
             headers: {
-                'Authorization':  `Bearer ${token}`, // Include the token for authentication
+                'Authorization':  `Bearer ${token}`,
+                 // Include the token for authentication
             },
             body: formData // Send the FormData
         });
