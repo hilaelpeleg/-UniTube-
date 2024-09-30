@@ -1,11 +1,16 @@
 import './videoItem.css'
+import { API_URL } from '../config';
+
 
 function VideoItem({ props, onClick }) {
+    const imageUrl = props.thumbnailUrl.startsWith('http') 
+        ? props.thumbnailUrl 
+        : `${API_URL}${props.thumbnailUrl}`;
     return (
         // create the video item div 
         <div >
             <div className="thumbnail-container">
-                <img src={props.thumbnailUrl} id="img-top" className="card-img-top" alt="profile" onClick={onClick} />
+                <img src={imageUrl} id="img-top" className="card-img-top" alt="profile" onClick={onClick} />
                 <div className="square" >
                     {props.duration}
                 </div>
