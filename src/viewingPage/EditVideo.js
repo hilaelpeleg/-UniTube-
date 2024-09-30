@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import TextInput from '../register/TextInput';
 import VideoImg from '../addvideo/VideoImg';
 import UpdateButton from './UpdateButton';
+import { API_URL } from '../config';
+
 
 // Component to handle the editing of a video
 
-function EditVideo({ handleClose, setVideoList, videoId, videoList,setUpdateTrigger }) {
+function EditVideo({token, user, handleClose, setVideoList, videoId, videoList,setUpdateTrigger }) {
         // Find the video to edit based on videoId
 
     const video = videoList.find(v => v.id === parseInt(videoId));
@@ -42,31 +44,40 @@ function EditVideo({ handleClose, setVideoList, videoId, videoList,setUpdateTrig
         setUpdateTrigger(prev => !prev);
     };
 
-    const updateEdit = (id) => {
-        // Log the current state of updateVideoFields
-        console.log("Updating video with fields: ", updateVideoFields);
-
-        if (!updateVideoFields.title || !updateVideoFields.description || !updateVideoFields.url || !updateVideoFields.thumbnailUrl) {
-            console.error("Update fields are incomplete");
-            setSubmittingEdit(false);
-            return;
+    const updateEdit = async (id) => {
+        const formData = new FormData();
+        formData.append('title', updateVideoFields.title);
+        formData.append('description', updateVideoFields.description);
+        if (updateVideoFields.url instanceof File) {
+            formData.append('url', updateVideoFields.url);
         }
-        // Create a new updated video list with the edited video
+        if (updateVideoFields.thumbnailUrl instanceof File) {
+            formData.append('thumbnailUrl', updateVideoFields.thumbnailUrl);
+        }
 
-        const updatedVideoList = videoList.map(video =>
-            video.id === id ? {
-                ...video,
-                title: updateVideoFields.title,
-                description: updateVideoFields.description,
-                url: updateVideoFields.url instanceof File ? URL.createObjectURL(updateVideoFields.url) : updateVideoFields.url,
-                thumbnailUrl: updateVideoFields.thumbnailUrl instanceof File ? URL.createObjectURL(updateVideoFields.thumbnailUrl) : updateVideoFields.thumbnailUrl,
-            } : video
-        );
+        try {
+            const response = await fetch(`${API_URL}/api/users/${user.userName}/videos/${videoId}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: formData,
+            });
 
-        setVideoList(updatedVideoList);
-        setSubmittingEdit(false);
-
-        console.log("Updated Video List: ", updatedVideoList);
+            if (response.ok) {
+                const updatedVideo = await response.json();
+                console.log('Video updated successfully:', updatedVideo);
+                // Update local video list
+                const updatedVideoList = videoList.map(video =>
+                    video.id === id ? { ...video, ...updatedVideo } : video
+                );
+                setVideoList(updatedVideoList);
+            } else {
+                console.error('Failed to update video');
+            }
+        } catch (error) {
+            console.error('Error updating video:', error);
+        }
     };
 
     return (

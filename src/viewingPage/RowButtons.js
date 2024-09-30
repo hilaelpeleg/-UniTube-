@@ -84,6 +84,8 @@ function RowButtons({ token, video, videoList, setVideoList, like, updateLikes, 
     return (
         <div className="row-buttons-container">
             <PopupEdit
+            user={user}
+            token={token}
                 setVideoList={setVideoList}
                 videoId={video.id}
                 videoList={videoList}

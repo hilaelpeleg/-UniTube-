@@ -20,9 +20,9 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         uploader: logedinuser ? logedinuser.userName : "",
         likes: 0,
         comments: [],
-        uploadDate: new Date().toISOString(), // Set the current date
-        duration: "00:00", // Initialize duration
-        profilePicture: logedinuser && logedinuser.length > 0 ? logedinuser.profilePicture : null
+        uploadDate: new Date().toISOString(), 
+        duration: "00:00",
+        profilePicture: logedinuser ? `${API_URL}${logedinuser.profilePicture}` : null // Ensure the correct path for profile picture
     });
 
     const navigate = useNavigate(); // Initialize the navigate function
@@ -73,8 +73,7 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         formData.append('uploadDate', formattedDate);
         formData.append('duration', inputVideoFields.duration); // Append duration
         formData.append('likes', inputVideoFields.likes); // Append initial likes count
-        formData.append('profilePicture', logedinuser && logedinuser.length > 0 ? logedinuser.profilePicture : null); // Append profile picture
-
+        formData.append('profilePicture', inputVideoFields.profilePicture);
 
         // Send API request to upload the video with token
         const response = await fetch(`${API_URL}/api/users/${inputVideoFields.uploader}/videos`, {
