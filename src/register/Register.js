@@ -74,27 +74,35 @@ function Register() {
 
     // addNewUser function to add a new user to the server
     const addNewUser = async () => {
-        let profilePictureUrl = inputFields.profilePicture;
-
+        const formData = new FormData(); // Create a FormData object
+    
         // Check if profilePicture is a file and create a URL if it is
+        let profilePictureUrl = inputFields.profilePicture;
+    
+        // Check if profilePicture is a file and set default if necessary
         if (profilePictureUrl instanceof File) {
-            profilePictureUrl = URL.createObjectURL(inputFields.profilePicture);
+            formData.append('profilePicture', profilePictureUrl); // Append the file to FormData
         } else if (!profilePictureUrl) {
             // Default profile picture URL
             profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
         }
+    
+        // Append other input fields to formData
+        Object.keys(inputFields).forEach(key => {
+            if (key !== 'profilePicture') { // Avoid appending profilePicture again since it's already handled
+                formData.append(key, inputFields[key]); // Append each field
+            }
+        });
 
-        const userDetails = {
-            firstName: inputFields.firstName,
-            lastName: inputFields.lastName,
-            password: inputFields.password,
-            userName: inputFields.userName,
-            profilePicture: profilePictureUrl
-        };
 
-        // Call the CreateUser function to send the data to the server
-        const newUser = await CreateUser(userDetails);
-
+    // Log the FormData entries for debugging
+    for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value instanceof File ? value.name : value}`);
+    }
+        
+        // Call the CreateUser function to send the FormData to the server
+        const newUser = await CreateUser(formData);
+    
         if (newUser) {
             console.log('User created and added to the server:', newUser);
             navigate('/logIn');  // Redirect to login page after successful registration

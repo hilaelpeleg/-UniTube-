@@ -46,14 +46,22 @@ function EditVideo({token, user, handleClose, setVideoList, videoId, videoList,s
 
     const updateEdit = async (id) => {
         const formData = new FormData();
-        formData.append('title', updateVideoFields.title);
-        formData.append('description', updateVideoFields.description);
+        if (updateVideoFields.title) {
+            formData.append('title', updateVideoFields.title);
+        }
+        if (updateVideoFields.description) {
+            formData.append('description', updateVideoFields.description);
+        }
         if (updateVideoFields.url instanceof File) {
             formData.append('url', updateVideoFields.url);
         }
         if (updateVideoFields.thumbnailUrl instanceof File) {
             formData.append('thumbnailUrl', updateVideoFields.thumbnailUrl);
         }
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value instanceof File ? value.name : value}`);
+        }
+        console.log(user.userName, videoId);
 
         try {
             const response = await fetch(`${API_URL}/api/users/${user.userName}/videos/${videoId}`, {
