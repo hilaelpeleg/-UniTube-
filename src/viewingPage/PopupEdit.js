@@ -2,7 +2,7 @@ import React from 'react';
 import './PopupEdit.css';
 import EditVideo from './EditVideo';
 
-function PopupEdit({ show, handleClose, videoId, videoList, setVideoList,setUpdateTrigger }) {
+function PopupEdit({token, user,  show, handleClose, videoId, videoList, setVideoList,setUpdateTrigger }) {
     return (
         show ? (
             // popup edit modal
@@ -16,6 +16,8 @@ function PopupEdit({ show, handleClose, videoId, videoList, setVideoList,setUpda
                             </div>
                             <div className="modal-body">
                                 <EditVideo
+                                user={user}
+                                token={token}
                                     handleClose={handleClose}
                                     setVideoList={setVideoList}
                                     videoId={videoId}

@@ -1,17 +1,14 @@
 import { API_URL } from '../config';
 
 // CreateUser function to send the new user to the server
-const CreateUser = async (userDetails, token) => {
+const CreateUser = async (formData) => {  // Change parameter to formData
     try {
         const response = await fetch(`${API_URL}/api/users`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(userDetails)  // Sending user details in the body as JSON
+            body: formData  // Send FormData directly
         });
 
+        console.log("client side", formData);
         if (response.ok) {
             const result = await response.json();
             console.log('User created successfully:', result);
