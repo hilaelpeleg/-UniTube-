@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import CheckUserNameExists from "./CheckUserNameExists";
 import CreateUser from "./CreateUser";
 
-function Register({ token }) {
+function Register() {
     // useState hooks to manage local state for form errors, submission status, and input fields
     const [formErrors, setFormErrors] = useState({});
     const [submitting, setSubmitting] = useState(false);
