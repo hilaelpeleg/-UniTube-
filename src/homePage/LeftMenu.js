@@ -28,11 +28,9 @@ import deleteuser from './svg icons/delete-user.svg';
 
 
 
-function LeftMenu({ user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
+function LeftMenu({token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
-
 {
-
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -58,6 +56,29 @@ function LeftMenu({ user, handleChange, darkMode, videoId, originalVideoList, se
     const handleLogout = () => {
         navigate('/logIn');
     };
+
+    const deleteUser = async (userName) => {
+        console.log('Deleting user:', userName); // Make sure this is the correct username
+        try {
+            const response = await fetch(`${API_URL}/api/users/${userName}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                console.log('User deleted successfully');
+                navigate('/logIn');
+            } else {
+                const errorData = await response.json();
+                console.error('Failed to delete user:', errorData.error);
+            }
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
+    }
 
     const svgFillColor = darkMode ? '#FFFFFF' : '#64728F';
 
@@ -129,8 +150,8 @@ function LeftMenu({ user, handleChange, darkMode, videoId, originalVideoList, se
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? settingdark : settinglight} text="Setting" />
                             </li>
-                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }}>
-                                {user && (
+                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => deleteUser(user.userName)}>
+                                {user && user.userName !== "" &&(
                                     <div className='delete'>
                                         <img className="profile-pic" src={deleteuser} alt="Profile" />
                                         <strong className="deleteuser">Delete my account</strong>
@@ -138,7 +159,6 @@ function LeftMenu({ user, handleChange, darkMode, videoId, originalVideoList, se
                                 )}
                             </li >
                         </ul>
-
                     </div>
                 </div>
             </div>
