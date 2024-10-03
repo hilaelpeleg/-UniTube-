@@ -26,11 +26,23 @@ import logodark from './svg icons/logodark.png';
 import { API_URL } from '../config';
 import deleteuser from './svg icons/delete-user.svg';
 import editeuser from './svg icons/edituser.svg';
-import DeleteUser from './DeleteUser';
+import DeleteUser from '../user/DeleteUser';
+import PopupEditUser from '../user/PopupEditUser';
 
 function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 {
+    const [updateTriggerEditUser, setUpdateTriggerEditUser] = useState(false);
+    const [showModalEditUser, setshowModalEditUser] = useState(false);
+
+    const handleCloseModalEditUser = () => {
+        setshowModalEditUser(false);
+    };
+
+    const handleEditClickUser = () => {
+        setshowModalEditUser(true);
+    };
+
     const doSearch = (input) => {
         if (!originalVideoList) {
             return;
@@ -100,7 +112,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {user && (
                                 <div className='user'>
-                                    {user.userName && <img className="edit-icon" src={editeuser} alt="Edit User" />}
+                                    {user.userName && <img className="edit-icon" src={editeuser} alt="Edit User" onClick={handleEditClickUser}/>}
                                     <div className={`user-info ${user.userName ? 'logged-in' : 'logged-out'}`}>
                                         <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                                         <strong className="username">{user.userName}</strong>
@@ -142,6 +154,13 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                     </div>
                 </div>
             </div>
+            <PopupEditUser
+                token={token}
+                user={user}
+                show={showModalEditUser}
+                handleCloseEditUser={handleCloseModalEditUser}
+                setUpdateTriggerEditUser={setUpdateTriggerEditUser}
+            />
         </nav>
     );
 }
