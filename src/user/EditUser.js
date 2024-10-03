@@ -62,6 +62,8 @@ const EditUser = (user, token, setUpdateTriggerEditUser, handleCloseEditUser) =>
                         <ProfilePic name="profilePicture" onChange={handleChange} />
                         <TextInput name="first name" kind="first name" value={updateUserFields.firstName} onChange={handleChange} />
                         <TextInput name="last name" kind="last name" value={updateUserFields.lastName} onChange={handleChange} />
+                        <TextInput name="password" kind="password" value={updateUserFields.password} type="password"
+                         onChange={handleChange} />
                     </div>
                 </div>
                 <div className="list-group list-group-flush">
