@@ -38,7 +38,6 @@
 .nav-item {
     margin: 5px 0; /* Add some margin for better spacing */
     border-radius: 30px; /* More roundness on hover */
-
 }
 
 .nav-item a {
@@ -91,6 +90,29 @@
     color: #333;
 }
 
-.delete-red{
-    color: red;
+.deleteuser {
+    color: #df1010; 
+    font-family: var(--bs-font-sans-serif, 'Lexend', sans-serif); 
+    font-size: var(--bs-nav-link-font-size, 1rem); 
+    font-weight: var(--bs-nav-link-font-weight, 400); 
+}
+
+.menu-item-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+}
+
+
+.delete{
+    background: var(--bs-user-bg);
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    margin-top: 120px;
+
+}
+
+.deleteh:hover {
+    background: transparent; /* Makes the background transparent */
+    cursor: default; /* Changes the cursor to default */
 }
