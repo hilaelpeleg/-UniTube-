@@ -118,7 +118,7 @@
 .user-info {
     display: flex;
     align-items: center; /* Center items vertically */
-    margin-left: 60px;
+    margin-left: 150px;
 
 }
 
@@ -130,4 +130,12 @@
     color: #333;
     display: flex;
     align-items: center;
+}
+
+.user-info.logged-out {
+    margin-left: 140px; /* Margin for when user is not logged in */
+}
+
+.user-info.logged-in {
+    margin-left: 70px; /* Margin for when user is logged in */
 }

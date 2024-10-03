@@ -26,7 +26,7 @@ import logodark from './svg icons/logodark.png';
 import { API_URL } from '../config';
 import deleteuser from './svg icons/delete-user.svg';
 import editeuser from './svg icons/edituser.svg';
-
+import DeleteUser from './DeleteUser';
 
 function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
@@ -56,29 +56,6 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
     const handleLogout = () => {
         navigate('/logIn');
     };
-
-    const deleteUser = async (userName) => {
-        console.log('Deleting user:', userName); // Make sure this is the correct username
-        try {
-            const response = await fetch(`${API_URL}/api/users/${userName}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                console.log('User deleted successfully');
-                navigate('/logIn');
-            } else {
-                const errorData = await response.json();
-                console.error('Failed to delete user:', errorData.error);
-            }
-        } catch (error) {
-            console.error('Error deleting user:', error);
-        }
-    }
 
     const svgFillColor = darkMode ? '#FFFFFF' : '#64728F';
 
@@ -123,10 +100,10 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {user && (
                                 <div className='user'>
-                                    <img className="edit-icon" src={editeuser} alt="Edit User" />
-                                    <div  className="user-info">
-                                    <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
-                                    <strong className="username">{user.userName}</strong>
+                                    {user.userName && <img className="edit-icon" src={editeuser} alt="Edit User" />}
+                                    <div className={`user-info ${user.userName ? 'logged-in' : 'logged-out'}`}>
+                                        <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                                        <strong className="username">{user.userName}</strong>
                                     </div>
                                 </div>
                             )}
@@ -153,7 +130,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? settingdark : settinglight} text="Setting" />
                             </li>
-                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => deleteUser(user.userName)}>
+                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => DeleteUser(user.userName, token)}>
                                 {user && user.userName !== "" && (
                                     <div className='delete'>
                                         <img className="profile-pic" src={deleteuser} alt="Profile" />
