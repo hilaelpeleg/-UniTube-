@@ -8,6 +8,7 @@ import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
 import ViewingPage from '../viewingPage/ViewingPage';
 import { API_URL } from '../config';
+import UserAccount from '../user/UserAccount';
 
 function App() {
   const [videoList, setVideoList] = useState([]);
@@ -53,7 +54,14 @@ function App() {
           <Route path="/Viewing/:videoId"  element={<ViewingPage token= {token} videoList={videoList}
           handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
           setVideoList={setVideoList} logedinuser={logedinuser}/>}/>
-        </Routes>
+<Route path="/MyAccount" element={<UserAccount 
+    token={token} 
+    logedinuser={logedinuser} 
+    darkMode={darkMode} 
+    setDarkMode={setDarkMode} 
+    videoList={videoList}
+    setVideoList={setVideoList}
+/>} />        </Routes>
       </div>
     </Router>
   );

@@ -15,27 +15,17 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
         profilePicture: null,
     });
 
-    // אתחול הערכים רק אחרי שהמשתמש נטען
-    useEffect(() => {
-        if (user) {
-            setUpdateUserFields({
-                firstName: "",
-                lastName:  "",
-                password: "", 
-                profilePicture: null,
-            });
-        }
-    }, [user]);
-
+    // Handle field changes (either text or file input)
     const handleChange = (event) => {
         const { name, value, files } = event.target;
-        console.log(`Changing field: ${name}, value: ${value}`); // בדיקת הערך המוקלד
+        console.log(`Changing field: ${name}, value: ${value}`); // Log the changed field for debugging
         setUpdateUserFields({
             ...updateUserFields,
-            [name]: files ? files[0] : value
+            [name]: files ? files[0] : value // Handle file uploads if applicable
         });
     };
 
+    // Handle form submission
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!user) {
@@ -48,6 +38,7 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
         setUpdateTrigger(prev => !prev);
     };
 
+    // Function to update user details by making a PUT request to the API
     const updateEdit = async (id) => {
         const formData = new FormData();
         if (updateUserFields.firstName) {
@@ -63,6 +54,9 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
             formData.append('profilePicture', updateUserFields.profilePicture);
         }
 
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value instanceof File ? value.name : value}`);
+        }
         try {
             const response = await fetch(`${API_URL}/api/users/${id}`, {
                 method: 'PUT',
