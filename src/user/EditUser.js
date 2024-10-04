@@ -2,22 +2,37 @@ import { API_URL } from '../config';
 import TextInput from '../register/TextInput';
 import ProfilePic from './ProfilePic';
 import UpdateButton from '../viewingPage/UpdateButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import '../register/TextInput.css';
 
 
-const EditUser = (user, token, setUpdateTriggerEditUser, handleCloseEditUser) => {
+const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
     const [submittingEdit, setSubmittingEdit] = useState(false);
     const [updateUserFields, setUpdateUserFields] = useState({
-        firstName: user ? user.firstName : "",
-        lastName: user ? user.lastName : "",
-        password: user ? user.password : "",
-        profilePicture: user ? user.profilePicture : "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        profilePicture: null,
     });
+
+    // אתחול הערכים רק אחרי שהמשתמש נטען
+    useEffect(() => {
+        if (user) {
+            setUpdateUserFields({
+                firstName: user.firstName || "",
+                lastName: user.lastName || "",
+                password: "", // השאר ריק לצורך אבטחה
+                profilePicture: user.profilePicture || null,
+            });
+        }
+    }, [user]);
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
+        console.log(`Changing field: ${name}, value: ${value}`); // בדיקת הערך המוקלד
         setUpdateUserFields({
-            ...updateUserFields, [name]: files ? files[0] : value
+            ...updateUserFields,
+            [name]: files ? files[0] : value
         });
     };
 
@@ -29,8 +44,8 @@ const EditUser = (user, token, setUpdateTriggerEditUser, handleCloseEditUser) =>
         }
         setSubmittingEdit(true);
         updateEdit(user.userName);
-        handleCloseEditUser();
-        setUpdateTriggerEditUser(prev => !prev);
+        handleClose();
+        setUpdateTrigger(prev => !prev);
     };
 
     const updateEdit = async (id) => {
@@ -48,10 +63,24 @@ const EditUser = (user, token, setUpdateTriggerEditUser, handleCloseEditUser) =>
             formData.append('profilePicture', updateUserFields.profilePicture);
         }
 
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value instanceof File ? value.name : value}`);
+        try {
+            const response = await fetch(`${API_URL}/api/users/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: formData,
+            });
+
+            if (response.ok) {
+                const updatedUser = await response.json();
+                console.log('User updated successfully:', updatedUser);
+            } else {
+                console.error('Failed to update user');
+            }
+        } catch (error) {
+            console.error('Error updating user:', error);
         }
-        console.log(user.userName);
     };
 
     return (
@@ -60,14 +89,29 @@ const EditUser = (user, token, setUpdateTriggerEditUser, handleCloseEditUser) =>
                 <div className="card-body">
                     <div className="row">
                         <ProfilePic name="profilePicture" onChange={handleChange} />
-                        <TextInput name="first name" kind="first name" value={updateUserFields.firstName} onChange={handleChange} />
-                        <TextInput name="last name" kind="last name" value={updateUserFields.lastName} onChange={handleChange} />
-                        <TextInput name="password" kind="password" value={updateUserFields.password} type="password"
-                         onChange={handleChange} />
+                        <TextInput 
+                            name="firstName" 
+                            kind="first name" 
+                            defaultValue={updateUserFields.firstName}  // שימוש ב-defaultValue כדי לאפשר עריכה
+                            onChange={handleChange} 
+                        />
+                        <TextInput 
+                            name="lastName" 
+                            kind="last name" 
+                            defaultValue={updateUserFields.lastName} 
+                            onChange={handleChange} 
+                        />
+                        <TextInput 
+                            name="password" 
+                            kind="password" 
+                            type="password" 
+                            defaultValue={updateUserFields.password} 
+                            onChange={handleChange} 
+                        />
                     </div>
                 </div>
                 <div className="list-group list-group-flush">
-                    <UpdateButton onClick={handleSubmit} value="Update Video" />
+                    <UpdateButton onClick={handleSubmit} value="Update user" />
                 </div>
             </div>
         </div>

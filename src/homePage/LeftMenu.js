@@ -158,8 +158,8 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                 token={token}
                 user={user}
                 show={showModalEditUser}
-                handleCloseEditUser={handleCloseModalEditUser}
-                setUpdateTriggerEditUser={setUpdateTriggerEditUser}
+                handleClose={handleCloseModalEditUser}
+                setUpdateTrigger={setUpdateTriggerEditUser}
             />
         </nav>
     );

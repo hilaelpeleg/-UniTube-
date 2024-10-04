@@ -3,7 +3,7 @@ import '../viewingPage/PopupEdit.css';
 import EditUser from './EditUser';
 
 
-function PopupEditUser({ token, user, show, handleCloseEditUser, setUpdateTriggerEditUser }) {
+function PopupEditUser({ token, user, show, handleClose, setUpdateTrigger }) {
     return (
         show ? (
             // popup edit modal
@@ -12,14 +12,14 @@ function PopupEditUser({ token, user, show, handleCloseEditUser, setUpdateTrigge
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title">Edit User</h5>
-                            <button type="button" className="btn-close" onClick={handleCloseEditUser}></button>
+                            <button type="button" className="btn-close" onClick={handleClose}></button>
                         </div>
                         <div className="modal-body">
                             <EditUser
                                 user={user}
                                 token={token}
-                                handleCloseEditUser={handleCloseEditUser}
-                                setUpdateTriggerEditUser={setUpdateTriggerEditUser}
+                                handleClose={handleClose}
+                                setUpdateTrigger={setUpdateTrigger}
                             />
                         </div>
                     </div>
