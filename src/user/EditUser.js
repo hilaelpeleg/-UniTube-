@@ -19,10 +19,10 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
     useEffect(() => {
         if (user) {
             setUpdateUserFields({
-                firstName: user.firstName || "",
-                lastName: user.lastName || "",
-                password: "", // השאר ריק לצורך אבטחה
-                profilePicture: user.profilePicture || null,
+                firstName: "",
+                lastName:  "",
+                password: "", 
+                profilePicture: null,
             });
         }
     }, [user]);
@@ -92,7 +92,7 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
                         <TextInput 
                             name="firstName" 
                             kind="first name" 
-                            defaultValue={updateUserFields.firstName}  // שימוש ב-defaultValue כדי לאפשר עריכה
+                            defaultValue={updateUserFields.firstName}  
                             onChange={handleChange} 
                         />
                         <TextInput 
