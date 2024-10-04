@@ -1,6 +1,6 @@
 import './TextInput.css';
 
-function TextInput({ name, kind, value, onChange, error, type = "text" }) {
+function TextInput({ name, kind, defaultValue, onChange, error, type = "text" }) {
     return (
         <div className="col-md-4 margin">
             <input 
@@ -8,7 +8,7 @@ function TextInput({ name, kind, value, onChange, error, type = "text" }) {
                 className="form-control"
                 placeholder={kind}  // נשתמש ב-placeholder כדי להציג את kind
                 name={name}
-                value={value}       // הצב את ה-value מ-state בצורה נכונה
+                defaultValue={defaultValue}  // שימוש ב-defaultValue במקום value
                 onChange={onChange} 
                 required 
             />

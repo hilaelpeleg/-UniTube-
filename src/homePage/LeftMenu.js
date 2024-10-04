@@ -32,15 +32,19 @@ import PopupEditUser from '../user/PopupEditUser';
 function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 {
+    const [isMenuOpen, setIsMenuOpen] = useState(true);  // ניהול המצב של התפריט השמאלי
+
     const [updateTriggerEditUser, setUpdateTriggerEditUser] = useState(false);
     const [showModalEditUser, setshowModalEditUser] = useState(false);
 
     const handleCloseModalEditUser = () => {
         setshowModalEditUser(false);
+        setIsMenuOpen(true);
     };
 
     const handleEditClickUser = () => {
         setshowModalEditUser(true);
+        setIsMenuOpen(false);
     };
 
     const doSearch = (input) => {
@@ -103,7 +107,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                         </button>
                     )}
                 </a>
-                <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div className={`offcanvas offcanvas-start ${isMenuOpen ? '' : 'd-none'}`} tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div className="offcanvas-header">
                         <img className="ms-2" id="logo" src={darkMode ? logodark : logolight} alt="Logo" width="106.4" height="23.2" />
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
