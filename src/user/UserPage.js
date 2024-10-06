@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import LeftMenu from '../homePage/LeftMenu'; // Import the LeftMenu component
-import './UserAccount.css';
+import './UserPage.css';
 import UserProfileCard from './UserProfileCard';
 import UserPageMenu from './UserPageMenu';
 import VideoItems from '../videoItem/VideoItems';
 import { API_URL } from '../config'; // Importing API_URL from config
 
-const UserAccount = ({ token, darkMode, setDarkMode, logedinuser, setVideoList }) => {
+const UserPage = ({ token, darkMode, setDarkMode, logedinuser, setVideoList }) => {
   const user = logedinuser ? logedinuser : null;
   const [filteredVideoList, setFilteredVideoList] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -75,4 +75,4 @@ const UserAccount = ({ token, darkMode, setDarkMode, logedinuser, setVideoList }
   );
 };
 
-export default UserAccount;
+export default UserPage;

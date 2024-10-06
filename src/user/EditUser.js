@@ -2,7 +2,7 @@ import { API_URL } from '../config';
 import TextInput from '../register/TextInput';
 import ProfilePic from './ProfilePic';
 import UpdateButton from '../viewingPage/UpdateButton';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import '../register/TextInput.css';
 
 
