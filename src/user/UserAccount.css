@@ -10,14 +10,15 @@
     background: var(--bs-cardview); /* Card background */
 }
 
+
 .profile-container {
     display: flex;
     align-items: center; /* Vertically aligns all elements in the center */
 }
 
 .circular-profile {
-    width: 120px; /* Size of the profile image */
-    height: 120px;
+    width: 160px; /* Size of the profile image */
+    height: 160px;
     border-radius: 50%; /* Makes the image circular */
     overflow: hidden;
     margin-right: 20px; /* Adds space between the image and the text */
@@ -32,9 +33,12 @@
 
 .user-info {
     display: flex;
+    margin-left: 40px; /* Adds space between the profile image and the text */
+}
+
+.userSub{
     flex-direction: column; /* Places the username above the full name */
     justify-content: center; /* Vertically centers the text */
-    margin-left: 100px; /* Adds space between the profile image and the text */
 }
 
 .user-username {
@@ -47,3 +51,26 @@
     font-size: 1rem; /* Smaller size for the full name */
     color: #333; /* Darker color for the full name */
 }
+
+.widthSub{
+width: 250px;
+}
+
+.marginSub{
+    margin-left: 65px;
+}
+
+
+.marginupSUb{
+    margin-top: 0;
+}
+
+.align-right {
+    margin-left: auto;
+    margin-right: 350px;
+}
+
+.menu-navigation {
+    margin-right: 500px; /* להזיז את התפריט שמאלה */
+  }
+  
