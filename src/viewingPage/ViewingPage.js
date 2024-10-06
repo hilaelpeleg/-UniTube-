@@ -132,6 +132,11 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
         return <div>Video not found</div>; 
     }
 
+      // Add API_URL to profilePicture if it doesn't start with 'http'
+      const profileImageUrl = video.profilePicture.startsWith('http')
+      ? video.profilePicture
+      : `${API_URL}${video.profilePicture}`;
+
     return (
         <div className="container-fluid viewing-pag">
             <div className="row">
@@ -153,7 +158,7 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
                         </video>
                         <div className="card-body">
                             <div className="box">
-                                <img className="profile" src={video.profilePicture} />
+                                <img className="profile" src={profileImageUrl} />
                                 <div className="box">
                                     <p className="card-text p">{video.uploader}</p>
                                     <p className="card-text p">{video.description}</p>

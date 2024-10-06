@@ -3,6 +3,7 @@ import { API_URL } from '../config';
 import subscribe from '../homePage/svg icons/subscribe.svg';
 
 const UserProfileCard = ({ user }) => {
+    console.log(user);
   return (
     <div className="menu-navigation">
       <div className="me-3 custom-margin-reset" >

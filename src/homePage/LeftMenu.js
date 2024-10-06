@@ -117,18 +117,18 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {user && (
                                 <div className='user'>
-                                    {user.userName && <img className="edit-icon" src={darkMode ? editeuserdark : editeuserlight} alt="Edit User" onClick={handleEditClickUser}/>}
+                                    {user.userName && <img className="edit-icon" src={darkMode ? editeuserdark : editeuserlight} alt="Edit User" onClick={handleEditClickUser} />}
                                     <div className={`user-info ${user.userName ? 'logged-in' : 'logged-out'}`}>
                                         <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                                         <strong className="username">{user.userName}</strong>
                                     </div>
                                 </div>
                             )}
-                            {user.userName !== "" && (
-                            <li className="nav-item" onClick={() => navigate('/Account')}>
-                                <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
-                            </li>
-                             )}
+                            {user && user.userName && (
+                                <li className="nav-item" onClick={() => navigate(`/Account/${user.userName}`)}>
+                                    <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
+                                </li>
+                            )}
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? homedark : homelight} text="Home" />
                             </li>
