@@ -1,5 +1,5 @@
 import React from 'react';
-import Searchicon from '../homePage/svg icons/searchSub.svg';
+import dots from '../homePage/svg icons/dotsSub.svg';
 
 const UserPageMenu = () => {
   return (
@@ -13,7 +13,7 @@ const UserPageMenu = () => {
               <button type="button" className="btn btn-light margin">Releases</button>
               <button type="button" className="btn btn-light margin">Playlists</button>
               <button type="button" className="btn btn-light margin">
-                <img className="marginbutton" src={Searchicon} alt="Searchicon" />
+                <img className="marginbutton" src={dots} alt="Searchicon" />
               </button>
             </div>
           </div>
