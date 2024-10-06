@@ -1,0 +1,49 @@
+.cardUserA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px; /* Increase the maximum width */
+    margin-top: 50px; /* Adds margin on top to push the card down */
+    padding: 30px; /* Increase padding for more space */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Adds shadow for depth */
+    border-radius: 15px; /* Increase the rounding of the corners */
+    background: var(--bs-cardview); /* Card background */
+}
+
+.profile-container {
+    display: flex;
+    align-items: center; /* Vertically aligns all elements in the center */
+}
+
+.circular-profile {
+    width: 120px; /* Size of the profile image */
+    height: 120px;
+    border-radius: 50%; /* Makes the image circular */
+    overflow: hidden;
+    margin-right: 20px; /* Adds space between the image and the text */
+    border: 3px solid #ccc; /* Optional border for the profile image */
+}
+
+.circular-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fits inside the circle */
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column; /* Places the username above the full name */
+    justify-content: center; /* Vertically centers the text */
+    margin-left: 100px; /* Adds space between the profile image and the text */
+}
+
+.user-username {
+    font-size: 2rem; /* Size of the username */
+    font-weight: bold; /* Makes the username bold */
+    margin: 0; /* Removes margin around the username */
+}
+
+.user-fullname {
+    font-size: 1rem; /* Smaller size for the full name */
+    color: #333; /* Darker color for the full name */
+}

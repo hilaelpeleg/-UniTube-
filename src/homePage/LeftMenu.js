@@ -123,7 +123,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                                     </div>
                                 </div>
                             )}
-                            <li className="nav-item" onClick={() => navigate('/')}>
+                            <li className="nav-item" onClick={() => navigate('/MyAccount')}>
                                 <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
                             </li>
                             <li className="nav-item" onClick={() => navigate('/')}>
