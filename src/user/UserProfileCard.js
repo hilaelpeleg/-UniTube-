@@ -5,8 +5,8 @@ import subscribe from '../homePage/svg icons/subscribe.svg';
 const UserProfileCard = ({ user }) => {
   return (
     <div className="menu-navigation">
-      <div className="me-3">
-        <div className="cardUserA" >
+      <div className="me-3 custom-margin-reset" >
+        <div className="cardUserA Profilecard" >
           <div className="card-body">
             <div>
               <div className="profile-container">

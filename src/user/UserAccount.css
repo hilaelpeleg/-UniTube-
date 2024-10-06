@@ -3,11 +3,15 @@
     flex-direction: column;
     align-items: center;
     max-width: 800px; /* Increase the maximum width */
-    margin-top: 50px; /* Adds margin on top to push the card down */
+    margin-top: 20px; /* Adds margin on top to push the card down */
     padding: 30px; /* Increase padding for more space */
     box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Adds shadow for depth */
     border-radius: 15px; /* Increase the rounding of the corners */
     background: var(--bs-cardview); /* Card background */
+}
+
+.Profilecard{
+    margin-top: 50px; /* Adds margin on top to push the card down */
 }
 
 
@@ -68,9 +72,19 @@ width: 250px;
 .align-right {
     margin-left: auto;
     margin-right: 350px;
+    height: 80px;
+    padding: 10px;
+
 }
 
 .menu-navigation {
     margin-right: 500px; /* להזיז את התפריט שמאלה */
   }
   
+  .video-list-container {
+    margin-top: 20px; /* Adjust the value to increase or decrease the margin */
+}
+
+.custom-margin-reset {
+    margin-right: 0 !important;
+}

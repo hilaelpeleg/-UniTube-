@@ -85,7 +85,7 @@
 
 
 .deleteuser {
-    color: #df1010; 
+    color:#ff0000; 
     font-family: var(--bs-font-sans-serif, 'Lexend', sans-serif); 
     font-size: var(--bs-nav-link-font-size, 1rem); 
     font-weight: var(--bs-nav-link-font-weight, 400); 
