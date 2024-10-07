@@ -8,22 +8,23 @@ import HomePage from '../homePage/HomePage';
 import AddVideo from '../addvideo/AddVideo';
 import ViewingPage from '../viewingPage/ViewingPage';
 import { API_URL } from '../config';
+import UserPage from '../user/UserPage';
 
 function App() {
   const [videoList, setVideoList] = useState([]);
-  const [darkMode,setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
   const [logedinuser, setlogedinuser] = useState({
     firstName: "",
-    lastName:"",
-    userName:"",
-    profilePicture:""
+    lastName: "",
+    userName: "",
+    profilePicture: ""
   });
   const [token, setToken] = useState("");
 
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/videos/`, { 
+        const res = await fetch(`${API_URL}/api/videos/`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ function App() {
       }
     };
 
-    fetchVideos(); 
+    fetchVideos();
   }, []);
 
 
@@ -44,16 +45,18 @@ function App() {
     <Router>
       <div className="App" data-theme={darkMode ? "dark" : "light"}>
         <Routes>
-          <Route path="/Register" element={<Register/>} />
-          <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken}/>} />
-          <Route path="/" element={<HomePage logedinuser={logedinuser} darkMode={darkMode}
-           setDarkMode={setDarkMode} videoList={videoList}/>} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken} />} />
+          <Route path="/" element={<HomePage token={token} logedinuser={logedinuser} darkMode={darkMode}
+            setDarkMode={setDarkMode} videoList={videoList} />} />
           <Route path="/AddVideo" element={<AddVideo token={token} logedinuser={logedinuser} videoList={videoList}
-          setVideoList={setVideoList} />} />
-          <Route path="/Viewing/:videoId"  element={<ViewingPage token= {token} videoList={videoList}
-          handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
-          setVideoList={setVideoList} logedinuser={logedinuser}/>}/>
-        </Routes>
+            setVideoList={setVideoList} />} />
+          <Route path="/Viewing/:videoId" element={<ViewingPage token={token} videoList={videoList}
+            handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
+            setVideoList={setVideoList} logedinuser={logedinuser} />} />
+          <Route  path="/Account/:userName"  element={<UserPage token={token} logedinuser={logedinuser} darkMode={darkMode}
+            setDarkMode={setDarkMode} videoList={videoList} />} />  
+           </Routes>
       </div>
     </Router>
   );
