@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import LeftMenu from '../homePage/LeftMenu';
 import VideoItems from '../videoItem/VideoItems';
 import './ViewingPage.css';
@@ -17,6 +17,7 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
     const [updateTrigger, setUpdateTrigger] = useState(false);
     const [filteredVideoList, setFilteredVideoList] = useState(videoList);
     const user = logedinuser ? logedinuser : null;
+    const navigate = useNavigate();
 
     useEffect(() => {
         setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
@@ -137,6 +138,10 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
       ? video.profilePicture
       : `${API_URL}${video.profilePicture}`;
 
+      const goToUserPage = () => {
+        navigate(`/Account/${video.uploader}`); // Assuming video.uploader contains the username
+    };
+
     return (
         <div className="container-fluid viewing-pag">
             <div className="row">
@@ -151,16 +156,16 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
             <div className="row">
                 <div className="col-8 ">
                     <div className="cardV" >
-                        <h1>{video.title}</h1>
+                        <h1>{video.title}</h1>  
                         <video className="card-img-top" key={`${API_URL}${video.url}`}  controls onLoadedMetadata={handleLoadedMetadata}>
                             <source src={`${API_URL}${video.url}`} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                         <div className="card-body">
                             <div className="box">
-                                <img className="profile" src={profileImageUrl} />
+                                <img className="profile" onClick={goToUserPage} src={profileImageUrl} />
                                 <div className="box">
-                                    <p className="card-text p">{video.uploader}</p>
+                                    <p className="card-text p" onClick={goToUserPage}>{video.uploader}</p>
                                     <p className="card-text p">{video.description}</p>
                                     <p className="card-text"><small className="text-body-secondary">{video.uploadDate}</small></p>
                                 </div>
