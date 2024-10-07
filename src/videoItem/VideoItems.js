@@ -1,5 +1,6 @@
 import VideoItem from "./VideoItem";
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../config';
 
 // VideoItems component receives videoList and colWidth as props
 
@@ -10,12 +11,23 @@ function VideoItems({ videoList, colWidth }) {
     const navigate = useNavigate();
     // Function to handle video click event
 
-    const handleVideoClick = (video) => {
-        // Navigate to the viewing page of the clicked video
-
-        navigate(`/viewing/${video.id}`);
+    // Function to handle video click event
+    const handleVideoClick = async (video) => {
+        try {
+            // Increment views for the clicked video
+            await fetch(`${API_URL}/api/videos/${video.id}/increment`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            // Navigate to the viewing page of the clicked video
+            navigate(`/viewing/${video.id}`);
+        } catch (error) {
+            console.error('Error updating views:', error);
+            // Optionally, handle the error (e.g., show a notification)
+        }
     };
-
     return (
         <div className="row gx-3">
             {videoList && videoList.length > 0 ? (
