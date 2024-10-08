@@ -8,7 +8,7 @@ import RowButtons from './RowButtons';
 import { API_URL } from '../config';
 
 // ViewingPage component to display a single video with comments and actions
-const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
+const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -146,7 +146,7 @@ const ViewingPage = ({token, darkMode,setDarkMode, videoList, setVideoList, loge
         <div className="container-fluid viewing-pag">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu darkMode={darkMode} setDarkMode={setDarkMode} videoId={video.id}
+                    <LeftMenu setToken={setToken} token={token} darkMode={darkMode} setDarkMode={setDarkMode} videoId={video.id}
                         handleChange={() => setDarkMode(!darkMode)} 
                         setFilteredVideoList={setFilteredVideoList}
                         originalVideoList={videoList} // Pass the original list here

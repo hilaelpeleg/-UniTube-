@@ -33,6 +33,7 @@ function LogIn({ setlogedinuser, setToken }) {
                 if (response.ok) {
                     const responseData = await response.json();
                     const token = responseData.token;
+                    setToken(token);
                     console.log("Token received:", token);
                     
                     const userResponse = await fetch(`${API_URL}/api/users/${userName}`, {
@@ -59,7 +60,6 @@ function LogIn({ setlogedinuser, setToken }) {
                             profilePicture: user.profilePicture
                         });
     
-                        setToken(token);
                         navigate('/'); // Redirect to homepage or any other protected route
                     } else {
                         setFormErrors({ userName: "Invalid username or password" });
