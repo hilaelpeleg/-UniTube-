@@ -76,18 +76,15 @@ function Register() {
     // addNewUser function to add a new user to the server
     const addNewUser = async () => {
         const formData = new FormData(); // Create a FormData object
-    
+
         // Check if profilePicture is a file and create a URL if it is
         let profilePictureUrl = inputFields.profilePicture;
-    
-        // Check if profilePicture is a file and set default if necessary
+
+        // Check if profilePicture is a file and append it to formData if it is
         if (profilePictureUrl instanceof File) {
             formData.append('profilePicture', profilePictureUrl); // Append the file to FormData
-        } else if (!profilePictureUrl) {
-            // Default profile picture URL
-            profilePictureUrl = 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg';
         }
-    
+
         // Append other input fields to formData
         Object.keys(inputFields).forEach(key => {
             if (key !== 'profilePicture') { // Avoid appending profilePicture again since it's already handled
@@ -95,16 +92,15 @@ function Register() {
             }
         });
 
+        // Log the FormData entries for debugging
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key}: ${value instanceof File ? value.name : value}`);
+        }
 
-    // Log the FormData entries for debugging
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value instanceof File ? value.name : value}`);
-    }
-        
         // Call the CreateUser function to send the FormData to the server
         const newUser = await CreateUser(formData);
 
-      if (newUser) {
+        if (newUser) {
             console.log('User created and added to the server:', newUser); // Log success message
             navigate('/logIn');  // Redirect to login page after successful registration
         } else {
@@ -112,6 +108,7 @@ function Register() {
             setFormErrors({ userName: "Failed to create user" }); // Update form errors state
         }
     };
+
 
     const navigate = useNavigate();
 

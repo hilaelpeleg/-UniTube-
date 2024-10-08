@@ -40,6 +40,29 @@ function App() {
     fetchVideos();
   }, []);
 
+  // New useEffect to fetch updated user details whenever logedinuser changes
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      if (logedinuser.userName) {
+        try {
+          const res = await fetch(`${API_URL}/api/users/${logedinuser.userName}`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          });
+          const userData = await res.json();
+          setlogedinuser(userData); // Update the logedinuser with fetched data
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      }
+    };
+
+    fetchUserDetails();
+  }, [logedinuser]); // Dependency array to trigger on userName change
+
 
   return (
     <Router>

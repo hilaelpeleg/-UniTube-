@@ -74,6 +74,15 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
         navigate('/logIn');
     };
 
+        // Function to delete the user
+        const handleDeleteUser = async () => {
+            const success = await DeleteUser(user.userName, token);
+            if (success) {
+                navigate('/logIn'); // Navigate to login page after successful deletion
+            }
+        };
+    
+
     const svgFillColor = darkMode ? '#FFFFFF' : '#64728F';
 
     return (
@@ -149,7 +158,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? settingdark : settinglight} text="Setting" />
                             </li>
-                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => DeleteUser(user.userName, token)}>
+                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => handleDeleteUser()}>
                                 {user && user.userName !== "" && (
                                     <div className='delete'>
                                         <img className="profile-pic" src={deleteuser} alt="Profile" />

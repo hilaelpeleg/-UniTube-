@@ -1,9 +1,6 @@
 import { API_URL } from '../config';
-import { useNavigate } from 'react-router-dom';
 
 const DeleteUser = async (userName, token) => {
-    const navigate = useNavigate();
-
     try {
         const response = await fetch(`${API_URL}/api/users/${userName}`, {
             method: 'DELETE',
@@ -15,13 +12,15 @@ const DeleteUser = async (userName, token) => {
 
         if (response.ok) {
             console.log('User deleted successfully');
-            navigate('/logIn');
+            return true;  // Return true to indicate success
         } else {
             const errorData = await response.json();
             console.error('Failed to delete user:', errorData.error);
+            return false;  // Return false to indicate failure
         }
     } catch (error) {
         console.error('Error deleting user:', error);
+        return false;  // Return false to indicate failure
     }
 }
 
