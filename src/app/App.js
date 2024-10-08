@@ -38,7 +38,7 @@ function App() {
     };
 
     fetchVideos();
-  }, []);
+  }, [logedinuser]);
 
   // New useEffect to fetch updated user details whenever logedinuser changes
   useEffect(() => {
@@ -63,7 +63,7 @@ function App() {
     };
   
     fetchUserDetails();
-  }, [logedinuser.userName]);
+  }, [logedinuser]);
    // Dependency array to trigger on userName change
 
 
