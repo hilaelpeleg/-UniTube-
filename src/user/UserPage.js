@@ -24,8 +24,6 @@ const UserPage = ({ token, logedinuser, darkMode, setDarkMode, videoList }) => {
       const fetchUserName = isMyAccount ? logedinuser.userName : userName;  // Determine the user for whom to fetch videos
 
       if (fetchUserName) {
-        console.log("Preparing to fetch videos for user:", fetchUserName);
-
         try {
           const response = await fetch(`${API_URL}/api/users/${fetchUserName}/videos`, {
             method: 'GET',

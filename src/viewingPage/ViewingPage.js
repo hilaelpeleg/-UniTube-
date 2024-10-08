@@ -29,9 +29,11 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
             setLike(video.likes); // Set the initial number of likes
             fetchComments(); // Fetch comments from the server
         }
-    }, [video, updateTrigger]);
+    }, [commentsList, updateTrigger]);
 
     const fetchComments = async () => {
+        if (!videoId) return; // אם videoId אינו קיים, אל תבצע את הבקשה
+
         try {
             const response = await fetch(`${API_URL}/api/comments/${videoId}`,{
             method: 'GET',

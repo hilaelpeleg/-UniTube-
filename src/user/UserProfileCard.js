@@ -3,7 +3,6 @@ import { API_URL } from '../config';
 import subscribe from '../homePage/svg icons/subscribe.svg';
 
 const UserProfileCard = ({ userName }) => {
-    console.log("user",userName);
   const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -43,7 +43,6 @@ function App() {
   // New useEffect to fetch updated user details whenever logedinuser changes
   useEffect(() => {
     const fetchUserDetails = async () => {
-      console.log("pleeeee", token);
       if (logedinuser.userName) {
         try {
           const res = await fetch(`${API_URL}/api/users/${logedinuser.userName}`, {
