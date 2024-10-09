@@ -22,8 +22,6 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
         setUpdateCommentFields({
             ...updateCommentFields, [name]: value
         });
-        console.log(`Changing ${name} to ${value}`); // Log the change in input
-        console.log(updateCommentFields);
     };
 
     const handleSubmit = (event) => {
@@ -32,27 +30,23 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
             console.error("Comment not found");
             return;
         }
-        console.log("Submitting comment update:", updateCommentFields); // Log the fields before submitting
         setSubmittingEdit(true);
-    // העברת ה-commentId לשימוש בתוך updateEdit
     updateEdit(commentId).then(() => {
-        handleClose(); // סגור את המודאל רק לאחר סיום העדכון
+        handleClose(); 
     });
     };
 
     const updateEdit = async (id) => {
         console.log("this is good");
-        console.log(updateCommentFields); // לוג של השדות
+        console.log(updateCommentFields); 
     
-        // בדוק אם השדה חדש לא ריק
         if (!updateCommentFields.newcomment) {
             console.error("Update fields are incomplete");
             setSubmittingEdit(false);
-            return Promise.reject(new Error("Update fields are incomplete")); // החזר שגיאה
+            return Promise.reject(new Error("Update fields are incomplete")); 
         }
     
         try {
-            // שלח בקשה לשרת לעדכן את התגובה
             const response = await fetch(`${API_URL}/api/comments/${id}`, {
                 method: 'PUT', 
                 headers: {
@@ -60,19 +54,17 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
                     'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify({
-                    text: updateCommentFields.newcomment // שלח את הטקסט החדש
+                    text: updateCommentFields.newcomment 
                 }),
             });
     
-            // בדוק אם הבקשה הצליחה
             if (!response.ok) {
-                throw new Error('Failed to update the comment.'); // זרוק שגיאה אם לא הצליח
+                throw new Error('Failed to update the comment.'); 
             }
     
-            const updatedComment = await response.json(); // קבל את התגובה המתקדמת
-            console.log('Comment updated successfully:', updatedComment); // לוג הצלחה
+            const updatedComment = await response.json(); 
+            console.log('Comment updated successfully:', updatedComment); 
     
-            // עדכון רשימת התגובות
             const updatedCommentsList = commentsList.map(comment =>
                 comment._id === id ? { ...comment, text: updatedComment.text } : comment
             );
@@ -90,8 +82,8 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
             return Promise.resolve(); // החזר Promise להצלחה
         } catch (error) {
             console.error('Error updating comment:', error);
-            setSubmittingEdit(false); // סיים את מצב העדכון
-            return Promise.reject(error); // החזר שגיאה אם נכשלה
+            setSubmittingEdit(false); 
+            return Promise.reject(error); 
         }
     };
     

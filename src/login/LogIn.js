@@ -15,7 +15,6 @@ function LogIn({ setlogedinuser, setToken }) {
     const navigate = useNavigate();
 
     // Function to handle login logic
-    
     const handleLogin = async () => {
         const errors = validateLogin(userName, password);
         setFormErrors(errors);
@@ -34,7 +33,6 @@ function LogIn({ setlogedinuser, setToken }) {
                     const responseData = await response.json();
                     const token = responseData.token;
                     setToken(token);
-                    console.log("Token received:", token);
                     
                     const userResponse = await fetch(`${API_URL}/api/users/${userName}`, {
                         method: 'GET',
@@ -46,7 +44,6 @@ function LogIn({ setlogedinuser, setToken }) {
 
                     if (userResponse.ok) {
                         const user = await userResponse.json();
-                        console.log("User details received:", user);
     
                         if (!user.firstName) throw new Error("First name is missing.");
                         if (!user.lastName) throw new Error("Last name is missing.");

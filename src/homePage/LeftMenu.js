@@ -33,7 +33,7 @@ import PopupEditUser from '../user/PopupEditUser';
 function LeftMenu({setToken, token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 {
-    const [isMenuOpen, setIsMenuOpen] = useState(true);  // ניהול המצב של התפריט השמאלי
+    const [isMenuOpen, setIsMenuOpen] = useState(true);  
     const navigate = useNavigate();
     const [updateTriggerEditUser, setUpdateTriggerEditUser] = useState(false);
     const [showModalEditUser, setshowModalEditUser] = useState(false);
@@ -74,7 +74,6 @@ function LeftMenu({setToken, token, user, handleChange, darkMode, videoId, origi
 
     // Function to delete the user
     const handleDeleteUser = async () => {
-        console.log('Authori ppppp:', token);
         const success = await DeleteUser(user.userName, token);
         setToken("");
         if (success) {

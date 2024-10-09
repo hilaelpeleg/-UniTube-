@@ -92,11 +92,6 @@ function Register() {
             }
         });
 
-        // Log the FormData entries for debugging
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value instanceof File ? value.name : value}`);
-        }
-
         // Call the CreateUser function to send the FormData to the server
         const newUser = await CreateUser(formData);
 
