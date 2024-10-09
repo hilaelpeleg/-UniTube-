@@ -16,12 +16,6 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
         newcomment: comment ? comment.text : "",
     });
 
-    useEffect(() => {
-        if (comment) {
-            setUpdateCommentFields({ newcomment: comment.text });
-        }
-    }, [comment]);
-
     // Handle input change
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -37,59 +31,63 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
             return;
         }
         setSubmittingEdit(true);
-        updateEdit(commentId);
-        handleClose();
+    updateEdit(commentId).then(() => {
+        handleClose(); 
+    });
     };
 
     const updateEdit = async (id) => {
+        console.log("this is good");
+        console.log(updateCommentFields); 
+    
         if (!updateCommentFields.newcomment) {
             console.error("Update fields are incomplete");
             setSubmittingEdit(false);
-            return;
+            return Promise.reject(new Error("Update fields are incomplete")); 
         }
-
+    
         try {
-            // Sending a request to the server to update the comment
             const response = await fetch(`${API_URL}/api/comments/${id}`, {
-                method: 'PUT', // or 'PATCH' depending on your API
+                method: 'PUT', 
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // If authentication is needed
+                    'Authorization': `Bearer ${token}`,
                 },
                 body: JSON.stringify({
-                    text: updateCommentFields.newcomment // The new text for the comment
+                    text: updateCommentFields.newcomment 
                 }),
             });
-
+    
             if (!response.ok) {
-                throw new Error('Failed to update the comment.');
+                throw new Error('Failed to update the comment.'); 
             }
-
-            // If successful, update the comments list in the state
+    
+            const updatedComment = await response.json(); 
+            console.log('Comment updated successfully:', updatedComment); 
+    
             const updatedCommentsList = commentsList.map(comment =>
-                comment.id === id ? {
-                    ...comment,
-                    text: updateCommentFields.newcomment,
-                } : comment
+                comment._id === id ? { ...comment, text: updatedComment.text } : comment
             );
-
+    
             setCommentsList(updatedCommentsList);
-            setSubmittingEdit(false);
-
-            // Update the videoList with the updated comments
+            setSubmittingEdit(false); 
+    
             const updatedVideoList = videoList.map(video =>
-                video.id === videoId ? {
-                    ...video,
-                    comments: updatedCommentsList
-                } : video
+                video.id === videoId ? { ...video, comments: updatedCommentsList } : video
             );
-
-            setVideoList(updatedVideoList);
+    
+            setVideoList(updatedVideoList); 
+            
+            return Promise.resolve(); 
         } catch (error) {
             console.error('Error updating comment:', error);
-            setSubmittingEdit(false);
+            setSubmittingEdit(false); 
+            return Promise.reject(error); 
         }
     };
+    
+
+
     return (
         <div className="card custom-card-width container">
             <div className="card-body">

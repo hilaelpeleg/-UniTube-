@@ -15,7 +15,6 @@ function LogIn({ setlogedinuser, setToken }) {
     const navigate = useNavigate();
 
     // Function to handle login logic
-    
     const handleLogin = async () => {
         const errors = validateLogin(userName, password);
         setFormErrors(errors);
@@ -33,7 +32,7 @@ function LogIn({ setlogedinuser, setToken }) {
                 if (response.ok) {
                     const responseData = await response.json();
                     const token = responseData.token;
-                    console.log("Token received:", token);
+                    setToken(token);
                     
                     const userResponse = await fetch(`${API_URL}/api/users/${userName}`, {
                         method: 'GET',
@@ -45,7 +44,6 @@ function LogIn({ setlogedinuser, setToken }) {
 
                     if (userResponse.ok) {
                         const user = await userResponse.json();
-                        console.log("User details received:", user);
     
                         if (!user.firstName) throw new Error("First name is missing.");
                         if (!user.lastName) throw new Error("Last name is missing.");
@@ -59,7 +57,6 @@ function LogIn({ setlogedinuser, setToken }) {
                             profilePicture: user.profilePicture
                         });
     
-                        setToken(token);
                         navigate('/'); // Redirect to homepage or any other protected route
                     } else {
                         setFormErrors({ userName: "Invalid username or password" });

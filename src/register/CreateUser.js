@@ -8,7 +8,6 @@ const CreateUser = async (formData) => {  // Change parameter to formData
             body: formData  // Send FormData directly
         });
 
-        console.log("client side", formData);
         if (response.ok) {
             const result = await response.json();
             console.log('User created successfully:', result);

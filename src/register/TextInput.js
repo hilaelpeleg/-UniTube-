@@ -6,9 +6,9 @@ function TextInput({ name, kind, defaultValue, onChange, error, type = "text" })
             <input 
                 type={type} 
                 className="form-control"
-                placeholder={kind}  // נשתמש ב-placeholder כדי להציג את kind
+                placeholder={kind}  
                 name={name}
-                defaultValue={defaultValue}  // שימוש ב-defaultValue במקום value
+                defaultValue={defaultValue}  
                 onChange={onChange} 
                 required 
             />

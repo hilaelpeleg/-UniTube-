@@ -30,11 +30,11 @@ import editeuserdark from './svg icons/edituserdark.svg';
 import DeleteUser from '../user/DeleteUser';
 import PopupEditUser from '../user/PopupEditUser';
 
-function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
+function LeftMenu({setToken, token, user, handleChange, darkMode, videoId, originalVideoList, setFilteredVideoList })
 // Function to handle the search input and filter the video list
 {
-    const [isMenuOpen, setIsMenuOpen] = useState(true);  // ניהול המצב של התפריט השמאלי
-
+    const [isMenuOpen, setIsMenuOpen] = useState(true);  
+    const navigate = useNavigate();
     const [updateTriggerEditUser, setUpdateTriggerEditUser] = useState(false);
     const [showModalEditUser, setshowModalEditUser] = useState(false);
 
@@ -62,8 +62,6 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
         }
     };
 
-    const navigate = useNavigate();
-
     // Handle login button click
     const handleLogin = () => {
         navigate('/logIn');
@@ -73,6 +71,16 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
     const handleLogout = () => {
         navigate('/logIn');
     };
+
+    // Function to delete the user
+    const handleDeleteUser = async () => {
+        const success = await DeleteUser(user.userName, token);
+        setToken("");
+        if (success) {
+            navigate('/logIn'); // Navigate to login page after successful deletion
+        }
+    };
+
 
     const svgFillColor = darkMode ? '#FFFFFF' : '#64728F';
 
@@ -117,7 +125,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                             {user && (
                                 <div className='user'>
-                                    {user.userName && <img className="edit-icon" src={darkMode ? editeuserdark : editeuserlight} alt="Edit User" onClick={handleEditClickUser}/>}
+                                    {user.userName && <img className="edit-icon" src={darkMode ? editeuserdark : editeuserlight} alt="Edit User" onClick={handleEditClickUser} />}
                                     <div className={`user-info ${user.userName ? 'logged-in' : 'logged-out'}`}>
                                         <img className="profile-pic" src={user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                                         <strong className="username">{user.userName}</strong>
@@ -125,10 +133,10 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                                 </div>
                             )}
                             {user.userName !== "" && (
-                            <li className="nav-item" onClick={() => navigate(`/Account/${user.userName}`)}>
-                                <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
-                            </li>
-                             )}
+                                <li className="nav-item" onClick={() => navigate(`/Account/${user.userName}`)}>
+                                    <NavItem src={darkMode ? accountdrak : accountlight} text="Your Account" />
+                                </li>
+                            )}
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? homedark : homelight} text="Home" />
                             </li>
@@ -149,7 +157,7 @@ function LeftMenu({ token, user, handleChange, darkMode, videoId, originalVideoL
                             <li className="nav-item" onClick={() => navigate('/')}>
                                 <NavItem src={darkMode ? settingdark : settinglight} text="Setting" />
                             </li>
-                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => DeleteUser(user.userName, token)}>
+                            <li className="nav-item deleteh" style={{ marginTop: 'auto', marginBottom: '20px' }} onClick={() => handleDeleteUser()}>
                                 {user && user.userName !== "" && (
                                     <div className='delete'>
                                         <img className="profile-pic" src={deleteuser} alt="Profile" />

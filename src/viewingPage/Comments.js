@@ -85,7 +85,7 @@ function Comments({token, user, videoList, setVideoList, setCommentsList, videoI
             />
             <div className="new-comment">
                 <div className="comment-text-input">
-                    <img className="profile-pic" src={user && user.profilePicture ? `http://localhost:8200${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
+                    <img className="profile-pic" src={user && user.profilePicture ? `${API_URL}${user.profilePicture}` : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} alt="Profile" />
                     <input
                         value={comment}
                         className='inputwidth'

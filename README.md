@@ -6,6 +6,9 @@
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
 This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
+UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. All pages in the application interact with the server to fetch and update data, such as videos, user profiles, comments, likes, and more.
+
+To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
 
 # running the application 🚀
 - Download the repository to your computer 💻
@@ -23,17 +26,29 @@ The name "UniTube" is a fusion of two key concepts: "University" and "YouTube," 
 
 ## Features ✨
 
+- ### User Page 👤
+The User Page shows a user's details and their uploaded videos.
+Logged-in users can access their own User Page through the My Account option in the Left Menu to manage their profile and view their uploaded content.
+You can also reach the User Page of a video uploader by clicking on their profile picture or username.
+
+- ### Edit User 🛠️
+The Edit User page allows logged-in users to update their personal details, including their first name, last name, password, and profile picture. This ensures users can easily keep their information and profile picture up to date.
+
 - ### Sign up ✍️
-Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture. The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
+Users can create a new account by providing a username, password, password confirmation, display name, and a profile picture. The registration form includes validation checks to ensure all fields are correctly filled out, with password and confirmation matching.
+If the username is already taken, an error message is displayed, while missing fields and other validation issues will trigger appropriate notifications.
+Upon successful registration, the user receives a JWT (token), which is then used to authenticate their identity in all subsequent interactions with the server.
 
 - ### Login Screen 🔑
 Provides a simple login form where users can enter their username and password to access the application. The login form includes validation checks to ensure that all required fields are filled out and verifies that the entered username and password match an existing user in the system.
+Upon successful login, the user is issued a token (JWT), which is sent with each request to the server for authentication. The server validates the token to verify the user's identity before granting access to protected actions, such as adding or editing videos.
 
 - ### Home page 🏠
 The Home Page is the starting point of the application where users can view a list of videos. Users do not need to log in to access the Home Page. If users log in, they will be able to add, edit, and delete comments and videos.
+The video list displays a selection of 20 videos, including the 10 most-viewed videos and 10 randomly selected videos. The order of all 20 videos is randomized on each load.
 
 - ### Editing and Deleting videos and comments ✏️
-Editing and deleting videos and comments can only be done if you are logged in. These actions are available on the video viewing page.
+Editing and deleting videos and comments can only be done by the user who uploaded them. These actions are available on the video viewing page. Users are only allowed to edit or delete their own content and do not have the ability to modify or remove content uploaded by others.
 
 - ### Add a new video 🎥
 Adding a new video can be done through the "Add Video" button in the left menu. Only logged-in users can add new videos. 
@@ -45,6 +60,18 @@ Shows detailed information of a selected video, including title, description, vi
 Logging out can be done through the menu, by clicking on the button.
 
 # Pictures from the website: 📸
+
+## User page
+<img width="957" alt="user page light" src="https://github.com/user-attachments/assets/69a9146d-6a5d-466a-a51a-abe255ddf34c">
+
+
+<img width="955" alt="user page dark" src="https://github.com/user-attachments/assets/6ff57864-a7b0-412c-9f37-5802da2291e0">
+
+## edit user
+<img width="958" alt="update homepage" src="https://github.com/user-attachments/assets/dd2d732e-7448-4fba-bb6c-41bc9193e720">
+
+
+<img width="960" alt="edit user" src="https://github.com/user-attachments/assets/63a7ce5e-f08e-4c64-95f5-3488120251f5">
 
 ## Register 📝
 <img width="960" alt="register" src="https://github.com/user-attachments/assets/642e6d1b-3332-45ac-b9c6-449ce56da3f3">

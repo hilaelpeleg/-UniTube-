@@ -18,7 +18,6 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
     // Handle field changes (either text or file input)
     const handleChange = (event) => {
         const { name, value, files } = event.target;
-        console.log(`Changing field: ${name}, value: ${value}`); // Log the changed field for debugging
         setUpdateUserFields({
             ...updateUserFields,
             [name]: files ? files[0] : value // Handle file uploads if applicable
@@ -54,9 +53,6 @@ const EditUser = ({ user, token, setUpdateTrigger, handleClose }) => {
             formData.append('profilePicture', updateUserFields.profilePicture);
         }
 
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value instanceof File ? value.name : value}`);
-        }
         try {
             const response = await fetch(`${API_URL}/api/users/${id}`, {
                 method: 'PUT',

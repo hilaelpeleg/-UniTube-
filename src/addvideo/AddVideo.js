@@ -19,9 +19,11 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         thumbnailUrl: null, // Use null for file uploads
         uploader: logedinuser ? logedinuser.userName : "",
         likes: 0,
-        comments: [],
+        disLikes: 0,
+        dislikesList: [],
+        likesList: [],
         uploadDate: new Date().toISOString(), 
-        duration: "00:00",
+        duration: "02:10",
         profilePicture: logedinuser ? `${API_URL}${logedinuser.profilePicture}` : null // Ensure the correct path for profile picture
     });
 
@@ -58,9 +60,26 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         return errors;
     };
 
+    const getNewVideoId = async () => {
+        try {
+            const response = await fetch(`${API_URL}/api/videos/highest-id`, {
+                method: 'GET',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                return data.highestId + 1; // Return the new ID (highest + 1)
+            } else {
+                console.error("Failed to fetch highest video ID");
+                return videoList.length > 0 ? videoList[videoList.length - 1].id + 1 : 1; // Fallback if fetching fails
+            }
+        } catch (error) {
+            console.error("Error fetching highest video ID:", error);
+            return videoList.length > 0 ? videoList[videoList.length - 1].id + 1 : 1; // Fallback if fetching fails
+        }
+    };
+
     const addNewVideo = async () => {
-        const lastVideoId = videoList.length > 0 ? videoList[videoList.length - 1].id : 0; // Get the last video ID
-        const newId = lastVideoId + 1; // Increment ID for the new video
+        const newId = await getNewVideoId(); // Get the new video ID
         const formData = new FormData(); // Create a FormData object
         const formattedDate = new Date().toLocaleDateString('en-GB');
 

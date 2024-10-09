@@ -7,7 +7,7 @@ import VideoItems from '../videoItem/VideoItems';
 import { API_URL } from '../config';
 import { useParams, useLocation } from 'react-router-dom';
 
-const UserPage = ({ token, logedinuser, darkMode, setDarkMode, videoList }) => {
+const UserPage = ({setToken, token, logedinuser, darkMode, setDarkMode, videoList }) => {
   const { userName } = useParams();  // Get userName from the route parameters
   const [filteredVideoList, setFilteredVideoList] = useState([]); // State to store filtered video list
   const [loading, setLoading] = useState(true); // State to manage loading state
@@ -24,8 +24,6 @@ const UserPage = ({ token, logedinuser, darkMode, setDarkMode, videoList }) => {
       const fetchUserName = isMyAccount ? logedinuser.userName : userName;  // Determine the user for whom to fetch videos
 
       if (fetchUserName) {
-        console.log("Preparing to fetch videos for user:", fetchUserName);
-
         try {
           const response = await fetch(`${API_URL}/api/users/${fetchUserName}/videos`, {
             method: 'GET',
@@ -62,7 +60,7 @@ const UserPage = ({ token, logedinuser, darkMode, setDarkMode, videoList }) => {
       <div className="row">
         {/* Left Menu */}
         <LeftMenu 
-          token={token} 
+          token={token}  setToken={setToken}
           user={logedinuser} 
           darkMode={stateDarkMode !== undefined ? stateDarkMode : darkMode} 
           setDarkMode={stateSetDarkMode || setDarkMode} 

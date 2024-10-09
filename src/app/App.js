@@ -38,7 +38,32 @@ function App() {
     };
 
     fetchVideos();
-  }, []);
+  }, [logedinuser.profilePicture, logedinuser.firstName, logedinuser.lastName ]);
+
+  // New useEffect to fetch updated user details whenever logedinuser changes
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      if (logedinuser.userName) {
+        try {
+          const res = await fetch(`${API_URL}/api/users/${logedinuser.userName}`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          const userData = await res.json();
+          setlogedinuser(userData);
+        } catch (error) {
+          console.error('Error fetching user details:', error);
+        }
+      } else {
+        console.log('User name or token is missing.');
+      }
+    };
+  
+    fetchUserDetails();
+  }, [logedinuser]);
+   // Dependency array to trigger on userName change
 
 
   return (
@@ -47,14 +72,14 @@ function App() {
         <Routes>
           <Route path="/Register" element={<Register />} />
           <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken} />} />
-          <Route path="/" element={<HomePage token={token} logedinuser={logedinuser} darkMode={darkMode}
+          <Route path="/" element={<HomePage setToken={setToken} token={token} logedinuser={logedinuser} darkMode={darkMode}
             setDarkMode={setDarkMode} videoList={videoList} />} />
           <Route path="/AddVideo" element={<AddVideo token={token} logedinuser={logedinuser} videoList={videoList}
             setVideoList={setVideoList} />} />
-          <Route path="/Viewing/:videoId" element={<ViewingPage token={token} videoList={videoList}
+          <Route path="/Viewing/:videoId" element={<ViewingPage setToken={setToken} token={token} videoList={videoList}
             handleChange={() => setDarkMode(!darkMode)} darkMode={darkMode} setDarkMode={setDarkMode}
             setVideoList={setVideoList} logedinuser={logedinuser} />} />
-          <Route  path="/Account/:userName"  element={<UserPage token={token} logedinuser={logedinuser} darkMode={darkMode}
+          <Route  path="/Account/:userName"  element={<UserPage setToken={setToken} token={token} logedinuser={logedinuser} darkMode={darkMode}
             setDarkMode={setDarkMode} videoList={videoList} />} />  
            </Routes>
       </div>
