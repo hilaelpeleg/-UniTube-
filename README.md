@@ -11,10 +11,12 @@ UniTube works with a Node.js server using MongoDB for data storage. The server e
 To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
 
 # running the application 🚀
-- Download the repository to your computer 💻
-- Install dependencies (for running the app) using **npm install** 📦
-- Install react-router-dom by typing **npm install react-router-dom**
-- Run the app using **npm start** ▶️
+- Important: You need to run the server to properly view the site, as the build directory for the React app is located within the server. 💻
+
+- The server can be found in the repository under the name UniTube--Server, located in the main branch. 📂
+- Instructions for running the server can be found in the UniTube--Server repository. Please refer to that repository for detailed instructions on how to set up and run the server.
+
+- After starting the server, the site will be accessible, and you can log in using the following credentials: ✅
 - Our suggestion is to login with the user:
        - Username: Hila El peleg
        - Password: 12345678
@@ -65,13 +67,13 @@ Logging out can be done through the menu, by clicking on the button.
 <img width="957" alt="user page light" src="https://github.com/user-attachments/assets/69a9146d-6a5d-466a-a51a-abe255ddf34c">
 
 
-<img width="955" alt="user page dark" src="https://github.com/user-attachments/assets/6ff57864-a7b0-412c-9f37-5802da2291e0">
+<img width="960" alt="user page dark" src="https://github.com/user-attachments/assets/b3e8f7ea-e486-41ee-a455-9f2333cd92af">
 
 ## edit user
 <img width="958" alt="update homepage" src="https://github.com/user-attachments/assets/dd2d732e-7448-4fba-bb6c-41bc9193e720">
 
 
-<img width="960" alt="edit user" src="https://github.com/user-attachments/assets/63a7ce5e-f08e-4c64-95f5-3488120251f5">
+<img width="960" alt="edit user" src="https://github.com/user-attachments/assets/2e6ff8ec-b5da-4dd3-93d5-6025eef55b68">
 
 ## Register 📝
 <img width="960" alt="register" src="https://github.com/user-attachments/assets/642e6d1b-3332-45ac-b9c6-449ce56da3f3">
