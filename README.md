@@ -6,8 +6,10 @@
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
 This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
+UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. All pages in the application interact with the server to fetch and update data, such as videos, user profiles, comments, likes, and more.
 
 # running the application 🚀
+- לסיים!!!!!
 - Download the repository to your computer 💻
 - Install dependencies (for running the app) using **npm install** 📦
 - Install react-router-dom by typing **npm install react-router-dom**
@@ -23,17 +25,28 @@ The name "UniTube" is a fusion of two key concepts: "University" and "YouTube," 
 
 ## Features ✨
 
+- ### User Page 👤
+The User Page shows a user's details and their uploaded videos.
+Logged-in users can access their own User Page through the My Account option in the Left Menu to manage their profile and view their uploaded content.
+You can also reach the User Page of a video uploader by clicking on their profile picture or username.
+
+- ### Edit User 🛠️
+The Edit User page allows logged-in users to update their personal details, including their first name, last name, password, and profile picture. This ensures users can easily keep their information and profile picture up to date.
+
 - ### Sign up ✍️
 Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture. The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
+Upon successful registration, the user receives a token (JWT), which is used for subsequent interactions with the server to verify the user's identity
 
 - ### Login Screen 🔑
 Provides a simple login form where users can enter their username and password to access the application. The login form includes validation checks to ensure that all required fields are filled out and verifies that the entered username and password match an existing user in the system.
+Upon successful login, the user is issued a token (JWT), which is sent with each request to the server for authentication. The server validates the token to verify the user's identity before granting access to protected actions, such as adding or editing videos.
 
 - ### Home page 🏠
 The Home Page is the starting point of the application where users can view a list of videos. Users do not need to log in to access the Home Page. If users log in, they will be able to add, edit, and delete comments and videos.
+The video list displays a selection of 20 videos, including the 10 most-viewed videos and 10 randomly selected videos. The order of all 20 videos is randomized on each load.
 
 - ### Editing and Deleting videos and comments ✏️
-Editing and deleting videos and comments can only be done if you are logged in. These actions are available on the video viewing page.
+Editing and deleting videos and comments can only be done by the user who uploaded them. These actions are available on the video viewing page. Users are only allowed to edit or delete their own content and do not have the ability to modify or remove content uploaded by others.
 
 - ### Add a new video 🎥
 Adding a new video can be done through the "Add Video" button in the left menu. Only logged-in users can add new videos. 
