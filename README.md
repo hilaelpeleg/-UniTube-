@@ -34,8 +34,9 @@ You can also reach the User Page of a video uploader by clicking on their profil
 The Edit User page allows logged-in users to update their personal details, including their first name, last name, password, and profile picture. This ensures users can easily keep their information and profile picture up to date.
 
 - ### Sign up ✍️
-Allows users to create a new account with username, password, password confirmation, display name, and upload profile picture. The registration form includes validation checks to ensure that all fields are filled out correctly and that the password and password confirmation match.
-Upon successful registration, the user receives a token (JWT), which is used for subsequent interactions with the server to verify the user's identity
+Users can create a new account by providing a username, password, password confirmation, display name, and a profile picture. The registration form includes validation checks to ensure all fields are correctly filled out, with password and confirmation matching.
+If the username is already taken, an error message is displayed, while missing fields and other validation issues will trigger appropriate notifications.
+Upon successful registration, the user receives a JWT (token), which is then used to authenticate their identity in all subsequent interactions with the server.
 
 - ### Login Screen 🔑
 Provides a simple login form where users can enter their username and password to access the application. The login form includes validation checks to ensure that all required fields are filled out and verifies that the entered username and password match an existing user in the system.
