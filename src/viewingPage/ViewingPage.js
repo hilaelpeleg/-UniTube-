@@ -8,7 +8,7 @@ import RowButtons from './RowButtons';
 import { API_URL } from '../config';
 
 // ViewingPage component to display a single video with comments and actions
-const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideoList, logedinuser }) => {
+const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
     const [likedVideos, setLikedVideos] = useState({});
@@ -35,11 +35,11 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
         if (!videoId) return; // אם videoId אינו קיים, אל תבצע את הבקשה
 
         try {
-            const response = await fetch(`${API_URL}/api/comments/${videoId}`,{
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            const response = await fetch(`${API_URL}/api/comments/${videoId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             });
             const data = await response.json();
             setCommentsList(Array.isArray(data) ? data : []);
@@ -47,26 +47,73 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
             console.error('Error fetching comments:', error);
         }
     };
+    
+// Function to update the video duration on the server
+const updateDurationOnServer = async (videoId, duration) => {
+    console.log(`Attempting to update video duration for video ID: ${videoId}`); // Log videoId
+    console.log(`Duration to update: ${duration}`); // Log the duration we are trying to update
 
-    const handleLoadedMetadata = (event) => {
-        const videoDuration = event.target.duration;
-        setDuration(videoDuration);
-        updateVideoDuration(video.id, videoDuration);
-    };
+    try {
+        // Send a PUT request to the server to update the video duration
+        const response = await fetch(`${API_URL}/api/videos/${videoId}`, {
+            method: 'PUT', // Use PUT method for updating
+            headers: {
+                'Authorization': `Bearer ${token}`, // Include the token for authorization
+                'Content-Type': 'application/json', // Set content type to JSON
+            },
+            body: JSON.stringify({ duration }) // Send the updated duration as JSON in the request body
+        });
 
-    const updateVideoDuration = (id, duration) => {
-        setVideoList(prevList =>
-            prevList.map(video =>
-                video.id === id ? { ...video, duration: formatDuration(duration) } : video
-            )
+        console.log("Response status:", response.status); // Log the status of the response
+
+        // Check if the response is OK
+        if (!response.ok) {
+            throw new Error('Failed to update video duration on server');
+        }
+
+        // Parse the response from the server
+        const updatedVideo = await response.json();
+        console.log('Video duration updated on server:', updatedVideo); // Log the updated video from the server
+    } catch (error) {
+        console.error('Error updating video duration on server:', error); // Log error if the update fails
+    }
+};
+
+// Function that is called when the video metadata is loaded (to calculate duration)
+const handleLoadedMetadata = (event) => {
+    const videoDuration = event.target.duration; // Get the video duration from the event
+    console.log("Video loaded metadata. Duration:", videoDuration); // Log the duration
+    setDuration(videoDuration); // Update the duration state
+    updateVideoDuration(video.id, videoDuration); // Update the video duration in the UI and send to the server
+};
+
+// Function to update the video duration in the UI and send the update to the server
+const updateVideoDuration = (id, duration) => {
+    console.log(`Updating video duration in UI for video ID: ${id}`); // Log the video ID
+    const formattedDuration = formatDuration(duration); // Format the duration for display
+    console.log(`Formatted duration: ${formattedDuration}`); // Log the formatted duration
+    setVideoList(prevList => {
+        // Update the video list with the new duration
+        const updatedList = prevList.map(video =>
+            video.id === id ? { ...video, duration: formattedDuration } : video
         );
-    };
+        console.log("Updated video list in UI:", updatedList); // Log the updated video list
 
-    const formatDuration = (duration) => {
-        const minutes = Math.floor(duration / 60);
-        const seconds = Math.floor(duration % 60).toString().padStart(2, '0');
-        return `${minutes}:${seconds}`;
-    };
+        // Call the server update function to update the duration on the server
+        updateDurationOnServer(id, formattedDuration);
+
+        return updatedList; // Return the updated video list to the state
+    });
+};
+
+// Function to format the video duration as minutes:seconds
+const formatDuration = (duration) => {
+    const minutes = Math.floor(duration / 60); // Calculate minutes
+    const seconds = Math.floor(duration % 60).toString().padStart(2, '0'); // Calculate seconds and pad with zero if needed
+    const formattedDuration = `${minutes}:${seconds}`; // Format as "MM:SS"
+    console.log("Formatted duration:", formattedDuration); // Log the formatted duration
+    return formattedDuration; // Return the formatted duration
+};
 
     const addComment = async (newComment) => {
         try {
@@ -132,15 +179,15 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
     };
 
     if (!video) {
-        return <div>Video not found</div>; 
+        return <div>Video not found</div>;
     }
 
-      // Add API_URL to profilePicture if it doesn't start with 'http'
-      const profileImageUrl = video.profilePicture.startsWith('http')
-      ? video.profilePicture
-      : `${API_URL}${video.profilePicture}`;
+    // Add API_URL to profilePicture if it doesn't start with 'http'
+    const profileImageUrl = video.profilePicture.startsWith('http')
+        ? video.profilePicture
+        : `${API_URL}${video.profilePicture}`;
 
-      const goToUserPage = () => {
+    const goToUserPage = () => {
         navigate(`/Account/${video.uploader}`); // Assuming video.uploader contains the username
     };
 
@@ -149,17 +196,17 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
             <div className="row">
                 <div className="col-3 height">
                     <LeftMenu setToken={setToken} token={token} darkMode={darkMode} setDarkMode={setDarkMode} videoId={video.id}
-                        handleChange={() => setDarkMode(!darkMode)} 
+                        handleChange={() => setDarkMode(!darkMode)}
                         setFilteredVideoList={setFilteredVideoList}
                         originalVideoList={videoList} // Pass the original list here
-                        user={user}  />
+                        user={user} />
                 </div>
             </div>
             <div className="row">
                 <div className="col-8 ">
                     <div className="cardV" >
-                        <h1>{video.title}</h1>  
-                        <video className="card-img-top" key={`${API_URL}${video.url}`}  controls onLoadedMetadata={handleLoadedMetadata}>
+                        <h1>{video.title}</h1>
+                        <video className="card-img-top" key={`${API_URL}${video.url}`} controls onLoadedMetadata={handleLoadedMetadata}>
                             <source src={`${API_URL}${video.url}`} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -179,8 +226,8 @@ const ViewingPage = ({setToken, token, darkMode,setDarkMode, videoList, setVideo
                                 isLike={!!likedVideos[video.id]}
                                 setIsLike={() => handleLikeToggle(video.id)} />
                             <Comments token={token} commentsList={commentsList} addComment={addComment}
-                                videoList={videoList} videoId={video.id} setVideoList={setVideoList} 
-                                setCommentsList={setCommentsList} user={user}/>
+                                videoList={videoList} videoId={video.id} setVideoList={setVideoList}
+                                setCommentsList={setCommentsList} user={user} />
                         </div>
                     </div>
                 </div>

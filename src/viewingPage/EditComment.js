@@ -16,12 +16,6 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
         newcomment: comment ? comment.text : "",
     });
 
-    useEffect(() => {
-        if (comment) {
-            setUpdateCommentFields({ newcomment: comment.text });
-        }
-    }, [comment]);
-
     // Handle input change
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,7 +23,7 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
             ...updateCommentFields, [name]: value
         });
         console.log(`Changing ${name} to ${value}`); // Log the change in input
-
+        console.log(updateCommentFields);
     };
 
     const handleSubmit = (event) => {
