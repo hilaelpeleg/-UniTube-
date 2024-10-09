@@ -11,7 +11,6 @@ UniTube works with a Node.js server using MongoDB for data storage. The server e
 To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
 
 # running the application 🚀
-- לסיים!!!!!
 - Download the repository to your computer 💻
 - Install dependencies (for running the app) using **npm install** 📦
 - Install react-router-dom by typing **npm install react-router-dom**
