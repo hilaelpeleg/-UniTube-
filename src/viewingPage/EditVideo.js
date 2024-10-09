@@ -58,10 +58,7 @@ function EditVideo({token, user, handleClose, setVideoList, videoId, videoList,s
         if (updateVideoFields.thumbnailUrl instanceof File) {
             formData.append('thumbnailUrl', updateVideoFields.thumbnailUrl);
         }
-        for (const [key, value] of formData.entries()) {
-            console.log(`${key}: ${value instanceof File ? value.name : value}`);
-        }
-        console.log(user.userName, videoId);
+
 
         try {
             const response = await fetch(`${API_URL}/api/users/${user.userName}/videos/${videoId}`, {

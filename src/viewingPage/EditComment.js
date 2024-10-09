@@ -69,17 +69,16 @@ function EditComment({ token, videoId, setVideoList, videoList, handleClose, set
                 comment._id === id ? { ...comment, text: updatedComment.text } : comment
             );
     
-            setCommentsList(updatedCommentsList); // עדכן את רשימת התגובות
-            setSubmittingEdit(false); // סיים את מצב העדכון
+            setCommentsList(updatedCommentsList);
+            setSubmittingEdit(false); 
     
-            // עדכון רשימת הסרטונים
             const updatedVideoList = videoList.map(video =>
                 video.id === videoId ? { ...video, comments: updatedCommentsList } : video
             );
     
-            setVideoList(updatedVideoList); // עדכן את רשימת הסרטונים
+            setVideoList(updatedVideoList); 
             
-            return Promise.resolve(); // החזר Promise להצלחה
+            return Promise.resolve(); 
         } catch (error) {
             console.error('Error updating comment:', error);
             setSubmittingEdit(false); 

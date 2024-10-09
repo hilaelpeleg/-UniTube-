@@ -50,9 +50,6 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
 
 // Function to update the video duration on the server
 const updateDurationOnServer = async (videoId, duration) => {
-    console.log(`Attempting to update video duration for video ID: ${videoId}`); // Log videoId
-    console.log(`Duration to update: ${duration}`); // Log the duration we are trying to update
-
     try {
         // Send a PUT request to the server to update the video duration
         const response = await fetch(`${API_URL}/api/videos/${videoId}`, {
@@ -82,22 +79,18 @@ const updateDurationOnServer = async (videoId, duration) => {
 // Function that is called when the video metadata is loaded (to calculate duration)
 const handleLoadedMetadata = (event) => {
     const videoDuration = event.target.duration; // Get the video duration from the event
-    console.log("Video loaded metadata. Duration:", videoDuration); // Log the duration
     setDuration(videoDuration); // Update the duration state
     updateVideoDuration(video.id, videoDuration); // Update the video duration in the UI and send to the server
 };
 
 // Function to update the video duration in the UI and send the update to the server
 const updateVideoDuration = (id, duration) => {
-    console.log(`Updating video duration in UI for video ID: ${id}`); // Log the video ID
     const formattedDuration = formatDuration(duration); // Format the duration for display
-    console.log(`Formatted duration: ${formattedDuration}`); // Log the formatted duration
     setVideoList(prevList => {
         // Update the video list with the new duration
         const updatedList = prevList.map(video =>
             video.id === id ? { ...video, duration: formattedDuration } : video
         );
-        console.log("Updated video list in UI:", updatedList); // Log the updated video list
 
         // Call the server update function to update the duration on the server
         updateDurationOnServer(id, formattedDuration);
@@ -111,7 +104,6 @@ const formatDuration = (duration) => {
     const minutes = Math.floor(duration / 60); // Calculate minutes
     const seconds = Math.floor(duration % 60).toString().padStart(2, '0'); // Calculate seconds and pad with zero if needed
     const formattedDuration = `${minutes}:${seconds}`; // Format as "MM:SS"
-    console.log("Formatted duration:", formattedDuration); // Log the formatted duration
     return formattedDuration; // Return the formatted duration
 };
 
@@ -148,8 +140,6 @@ const formatDuration = (duration) => {
     };
 
     const handleLikeToggle = async (newLikesCount, videoId) => {
-        console.log("handleLikeToggle", videoId);
-        console.log(newLikesCount, "מספר לייקים שנשלח לשרת");
         
         try {
             const response = await fetch(`${API_URL}/api/videos/${videoId}/like`, {
@@ -158,17 +148,15 @@ const formatDuration = (duration) => {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ likes: newLikesCount }), // ודא שהמספר נשלח כראוי
+                body: JSON.stringify({ likes: newLikesCount }), 
             });
     
-            console.log("סטטוס התשובה מהשרת:", response.status);
     
             if (!response.ok) {
-                const errorData = await response.json(); // הוסף הדפסה של שגיאה אם קיימת
+                const errorData = await response.json(); 
                 console.error('Failed to update likes on the server:', errorData);
             } else {
-                const responseData = await response.json(); // הצג את התשובה המוצלחת
-                console.log("תשובה מוצלחת מהשרת:", responseData);
+                const responseData = await response.json();
             }
         } catch (error) {
             console.error('Error updating likes on server:', error);

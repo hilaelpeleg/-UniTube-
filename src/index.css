@@ -21,6 +21,8 @@ body {
   --bs-icon-leftMenu: #64728F;
   --bs-comment-text-inputbox: #f0f0f0;
   --bs-user-bg:  #f0f0f0;
+  --user-full-name: #333;
+
 }
 
 [data-theme="dark"] {
@@ -41,6 +43,7 @@ body {
   --bs-icon-leftMenu: #ffffff;
   --bs-comment-text-inputbox: #3a3a3a;
   --bs-user-bg: #696565;
+  --user-full-name: #ffffff;
 
 }
 

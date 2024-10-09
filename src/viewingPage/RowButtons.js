@@ -48,26 +48,26 @@ function RowButtons({userLogin, token, video, videoList, setVideoList, like, upd
 
     const onclickLike = () => {
         if (userLogin && userLogin.userName && !isLike) {
-            const newLikesCount = like + 1; // חשבי את מספר הלייקים החדש
-            updateLikes(newLikesCount); // עדכני את ה־state בצד הלקוח
-            setIsLike(true); // עדכני את מצב הלייק
-            setHasDisliked(false); // איפוס הדיסלייק
-            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
+            const newLikesCount = like + 1; 
+            updateLikes(newLikesCount); 
+            setIsLike(true); 
+            setHasDisliked(false); 
+            handleLikeToggle(newLikesCount, video.id); 
         }
     };
 
     const onclickDislike = () => {
         if (userLogin && userLogin.userName && isLike) {
-            const newLikesCount = like > 1 ? like - 1 : 0; // חשבי את מספר הלייקים החדש
-            updateLikes(newLikesCount); // עדכני את ה־state בצד הלקוח
-            setIsLike(false); // עדכני את מצב הלייק
-            setHasDisliked(true); // עדכני את הדיסלייק
-            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
-        } else if (userLogin && userLogin.userName && !isLike && !hasDisliked) {  // אם אין לייק ואין דיסלייק
-            const newLikesCount = like > 0 ? like - 1 : 0; // חשבי את מספר הלייקים החדש
-            updateLikes(newLikesCount); // עדכני את ה־state
-            setHasDisliked(true); // עדכני את הדיסלייק
-            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
+            const newLikesCount = like > 1 ? like - 1 : 0; 
+            updateLikes(newLikesCount); 
+            setIsLike(false); 
+            setHasDisliked(true); 
+            handleLikeToggle(newLikesCount, video.id); 
+        } else if (userLogin && userLogin.userName && !isLike && !hasDisliked) {  
+            const newLikesCount = like > 0 ? like - 1 : 0; 
+            updateLikes(newLikesCount); 
+            setHasDisliked(true); 
+            handleLikeToggle(newLikesCount, video.id); 
         }
     };
 

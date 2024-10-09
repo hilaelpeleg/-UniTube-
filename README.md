@@ -8,6 +8,8 @@ This README provides an overview of the project's features, setup instructions, 
 
 UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. All pages in the application interact with the server to fetch and update data, such as videos, user profiles, comments, likes, and more.
 
+To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
+
 # running the application 🚀
 - לסיים!!!!!
 - Download the repository to your computer 💻
