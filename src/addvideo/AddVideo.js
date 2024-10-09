@@ -23,7 +23,7 @@ function AddVideo({token, videoList, setVideoList, logedinuser }) {
         dislikesList: [],
         likesList: [],
         uploadDate: new Date().toISOString(), 
-        duration: "00:00",
+        duration: "02:10",
         profilePicture: logedinuser ? `${API_URL}${logedinuser.profilePicture}` : null // Ensure the correct path for profile picture
     });
 

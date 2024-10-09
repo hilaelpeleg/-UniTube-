@@ -47,7 +47,7 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
             console.error('Error fetching comments:', error);
         }
     };
-    
+
 // Function to update the video duration on the server
 const updateDurationOnServer = async (videoId, duration) => {
     console.log(`Attempting to update video duration for video ID: ${videoId}`); // Log videoId
@@ -147,40 +147,44 @@ const formatDuration = (duration) => {
         );
     };
 
-    const handleLikeToggle = async () => {
-        const isLiked = likedVideos[videoId] || false; // Get the current liked state
-        const newLikesCount = isLiked ? like - 1 : like + 1; // Calculate new likes count
-
-        setLikedVideos((prev) => ({
-            ...prev,
-            [videoId]: !prev[videoId] // Toggle the liked state
-        }));
-
-        // Update the like count on the server
+    const handleLikeToggle = async (newLikesCount, videoId) => {
+        console.log("handleLikeToggle", videoId);
+        console.log(newLikesCount, "מספר לייקים שנשלח לשרת");
+        
         try {
-            const response = await fetch(`${API_URL}/api/videos/${videoId}`, {
-                method: 'PUT', // HTTP method for updating likes
+            const response = await fetch(`${API_URL}/api/videos/${videoId}/like`, {
+                method: 'PUT',
                 headers: {
-                    'Authorization': `Bearer ${token}`, // Send the token for authentication
-                    'Content-Type': 'application/json', // Set content type to JSON
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ likes: newLikesCount }), // Send the new likes count
+                body: JSON.stringify({ likes: newLikesCount }), // ודא שהמספר נשלח כראוי
             });
-
-            if (response.ok) {
-                const updatedVideo = await response.json(); // Get the updated video data
-                setLike(updatedVideo.likes); // Update local likes count
+    
+            console.log("סטטוס התשובה מהשרת:", response.status);
+    
+            if (!response.ok) {
+                const errorData = await response.json(); // הוסף הדפסה של שגיאה אם קיימת
+                console.error('Failed to update likes on the server:', errorData);
             } else {
-                console.error('Failed to update likes'); // Log error if update fails
+                const responseData = await response.json(); // הצג את התשובה המוצלחת
+                console.log("תשובה מוצלחת מהשרת:", responseData);
             }
         } catch (error) {
-            console.error('Error updating likes:', error); // Log error if request fails
+            console.error('Error updating likes on server:', error);
         }
     };
 
     if (!video) {
         return <div>Video not found</div>;
     }
+
+    const setIsLike = (id) => {
+        setLikedVideos((prev) => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
 
     // Add API_URL to profilePicture if it doesn't start with 'http'
     const profileImageUrl = video.profilePicture.startsWith('http')
@@ -223,8 +227,9 @@ const formatDuration = (duration) => {
                                 user={user} like={like} updateLikes={updateLikes}
                                 video={video}
                                 setVideoList={setVideoList} videoList={videoList}
-                                isLike={!!likedVideos[video.id]}
-                                setIsLike={() => handleLikeToggle(video.id)} />
+                                isLike={!!likedVideos[video.id]} userLogin={logedinuser}
+                                setIsLike={() => setIsLike(video.id)}
+                                handleLikeToggle={() => handleLikeToggle(like, video.id)} />
                             <Comments token={token} commentsList={commentsList} addComment={addComment}
                                 videoList={videoList} videoId={video.id} setVideoList={setVideoList}
                                 setCommentsList={setCommentsList} user={user} />

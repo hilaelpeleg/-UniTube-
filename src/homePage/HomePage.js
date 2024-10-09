@@ -15,7 +15,7 @@ function HomePage({setToken, token, logedinuser, darkMode, setDarkMode, videoLis
         <div className="container-fluid ">
             <div className="row">
                 <div className="col-3 height">
-                    <LeftMenu setToken={setToken}  token= {token} user={user} darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
+                    <LeftMenu logedinuser={logedinuser} setToken={setToken}  token= {token} user={user} darkMode={darkMode} setDarkMode={setDarkMode} originalVideoList={videoList}
                         handleChange={() => setDarkMode(!darkMode)} setFilteredVideoList={setFilteredVideoList}
                          />
                 </div>

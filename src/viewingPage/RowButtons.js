@@ -10,9 +10,8 @@ import PopupEdit from './PopupEdit';
 import './PopupEdit.css';
 import { API_URL } from '../config';
 
-
 // RowButtons component to display and manage actions like like, dislike, share, download, edit, and delete
-function RowButtons({ token, video, videoList, setVideoList, like, updateLikes, user, isLike, setIsLike, setUpdateTrigger }) {
+function RowButtons({userLogin, token, video, videoList, setVideoList, like, updateLikes, user, isLike,setIsLike, handleLikeToggle, setUpdateTrigger }) {
     const [showModal, setshowModal] = useState(false);
     const navigate = useNavigate();
     const [hasDisliked, setHasDisliked] = useState(false);
@@ -48,26 +47,27 @@ function RowButtons({ token, video, videoList, setVideoList, like, updateLikes, 
     };
 
     const onclickLike = () => {
-        if (user && user.userName && !isLike) {
-            if (hasDisliked) {
-                updateLikes(like + 1);
-                setHasDisliked(false);
-            } else {
-                updateLikes(like + 1);
-            }
-            setIsLike(true);
+        if (userLogin && userLogin.userName && !isLike) {
+            const newLikesCount = like + 1; // חשבי את מספר הלייקים החדש
+            updateLikes(newLikesCount); // עדכני את ה־state בצד הלקוח
+            setIsLike(true); // עדכני את מצב הלייק
+            setHasDisliked(false); // איפוס הדיסלייק
+            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
         }
     };
 
     const onclickDislike = () => {
-        if (user && user.userName && isLike) {
-            if (like > 1) updateLikes(like - 1);
-            else updateLikes(0); // Handle edge case if likes is 1 or less
-            setIsLike(false);
-            setHasDisliked(true);
-        } else if (user && user.userName && !isLike && !hasDisliked) {
-            if (like > 0) updateLikes(like - 1);
-            setHasDisliked(true);
+        if (userLogin && userLogin.userName && isLike) {
+            const newLikesCount = like > 1 ? like - 1 : 0; // חשבי את מספר הלייקים החדש
+            updateLikes(newLikesCount); // עדכני את ה־state בצד הלקוח
+            setIsLike(false); // עדכני את מצב הלייק
+            setHasDisliked(true); // עדכני את הדיסלייק
+            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
+        } else if (userLogin && userLogin.userName && !isLike && !hasDisliked) {  // אם אין לייק ואין דיסלייק
+            const newLikesCount = like > 0 ? like - 1 : 0; // חשבי את מספר הלייקים החדש
+            updateLikes(newLikesCount); // עדכני את ה־state
+            setHasDisliked(true); // עדכני את הדיסלייק
+            handleLikeToggle(newLikesCount, video.id); // שלחי את מספר הלייקים לשרת
         }
     };
 
