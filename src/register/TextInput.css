@@ -7,3 +7,6 @@
 }
 
 
+.form-control::placeholder {
+    color: var(--text-dw) !important; 
+}
