@@ -11,12 +11,12 @@ UniTube works with a Node.js server using MongoDB for data storage. The server e
 To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
 
 # running the application 🚀
--Important: You need to run the server to properly view the site, as the build directory for the React app is located within the server.
+- Important: You need to run the server to properly view the site, as the build directory for the React app is located within the server. 💻
 
--The server can be found in the repository under the name UniTube--Server, located in the main branch.
--Instructions for running the server can be found in the UniTube--Server repository. Please refer to that repository for detailed instructions on how to set up and run the server.
+- The server can be found in the repository under the name UniTube--Server, located in the main branch. 📂
+- Instructions for running the server can be found in the UniTube--Server repository. Please refer to that repository for detailed instructions on how to set up and run the server.
 
--After starting the server, the site will be accessible, and you can log in using the following credentials:
+- After starting the server, the site will be accessible, and you can log in using the following credentials: ✅
 - Our suggestion is to login with the user:
        - Username: Hila El peleg
        - Password: 12345678
