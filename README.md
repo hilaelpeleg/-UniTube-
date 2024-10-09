@@ -73,7 +73,7 @@ Logging out can be done through the menu, by clicking on the button.
 <img width="958" alt="update homepage" src="https://github.com/user-attachments/assets/dd2d732e-7448-4fba-bb6c-41bc9193e720">
 
 
-<img width="960" alt="edit user" src="https://github.com/user-attachments/assets/63a7ce5e-f08e-4c64-95f5-3488120251f5">
+<img width="955" alt="user page dark" src="https://github.com/user-attachments/assets/b3145818-1895-4966-98d4-68c52a8628cc">
 
 ## Register 📝
 <img width="960" alt="register" src="https://github.com/user-attachments/assets/642e6d1b-3332-45ac-b9c6-449ce56da3f3">
