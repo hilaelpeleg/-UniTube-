@@ -225,7 +225,7 @@ const formatDuration = (duration) => {
                     </div>
                 </div>
                 <div className="col-4 scrollable">
-                    <VideoItems videoList={filteredVideoList} colWidth={"col-12"}
+                    <VideoItems logedinuser={logedinuser} videoList={filteredVideoList} colWidth={"col-12"}
                     />
                 </div>
             </div>
