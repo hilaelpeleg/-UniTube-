@@ -13,7 +13,9 @@ function VideoItems({logedinuser, videoList, colWidth }) {
 
     // Function to handle video click event
     const handleVideoClick = async (video) => {
-        const userId = logedinuser ? logedinuser.id : 'guest'; 
+        const userName = logedinuser ? logedinuser.userName : 'guest';  
+        console.log(logedinuser, "current logedinuser");
+        console.log(userName, "kkkkkk");
         try {
             // Increment views for the clicked video
             await fetch(`${API_URL}/api/videos/${video.id}/increment`, {
@@ -21,7 +23,7 @@ function VideoItems({logedinuser, videoList, colWidth }) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({userId}) 
+                body: JSON.stringify({userName}) 
             });
             // Navigate to the viewing page of the clicked video
             navigate(`/viewing/${video.id}`);
