@@ -19,9 +19,34 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
     const user = logedinuser ? logedinuser : null;
     const navigate = useNavigate();
 
-    useEffect(() => {
-        setFilteredVideoList(videoList); // Initialize filteredVideoList with the original list
-    }, [videoList]);
+ // Fetch recommended videos when the component mounts
+useEffect(() => {
+    const fetchRecommendedVideos = async () => {
+        const userName = logedinuser ? logedinuser.userName : 'guest'; // Set userName or default to 'guest'
+
+        try {
+            const response = await fetch(`${API_URL}/api/videos/${videoId}/recommendations/${userName}`, {
+                method: 'GET', // Keep it as GET since we're using path parameters
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch recommended videos');
+            }
+
+            const recommendedVideos = await response.json();
+            setFilteredVideoList(recommendedVideos); // Set the recommended videos
+            setVideoList(recommendedVideos); // Update the main video list with recommended videos
+        } catch (error) {
+            console.error('Error fetching recommended videos:', error);
+        }
+    };
+
+    fetchRecommendedVideos();
+}, [videoId, token, logedinuser]);
 
     const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
     useEffect(() => {

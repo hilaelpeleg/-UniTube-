@@ -38,7 +38,7 @@ function App() {
     };
 
     fetchVideos();
-  }, [logedinuser.profilePicture, logedinuser.firstName, logedinuser.lastName ]);
+  }, [logedinuser.profilePicture, logedinuser.firstName, logedinuser.lastName, logedinuser.userName ]);
 
   // New useEffect to fetch updated user details whenever logedinuser changes
   useEffect(() => {
