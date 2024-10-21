@@ -20,33 +20,41 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
     const navigate = useNavigate();
 
  // Fetch recommended videos when the component mounts
-useEffect(() => {
+ useEffect(() => {
     const fetchRecommendedVideos = async () => {
-        const userName = logedinuser ? logedinuser.userName : 'guest'; // Set userName or default to 'guest'
+        const userName = logedinuser && logedinuser.userName ? logedinuser.userName : null; // Set userName to null if not available
 
-        try {
-            const response = await fetch(`${API_URL}/api/videos/${videoId}/recommendations/${userName}`, {
-                method: 'GET', // Keep it as GET since we're using path parameters
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json',
-                },
-            });
+        // Only fetch recommendations if userName is defined
+        if (userName) {
+            try {
+                const response = await fetch(`${API_URL}/api/videos/${videoId}/recommendations/${userName}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch recommended videos');
+                console.log('Fetching from URL:', `${API_URL}/api/videos/${videoId}/recommendations/${userName}`);
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch recommended videos');
+                }
+
+                const recommendedVideos = await response.json();
+                console.log('Recommended videos:', recommendedVideos);
+                setFilteredVideoList(recommendedVideos);
+                setVideoList(recommendedVideos);
+            } catch (error) {
+                console.error('Error fetching recommended videos:', error);
             }
-
-            const recommendedVideos = await response.json();
-            setFilteredVideoList(recommendedVideos); // Set the recommended videos
-            setVideoList(recommendedVideos); // Update the main video list with recommended videos
-        } catch (error) {
-            console.error('Error fetching recommended videos:', error);
+        } else {
+            console.log('User not logged in, skipping recommendation fetch.'); // Log that user is not logged in
         }
     };
 
     fetchRecommendedVideos();
-}, [videoId, token, logedinuser]);
+}, [logedinuser.userName]);
+
 
     const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
     useEffect(() => {
