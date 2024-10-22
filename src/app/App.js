@@ -73,7 +73,7 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/logIn" element={<Login setlogedinuser={setlogedinuser} setToken={setToken} />} />
           <Route path="/" element={<HomePage setToken={setToken} token={token} logedinuser={logedinuser} darkMode={darkMode}
-            setDarkMode={setDarkMode} videoList={videoList} />} />
+            setDarkMode={setDarkMode} setVideoList={setVideoList} videoList={videoList} />} />
           <Route path="/AddVideo" element={<AddVideo token={token} logedinuser={logedinuser} videoList={videoList}
             setVideoList={setVideoList} />} />
           <Route path="/Viewing/:videoId" element={<ViewingPage setToken={setToken} token={token} videoList={videoList}

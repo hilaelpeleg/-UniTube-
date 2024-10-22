@@ -11,7 +11,6 @@ import { API_URL } from '../config';
 const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
-    const [video, setVideo] = useState(null); // Set state for the current video
     const [likedVideos, setLikedVideos] = useState({});
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
@@ -20,30 +19,34 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
     const user = logedinuser ? logedinuser : null;
     const navigate = useNavigate();
 
-    // Fetch video details from server
-    useEffect(() => {
-        const fetchVideoDetails = async () => {
-            try {
-                const response = await fetch(`${API_URL}/api/users/videos/${videoId}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
+   // Fetch all videos
+   useEffect(() => {
+    const fetchVideos = async () => {
+        console.log("Attempting to fetch videos from MongoDB..."); 
+        try {
+            const response = await fetch(`${API_URL}/api/videos/getAllVideos/videos`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch video details');
-                }
-
-                const videoData = await response.json();
-                setVideo(videoData); // Set the video data in state
-            } catch (error) {
-                console.error('Error fetching video details:', error);
+            if (!response.ok) {
+                throw new Error('Failed to fetch videos');
             }
-        };
 
-        fetchVideoDetails();
-    }, [videoId]);
+            const videoData = await response.json();
+            console.log("Video list from MongoDB:", videoData);
+            setVideoList(videoData); // Update the video list
+        } catch (error) {
+            console.error('Error fetching videos:', error);
+        }
+    };
+
+    fetchVideos();
+}, [logedinuser.profilePicture, logedinuser.firstName, logedinuser.lastName, logedinuser.userName,updateTrigger]); // Fetch the videos every time the updateTrigger changes
+
+const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
 
 
  // Fetch recommended videos when the component mounts
@@ -87,7 +90,7 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
     }, [video, updateTrigger]);
 
     const fetchComments = async () => {
-        if (!videoId) return; // אם videoId אינו קיים, אל תבצע את הבקשה
+        if (!videoId) return;  // If videoId doesn't exist, do not make the request
 
         try {
             const response = await fetch(`${API_URL}/api/comments/${videoId}`, {
