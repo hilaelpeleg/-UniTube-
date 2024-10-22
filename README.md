@@ -5,9 +5,7 @@
 
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
-UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. Additionally, the Node.js server now communicates with a C++ server, which returns a list of recommended videos 🎥 based on the user's viewing history and popular videos ⭐.
-but also supports multithreading, allowing it to handle multiple connections simultaneously. This enables real-time recommendations and smooth communication between the servers.
-All pages in the application interact with both servers to fetch and update data, such as videos, user profiles, comments, likes, recommendations, and more.
+UniTube operates with a Node.js server that uses MongoDB for data storage. The server provides a RESTful API to facilitate seamless communication between the React frontend and backend, handling videos, users, comments, and more. In addition, the Node.js server connects to a C++ server, which generates personalized video recommendations 🎥 based on the user's viewing history and popular content ⭐. The C++ server also supports multithreading, enabling it to manage multiple connections simultaneously, allowing for real-time recommendations and efficient server interaction. Every page within the application communicates with both servers to retrieve and update data, including videos, user profiles, comments, likes, recommendations, and more.
 
 To view the site properly, you need to run both the Node.js and C++ servers. The Node.js server can be found in the repository under the name UniTube--Server, located in the main-part-4 branch. 📂 The C++ server can be found in the repository server-cpp-part4, located in the main branch.
 
