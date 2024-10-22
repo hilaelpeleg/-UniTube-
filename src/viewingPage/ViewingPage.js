@@ -11,6 +11,7 @@ import { API_URL } from '../config';
 const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVideoList, logedinuser }) => {
     const { videoId } = useParams();
     const [like, setLike] = useState(0);
+    const [video, setVideo] = useState(null); // Set state for the current video
     const [likedVideos, setLikedVideos] = useState({});
     const [commentsList, setCommentsList] = useState([]);
     const [duration, setDuration] = useState(null);
@@ -19,11 +20,36 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
     const user = logedinuser ? logedinuser : null;
     const navigate = useNavigate();
 
+    // Fetch video details from server
+    useEffect(() => {
+        const fetchVideoDetails = async () => {
+            try {
+                const response = await fetch(`${API_URL}/api/users/videos/${videoId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch video details');
+                }
+
+                const videoData = await response.json();
+                setVideo(videoData); // Set the video data in state
+            } catch (error) {
+                console.error('Error fetching video details:', error);
+            }
+        };
+
+        fetchVideoDetails();
+    }, [videoId]);
+
+
  // Fetch recommended videos when the component mounts
  useEffect(() => {
     const fetchRecommendedVideos = async () => {
         const userName = logedinuser && logedinuser.userName ? logedinuser.userName : null; // Set userName to null if not available
-
         // Only fetch recommendations if userName is defined
         if (userName) {
             try {
@@ -34,8 +60,6 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
                     },
                 });
 
-                console.log('Fetching from URL:', `${API_URL}/api/videos/${videoId}/recommendations/${userName}`);
-
                 if (!response.ok) {
                     throw new Error('Failed to fetch recommended videos');
                 }
@@ -43,7 +67,6 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
                 const recommendedVideos = await response.json();
                 console.log('Recommended videos:', recommendedVideos);
                 setFilteredVideoList(recommendedVideos);
-                setVideoList(recommendedVideos);
             } catch (error) {
                 console.error('Error fetching recommended videos:', error);
             }
@@ -51,18 +74,17 @@ const ViewingPage = ({ setToken, token, darkMode, setDarkMode, videoList, setVid
             console.log('User not logged in, skipping recommendation fetch.'); // Log that user is not logged in
         }
     };
+ if (logedinuser?.userName && videoId) { // בדוק אם יש ערכים לפני ההפעלה
+        fetchRecommendedVideos();
+    }
+}, [logedinuser?.userName, videoId]);
 
-    fetchRecommendedVideos();
-}, [logedinuser.userName]);
-
-
-    const video = videoList.find(v => v.id === parseInt(videoId)); // Find the current video
     useEffect(() => {
         if (video) {
             setLike(video.likes); // Set the initial number of likes
             fetchComments(); // Fetch comments from the server
         }
-    }, [commentsList, updateTrigger]);
+    }, [video, updateTrigger]);
 
     const fetchComments = async () => {
         if (!videoId) return; // אם videoId אינו קיים, אל תבצע את הבקשה
