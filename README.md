@@ -3,8 +3,7 @@
 # UniTube
 🌟 Welcome to Unitube! 🌟
 
-UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
-This README provides an overview of the project's features, setup instructions, and usage guidelines.
+UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
 UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. Additionally, the Node.js server now communicates with a C++ server, which returns a list of recommended videos 🎥 based on the user's viewing history and popular videos ⭐.
 but also supports multithreading, allowing it to handle multiple connections simultaneously. This enables real-time recommendations and smooth communication between the servers.
