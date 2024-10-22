@@ -6,15 +6,17 @@
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features and instructions for running the application.
 This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
-UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. All pages in the application interact with the server to fetch and update data, such as videos, user profiles, comments, likes, and more.
+UniTube works with a Node.js server using MongoDB for data storage. The server exposes a RESTful API, ensuring smooth communication between the React frontend and backend for managing videos, users, and comments. Additionally, the Node.js server now communicates with a C++ server, which returns a list of recommended videos 🎥 based on the user's viewing history and popular videos ⭐.
+but also supports multithreading, allowing it to handle multiple connections simultaneously. This enables real-time recommendations and smooth communication between the servers.
+All pages in the application interact with both servers to fetch and update data, such as videos, user profiles, comments, likes, recommendations, and more.
 
-To view the site properly, you need to run the server, which can be found in the repository under the name UniTube--Server, located in the main branch.
+To view the site properly, you need to run both the Node.js and C++ servers. The Node.js server can be found in the repository under the name UniTube--Server, located in the main-part-4 branch. 📂 The C++ server can be found in the repository server-cpp-part4, located in the main branch.
 
 # running the application 🚀
-- Important: You need to run the server to properly view the site, as the build directory for the React app is located within the server. 💻
+- Important:You need to run both the Node.js and C++ servers to properly view the site, as the build directory for the React app is located within the Node.js server. 💻
 
-- The server can be found in the repository under the name UniTube--Server, located in the main branch. 📂
-- Instructions for running the server can be found in the UniTube--Server repository. Please refer to that repository for detailed instructions on how to set up and run the server.
+- The Node.js server can be found in the repository under the name UniTube--Server, located in the main-part-4 branch. The C++ server can be found in the repository server-cpp-part4, located in the main branch. 📂
+- Instructions for running both servers can be found in their respective repositories. Please refer to each repository for detailed instructions on how to set up and run the servers.
 
 - After starting the server, the site will be accessible, and you can log in using the following credentials: ✅
 - Our suggestion is to login with the user:
@@ -27,6 +29,11 @@ even though it does not matter so much.
 The name "UniTube" is a fusion of two key concepts: "University" and "YouTube," each contributing to the essence of our video-sharing platform.
 
 ## Features ✨
+
+- ### View Video Page 👀
+Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments. Only logged-in users can add, edit, and delete comments, as well as edit the video and its details. Additionally, logged-in users can like or dislike a video.
+
+Now, the video page also displays a list of recommended videos 🎥 under the current video. These recommendations are dynamic and tailored to each user's viewing habits, ensuring a personalized experience based on the videos they have watched.
 
 - ### User Page 👤
 The User Page shows a user's details and their uploaded videos.
@@ -54,9 +61,6 @@ Editing and deleting videos and comments can only be done by the user who upload
 
 - ### Add a new video 🎥
 Adding a new video can be done through the "Add Video" button in the left menu. Only logged-in users can add new videos. 
-
-- ### View Video Page 👀
-Shows detailed information of a selected video, including title, description, video player, and interactive buttons like Like, Share, Comment with options to add, edit, and delete comments. Only logged-in users can add, edit, and delete comments, as well as edit the video and its details. Additionally, logged-in users can like or dislike a video.
 
 - ### Log out 🚪
 Logging out can be done through the menu, by clicking on the button.
