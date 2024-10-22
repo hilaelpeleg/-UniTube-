@@ -15,7 +15,6 @@ function VideoItems({logedinuser, videoList, colWidth }) {
     const handleVideoClick = async (video) => {
         const userName = logedinuser ? logedinuser.userName : 'guest';  
         console.log(logedinuser, "current logedinuser");
-        console.log(userName, "kkkkkk");
         try {
             // Increment views for the clicked video
             await fetch(`${API_URL}/api/videos/${video.id}/increment`, {

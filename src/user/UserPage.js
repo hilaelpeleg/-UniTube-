@@ -79,7 +79,7 @@ const UserPage = ({setToken, token, logedinuser, darkMode, setDarkMode, videoLis
           <div className="text-center video-list-container">
             <div className="mb-4">
               {/* Videos */}
-              <VideoItems videoList={filteredVideoList} colWidth={"col-xl-3 col-lg-3 col-md-3 col-sm-12"} />
+              <VideoItems logedinuser={logedinuser} videoList={filteredVideoList} colWidth={"col-xl-3 col-lg-3 col-md-3 col-sm-12"} />
             </div>
           </div>
         </div>
