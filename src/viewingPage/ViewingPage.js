@@ -77,7 +77,8 @@ const video = videoList.find(v => v.id === parseInt(videoId)); // Find the curre
             console.log('User not logged in, skipping recommendation fetch.'); // Log that user is not logged in
         }
     };
- if (logedinuser?.userName && videoId) { // בדוק אם יש ערכים לפני ההפעלה
+
+ if (logedinuser?.userName && videoId) { 
         fetchRecommendedVideos();
     }
 }, [logedinuser?.userName, videoId]);
