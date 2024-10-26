@@ -39,7 +39,7 @@ UniTube is a static video-sharing platform designed to showcase video content si
 # running the application 🚀
 - Important:You need to run both the Node.js and C++ servers to properly view the site, as the build directory for the React app is located within the Node.js server. 💻
 
-- The Node.js server can be found in the repository under the name UniTube--Server, located in the main-part-4 branch. The C++ server can be found in the repository server-cpp-part4, located in the main branch. 📂
+- The Node.js server can be found in the repository under the name [`UniTube--Server`](https://github.com/hilaelpeleg/-UniTube--Server.git), located in the main-part-4 branch. The C++ server can be found in the repository [`-UniTube--Server-cpp`](https://github.com/OrelShai/-UniTube--Server-cpp), located in the main branch. 📂
 - Instructions for running both servers can be found in their respective repositories. Please refer to each repository for detailed instructions on how to set up and run the servers.
 
 - After starting the server, the site will be accessible, and you can log in using the following credentials: ✅
