@@ -27,11 +27,11 @@ UniTube is a static video-sharing platform designed to showcase video content si
 ## Setup Instructions
 
 1. **Node.js Server**:  
-   - Repository: `UniTube--Server`
+   - Repository: [`UniTube--Server`](https://github.com/hilaelpeleg/-UniTube.git)
    - Branch: `main-part-4` 📂
 
 2. **C++ Server**:  
-   - Repository: `server-cpp-part4`
+   - Repository: [`-UniTube--Server-cpp`](https://github.com/OrelShai/-UniTube--Server-cpp)
    - Branch: `main`
 
 > **Note**: Both servers need to be running to view the site properly.
