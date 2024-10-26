@@ -5,9 +5,36 @@
 
 UniTube is a static video-sharing platform designed to showcase video content similar to YouTube. This README provides an overview of the project's features, setup instructions, and usage guidelines.
 
-UniTube operates with a Node.js server that uses MongoDB for data storage. The server provides a RESTful API to facilitate seamless communication between the React frontend and backend, handling videos, users, comments, and more. In addition, the Node.js server connects to a C++ server, which generates personalized video recommendations 🎥 based on the user's viewing history and popular content ⭐. The C++ server also supports multithreading, enabling it to manage multiple connections simultaneously, allowing for real-time recommendations and efficient server interaction. Every page within the application communicates with both servers to retrieve and update data, including videos, user profiles, comments, likes, recommendations, and more.
+## Key Components
 
-To view the site properly, you need to run both the Node.js and C++ servers. The Node.js server can be found in the repository under the name UniTube--Server, located in the main-part-4 branch. 📂 The C++ server can be found in the repository server-cpp-part4, located in the main branch.
+- **Node.js Server**: 
+  - Manages backend operations, data storage, and API requests.
+  - Uses **MongoDB** to store data like videos, users, and comments.
+  - Exposes a **RESTful API** to facilitate seamless communication between the React frontend and backend.
+
+- **C++ Recommendation Server**:
+  - Provides personalized video recommendations based on user viewing history and popular content.
+  - Supports **multithreading**, allowing it to handle multiple connections at once for real-time recommendations and efficient interaction with the Node.js server.
+
+- **Data Synchronization**: 
+  - Every page in the application communicates with both servers to fetch and update data, including:
+    - Videos
+    - User profiles
+    - Comments
+    - Likes
+    - Recommendations
+
+## Setup Instructions
+
+1. **Node.js Server**:  
+   - Repository: `UniTube--Server`
+   - Branch: `main-part-4` 📂
+
+2. **C++ Server**:  
+   - Repository: `server-cpp-part4`
+   - Branch: `main`
+
+> **Note**: Both servers need to be running to view the site properly.
 
 # running the application 🚀
 - Important:You need to run both the Node.js and C++ servers to properly view the site, as the build directory for the React app is located within the Node.js server. 💻
