@@ -89,6 +89,11 @@ Adding a new video can be done through the "Add Video" button in the left menu. 
 - ### Log out 🚪
 Logging out can be done through the menu, by clicking on the button.
 
+# 🎥 UniTube Platform Walkthrough 🎥
+To give you a closer look at UniTube’s features and user experience, we’ve added a video demonstration showcasing the platform in action. 
+
+https://github.com/user-attachments/assets/ba658a43-ee55-4c46-99bd-8d5b619d116b
+
 # Pictures from the website: 📸
 
 ## User page
